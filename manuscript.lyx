@@ -1,0 +1,1393 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage {a4wide}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Exploring Dew Computing for distributed inference using real testbeds
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Presentar AI en el edge resaltando aspectos claves (posibilidad de ejecutar
+ AI acudiendo lo menos posible al poder de cómputo de la nube, privacidad
+ de datos).
+ Desarrollar estudio de Pablo sobre benchmarking en móviles individuales.
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Sin entrar en profundidad, mencionar trabajos que muestren el valor de realizar
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Distributed inference
+\begin_inset Quotes erd
+\end_inset
+
+ en el edge.
+ Introducir el concepto de Dew Computing como paradigma que aprovecha la
+ capacidad de cómputo para realizar AI, no considerando capacidad de smartphones
+ de forma aislada sinó planteando el aprovechamiento de clusters de smartphones.
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Terminar intro indicando qué se va a hacer relacionado a 
+\begin_inset Quotes eld
+\end_inset
+
+Distributed Inference
+\begin_inset Quotes erd
+\end_inset
+
+ en el edge.
+\end_layout
+
+\begin_layout Section
+Related works
+\end_layout
+
+\begin_layout Standard
+In this section we differentiate and objectively discuss efforts in the
+ fields of distributed inference research considering mobile devices as
+ main computing power nodes.
+ Such differentiation allow the reader to rapidly contextualize the contribution
+ of this work.
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Discutir trabajos sobre distributed inference.
+ Ejes de discución que serían necesario incluir: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\shape italic
+Ejecución de la inferencia: ¿Ente qué capas de nodos se realiza la distribución
+ de la inferencia (esto seguramente fuerce a tomar definiciones sobre edge,
+ fog, cloud)? ¿sólo Edge?, ¿sólo Cloud? ¿Edge y Cloud? ¿Dew?
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Tipo de evaluación: ¿sobre ambientes reales?, ¿sobre ambientes simulados?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\shape italic
+Converger a que no hay trabajos que muestren empíricamente lo que un grupo
+ de dispositivos puede ofrecer en términos de 
+\begin_inset Quotes eld
+\end_inset
+
+Distributed inference
+\begin_inset Quotes erd
+\end_inset
+
+ capability.
+\end_layout
+
+\begin_layout Section
+Approach & assumptions
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Describir de forma genérica la descomposición de una arquitectura de procesamien
+to de un ambiente dew, mencionando las funciones de los componentes estableciend
+o un correspondencia con los siguientes roles:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\shape italic
+rol sensador de datos (nodo que a partir de una orden recibida comienza
+ a enviar datos a un nodo concentrador de dichos datos)
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+rol concentrador de datos (buffering, data ingestion) (este rol también
+ se podría ver de reemplazar/asociar a la idea de una tarea de sensado del
+ contexto que dispara o no la toma de datos)
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+rol pre-procesador de datos (conversión de datos de entrada en tareas AI,
+ se puede asociar con conceptos de stream processing \SpecialChar softhyphen
+-fixed windows, overlapping
+ windows, session windows\SpecialChar softhyphen
+-.)
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+rol ejecutor de tareas AI
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\shape italic
+Mostrar instanciaciones: una donde todos los roles sean asignados a una
+ SBC y otra donde la SBC funcione como concentrador y preprocesador de datos
+ mientras que el cluster de smartphones como ejecutores.
+\end_layout
+
+\begin_layout Section
+Empirical evaluation
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Contar el diseño de experimentos y lo que se busca evaluar mencionando al
+ mismo tiempo las métricas que se utilizarán para realizar la evaluación.
+\end_layout
+
+\begin_layout Standard
+In this section we present the results of empirical evaluations of the computing
+ power of a collaborative execution scheme composed by mobile devices in
+ the proximity of a wireless LAN.
+ We compare the performance to edge nodes of type SBC.
+\end_layout
+
+\begin_layout Subsection
+Computing Nodes
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Describir los nodos que intervendrán en la inferencia distribuida mencionando
+ características de hardware y presentando resultados de benchmarks.
+\end_layout
+
+\begin_layout Standard
+In this section we describe candidate edge nodes for providing the required
+ computing power in the Dew computing scenarios aforementioned.
+ We evaluate tree single board computers (SBC) and five mid-range to low-end
+ smartphones models of different brands.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edge Node Type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edge Node Model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Processor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Conectivity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Price (U$D)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SBC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Raspberry Pi 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quad-core 1.5 GHz ARM Cortex-A72
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wi-Fi 802.11ac
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 GB LPDDR4 SDRAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+55
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Jetson Nano
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quad-core ARM Cortex-A57 MPCore
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gigabit Ethernet, M.2 Key E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 GB 64-bit LPDDR4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+99
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gigabyte Brix GB-BRi5H-8250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Intel Quad core i5-8250U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IEEE 802.11ac, Dual Band Wi-Fi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8 GB SO-DIMM DDR4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+750(To be Checked)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Smartphone
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Samsung A02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quad-core 1.5 GHz Cortex-A53
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wi-Fi 802.11 b/g/n
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 GB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+116
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Motorola Moto G6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Octa-core 1.8 GHz Cortex-A53
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wi-Fi 802.11 a/b/g/n
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 GB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+160
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Samsung A30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Octa-core (2x1.8 GHz Cortex-A73 & 6x1.6 GHz Cortex-A53)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wi-Fi 802.11 a/b/g/n/ac
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 GB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+170
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Xiaomi Redmi Note 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Octa-core (4x2.2 GHz Kryo 260 Gold & 4x1.8 GHz Kryo 260 Silver)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wi-Fi 802.11 a/b/g/n/ac
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Motorola Moto G9 Play
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Octa-core (4x2.0 GHz Kryo 260 Gold & 4x1.8 GHz Kryo 260 Silver)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wi-Fi 802.11 a/b/g/n/ac
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 GB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Edge computing candidate nodes
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Edge-nodes-features"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+DNN models benchmarking
+\end_layout
+
+\begin_layout Standard
+Benchmarking is a relevant task to approximate nodes throughput in solving
+ a specific problem.
+ To give an approximation on the througput that nodes in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Edge-nodes-features"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are able to deliver when used as standalone nodes, we benchmarked different
+ DNN models using the benchmarking tool contained in the tensorflow project
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.tensorflow.org/lite/performance/measurement
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ The tool receives a 
+\family typewriter
+.tflite
+\family default
+ model as argument and repeately runs it for a specified number runs with
+ random input generated by the tool.
+ During runs, inference time is collected among other metrics such as memory
+ consumed, and when all runs finished the tool ouputs a statistical summary
+ report.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/yolov4_tiny_416_tflite_xnnpack_false.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+YoloV4 tiny DNN model benchmarking
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:YoloV4-benchmarking"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/BCS_xnnpack_true.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cow BCS DNN model benchmarking
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cow-BCS-Benchmarking"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:YoloV4-benchmarking"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows average inference times (in miliseconds) for different nodes when
+ performing object detection using a YoloV4-tiny model ported to Tensorflow
+ lite with CPU support.
+ For all nodes, the inference time is driven mostly by CONV_2D operator
+ execution.
+ We see, for instance, that a smartphone Xiaomi RN7 lasts around 248 millisecond
+s to make an inference, i.e., is able to process up to 4 FPS which doubles
+ the capability of a RaspberryPi4, but is under the capability of a Gigabyte
+ Brix which reaches nearly 10 FPS.
+ Moreover, Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cow-BCS-Benchmarking"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the average inference time when benchmarking the BCS model.
+ In this case, we see, for instance, that the Xiaomi RN7 smartphone completes
+ an inference in around 184 milliseconds, equivalent to FPS capability of
+ barely more than 5 FPS, while a Gigabyte Brix node is around 15 FPS.
+\end_layout
+
+\begin_layout Standard
+However, the throughput in a loosly coupled distributed computing system
+ is not necesary a linear combination of computing nodes performance isolately,
+ particularly when the problem to solve has delay constraints and involves
+ moving data throughout a wireless medium.
+\end_layout
+
+\begin_layout Subsection
+Workload characterization
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:dew-computing-scenarios"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To shed light on the Dew Computing power to perform distributed inference,
+ we envisioned a system composed of a data capturing node, e.g.
+ a digital camera, and one or several data processing nodes whose role is
+ execute a DNN model for every image received as input and send the result
+ to a master node which makes proper reduce and use of information that
+ depends on whatever purpose the system was designed for.
+ As illustrative examples, we consider a smart city application scenario
+ that we call 
+\begin_inset Quotes eld
+\end_inset
+
+Sense while Travel
+\begin_inset Quotes erd
+\end_inset
+
+ and a dairy farm application scenario called 
+\begin_inset Quotes eld
+\end_inset
+
+Body Condition Score Calculus
+\begin_inset Quotes erd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Sense while Travel: a city can take advantage of mobile agents such as urban
+ line buses to collect information of relevant street events while traveling,
+ e.g., for statistical purposes.
+ Images captured with a bus front camera might feed a YOLO v4 model which,
+ as output, gives a plain text representation of objects class found in
+ an image and the accuracy percentage of each detected object class.
+ An energy eficient way to achieve this without having to process a large
+ amount of frames with redundant information, is to cleverly select a sample
+ rate accordingly with the expected moving change of detection target.
+ Without loosing generality, we state this sample rate in 2 FPS and evaluate
+ the system for a stream of 30 minutes lenght.
+ These parameters equates approximately to have 15 km of sensed data when
+ the stream is produced by a vehicle travelling at 30 km/h.
+ Figures
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Street-images-stream"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:street-image-example"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show a timeline representation of the data kilobytes produced by a stream
+ of such characteristics and an example of the DNN input image used respectively.
+\end_layout
+
+\begin_layout Itemize
+Body Condition Score Calculus: in a dairy farm, outfitted cows, i.e., cows
+ that are either overweighted or underweighted tend to produce less milk
+ than those properly weighted.
+ Identify such animals to give them a proper treatment is crucial to maintain
+ the cow roundup fully productive.
+ To identify such animals a DNN model is used.
+ As input, the model utilizes depth images taken from top of a cow with
+ a camera strategically positioned.
+ The image capturing procedure should be performed within a time window
+ that not exceceds 10 seconds.
+ During such time, providing that animals naturally don't state quite under
+ the camera and the capture should contain a specific part of the cow, a
+ high percent of captured images, e.g.
+ a 50%, is expected to be have to be tagged and filtered as not useful input
+ for the DNN model.
+ Moreover, during the transition of one animal to the next under the lens
+ of camera, which can take 10 seconds in average, it is proper to stop capturing
+ images.
+ To make the body condition score calculus feasible, realiable, and energy
+ effienct it is proper to count with no less than a hundred of frames ready
+ to serve as input for the DNN model, from each cow.
+ All these constraints configure a stream processing scenario where depth
+ images can be produced at a sample rate of 15 FPS during 10 seconds, followed
+ by other 10 seconds where none images are captured.
+\end_layout
+
+\begin_layout Standard
+Figures
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cow-images-stream"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cow-image-example"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ on one side, and figures
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Street-images-stream"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:street-image-example"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ on the other side, show a timeline representation of the data kilobytes
+ produced by a stream and an example of the DNN input image for Sense While
+ Travel and Body Condition Score Calculus scenarios respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/dogs_finder_stream_exerpt.eps
+	scale 30
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Street images stream
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Street-images-stream"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/cycling.2130.jpg
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+street image example
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:street-image-example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/cow_bcs_stream_exerpt.eps
+	scale 30
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cow images stream
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cow-images-stream"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/cow_images.84.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cow image example
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cow-image-example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dew computing streams examples
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Irrespective of the application domain, both examples represent streams
+ with different characteristics not only by the dynamics of input image
+ generation but also the computing power required to perform inferences.
+ In addition, it is assumed that inferences results should be available
+ at the master node with minimun delay, i.e., as close as possible to a real
+ time detection, which is a characteristic of computing services provided
+ at edge.
+\end_layout
+
+\begin_layout Subsection
+Results
+\end_layout
+
+\begin_layout Section
+Conclusions and Future works
+\end_layout
+
+\begin_layout Itemize
+Concluir sobre la factibilidad de llevar a cabo un sistema para inferencia
+ en el edge empleando poder cómputo aportado dispositivos móviles comparándolo
+ con lo que podría ser el uso de un nodo fijo de propósito específico.
+\end_layout
+
+\begin_layout Itemize
+Presentar como futura línea de trabajo la posibilidad de que utilizar un
+ modelo de paralelismo/distribución de la inferencia donde cada nodo es
+ encargado de todas las inferencias pero de pocas capas de la arquitectura
+ DNN, es decir, mantener distribuida la arquitectura de capas.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "references"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
