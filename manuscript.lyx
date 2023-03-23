@@ -150,7 +150,8 @@ literal "false"
  In local mode, services are provided with resources within a local scope
  to where computing needs belong, in other words, using resources that can
  be accessed within the local perimeter of a local area network.
- On the contrast, global mode involves communication with Cloud server.
+ On the contrast, global mode involves reaching Cloud servers to mitigate
+ limitations of resource constrained local nodes.
  In this work, we concentrate on evaluating cloud-independant capabilities,
  i.e., ability to render service offline.
  We do this by measuring ability of dew computing instances to accomplish
@@ -1051,7 +1052,7 @@ https://www.tensorflow.org/lite/performance/measurement
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1089,7 +1090,7 @@ name "fig:YoloV4-benchmarking"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1227,12 +1228,12 @@ name "sec:dew-computing-scenarios"
 \end_layout
 
 \begin_layout Standard
-To shed light on the Dew Computing power to perform distributed inference,
- we envisioned a system composed of a data capturing node, e.g.
+To shed light on the Dew Computing power to perform real-time inference,
+ we envisioned a system composed by a data capturing node, e.g.
  a digital camera, and one or several data processing nodes whose role is
  execute a DNN model for every image received as input and send the result
- to a master node which makes proper reduce and use of information that
- depends on whatever purpose the system was designed for.
+ to a master node in charge of filtering an presenting relevant results
+ to the user that depends on whatever purpose the system was designed for.
  As illustrative examples, we consider a smart city application scenario
  that we call 
 \begin_inset Quotes eld
@@ -1242,7 +1243,7 @@ Sense while Travel
 \begin_inset Quotes erd
 \end_inset
 
- and a dairy farm application scenario called 
+, a dairy farm application scenario called 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1250,7 +1251,7 @@ Body Condition Score
 \begin_inset Quotes erd
 \end_inset
 
- and 
+ and an 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1258,7 +1259,7 @@ e-health early diagnosis
 \begin_inset Quotes erd
 \end_inset
 
-:
+ scenario:
 \begin_inset Note Note
 status collapsed
 
@@ -2541,7 +2542,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="8" columns="4">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
@@ -2702,7 +2703,83 @@ N/A
 </cell>
 </row>
 <row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cluster 305
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Round Robin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+33.67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.857
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pull Based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.84
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.926
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2801,22 +2878,65 @@ E-health early detection scenario (08:55 minutes stream)
 
 \end_layout
 
+\begin_layout Standard
+In all scenarios, the best makespan was obtained when using a pull-based
+ load balancing scheme.
+ With such scheme, as soon as a worker node finishes a work unit and the
+ corresponding result is received by the master, the worker node is able
+ to pull another work units from a common queue.
+ The work completion delivering rate adapts to the job completion rate of
+ participating nodes.
+ 
+\end_layout
+
 \begin_layout Section
 Conclusions and Future works
 \end_layout
 
-\begin_layout Itemize
-Concluir sobre la factibilidad de llevar a cabo un sistema para inferencia
- en el edge empleando poder cómputo aportado dispositivos móviles comparándolo
- con lo que podría ser el uso de un nodo fijo de propósito específico.
+\begin_layout Standard
+In this work we explored the capabilities of Dew Computing for performing
+ real-time inferences using three deep learning models and stream-like workloads.
+ Puntually, we tested and compare the performance obtained by several Dew
+ Computing settings built with commodity hardware including SBCs and smartphone
+ clusters.
+ We conclude that:
 \end_layout
 
-\begin_layout Itemize
-Presentar como futura línea de trabajo la posibilidad de que utilizar un
- modelo de paralelismo/distribución de la inferencia donde cada nodo es
- encargado de todas las inferencias pero de pocas capas de la arquitectura
- DNN, es decir, mantener distribuida la arquitectura de capas.
+\begin_layout Standard
+- Makespan attained with tiny clusters composed by 3-4 middle-range smartphones
+ using a pull-based execution scheme is competitive compared to the computing
+ capability of an SBC equiped with an intel core i5 8th generation in delivering
+ near real-time inferences.
+ It suggests that to satisfy certain delay sensitive application scenarios,
+ the exploitation of already-in-place smartphones clusters should be analyzed
+ and considered before the investment and deployment of SBCs.
+\end_layout
+
+\begin_layout Standard
+- A pull-based scheme shows better makespan than the classical Round Robin
+ for intra-cluster load balancing load.
+ However, in some scenarios with apparently plentyfull computing resources
+ to satify the computing demand, e.g., cluster 301 y cluster 408 with SWT
+ scenario, Round Robin behaved competitive and also achieves better fairness
+ score than a pull-based scheme.
+ In other words, due to resources abundance, the addition of more resources
+ seems to be not translated into a makespan reduction but into the improvement
+ score of other metric, which reveal that there is more room for further
+ exploration of load balancing schemes to target the best balance between
+ different metrics, e.g., makespan, fairness, global remaining energy, parallelism
+ level, etc.
  
+\end_layout
+
+\begin_layout Standard
+In line with developing new load balancing heuristics, and based on results
+ of preliminary runs we plan to improve previously published heuristics
+ that use MFLOPs to rank nodes computing capability.
+ An alternative is to use information derived from Tensorflow benchmarking
+ tool.
+ Other future direction is to consider other forms of workload distributions,
+ i.e., that exploit internals of DNN arquitectures, for example, split computing
+ or early exiting techniques.
 \end_layout
 
 \begin_layout Standard
