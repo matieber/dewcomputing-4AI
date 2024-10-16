@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -9,11 +9,11 @@
 \usepackage {a4wide}
 \end_preamble
 \use_default_options true
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -21,7 +21,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -55,7 +57,9 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -71,121 +75,58 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tablestyle default
+\tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \author -997162125 "mhirsch"
 \end_header
 
 \begin_body
 
 \begin_layout Title
-Exploring Dew Computing for distributed inference using real testbeds
+Exploring smartphone-based edge computing for scalable AI inference using real testbeds
 \end_layout
 
 \begin_layout Abstract
-AI is becoming ubiquous 
-\change_inserted -997162125 1691156490
-at the network edge 
-\change_unchanged
-and drives higher demand for computing resources.
- Is Dew computing a competitive resource provider for realtime image processing
- scenarios? 
-\change_inserted -997162125 1691156615
-On one hand, recent advancements on on-device AI processing, such that present
- in high-end commercial intelligent cameras, 
-\change_deleted -997162125 1691155531
-Today's IoT applications 
-\change_unchanged
-still have a
-\change_deleted -997162125 1691155539
- strong 
-\change_unchanged
-dependency on Cloud resources
-\change_inserted -997162125 1691156536
- to complete complex AI tasks
-\change_deleted -997162125 1691155550
-, platforms and services
-\change_unchanged
-.
- 
-\change_deleted -997162125 1691155789
-Many efforts consider edge resources as an alternative to long latency cloud
- resources in fullfilling IoT workloads but few 
-\change_inserted -997162125 1709034188
-.
- On the other hand, the performance achieved using commodity hardware in
- the form of SBCs and smartphone clusters as complement or replacement to
- Cloud resources in certain processing scenarios 
-\change_deleted -997162125 1691156146
-of these works evaluate the performance achieved on real testbeds
-\change_inserted -997162125 1691156397
-has not been extensible studied
-\change_deleted -997162125 1691157654
-.
- Moreover, few to none work derive guidelines to help system designers to
- consider the usage of 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-LPCH (Low Processing Computing Hardware)
+AI is becoming ubiquitous at the network edge.
+ The wide availability of pre-trained models and AI execution frameworks are,
+ in part,
+ responsible of such ubiquity.
+ Particularly,
+ deep neural networks (DNL) such as convolutional neural networks (CNN) are extensively used in computer vision (CV) for performing object recognition and image classification tasks.
+ Solutions in various domains ranging from security surveillance to e-health leverage computer vision tasks.
+ In many cases,
+ such solutions must satisfy real time inferences and some progress has been made in this respect.
+ Some approaches show a strong dependency on Cloud resources as complement to the computing power that resource limited edge nodes can offer.
+ Other solutions distribute workload horizontally,
+ i.e.,
+ by harnessing the power of several edge nodes within the same LAN or WLAN.
+ Many of these efforts experiment with real settings comprising SBC-like edge nodes only such as NVidia Jetson Nano and Raspberry Pi,
+ and few of these consider nomadic hardware such as smartphones as edge nodes.
+ Given the ubiquity of smartphones worldwide and the unlimited scenarios where clusters of these nodes can be exploited for providing non-negligible computing power,
+ in this work,
+ we shed some light in answering the following question:
+ Is smartphone-based edge computing a competitive resource provider for real time inferences?
+ We evaluate the potential of smartphone clusters for making real time inferences associated to CV tasks based on intuitive data partitioning schemes.
+ In our experiments we use three pre-trained DNL models that present different computing requirements and eight heterogeneous edge nodes including five low/mid end smartphones and three SBCs.
+ We compared the performance achieved by different load balancing strategies using workloads that simulate three image stream processing scenarios with different characteristics.
+ Experiments were run with the help of a tool set specially designed for allowing the reproduction of battery-driven edge computing tests.
+ We compared the throughput achieved by using either several smartphone clusters testbeds or SBCs only under different stream load balancing algorithms.
+ Additionally,
+ for battery-driven settings,
+ we include metrics to measure how workload execution impact smartphone battery levels.
+ As per the computing capability shown in our experiments,
+ we conclude that edge computing based on smartphone clusters can help in providing valuable computing resources to enable the expansion of AI in application scenarios that require real time responses.
 \end_layout
 
-\end_inset
-
- low cost dew computing hardware such as a Raspberry Pi or nomadic hardware
- including smartphones clusters
-\change_unchanged
-.
- Given the popularity gained by 
-\change_inserted -997162125 1710344647
-deep 
-\change_unchanged
-neural networks such as 
-\change_deleted -997162125 1710344652
-DNN and 
-\change_unchanged
-CNN for solving image classification problems, the developement of libraries
- like tensorflow 
-\change_inserted -997162125 1709034228
-lite 
-\change_deleted -997162125 1709034231
-which in its lite version 
-\change_unchanged
-allows practitioners to perform inferences with resource limited hardware
-\change_deleted -997162125 1691157682
-, and the strong relation such inference tasks with many IoT applications
- that use images as input
-\change_unchanged
-, we elaborate a first-cut 
-\change_inserted -997162125 1691157705
-performance comparison
-\change_deleted -997162125 1691157709
-approach to such a guideline
-\change_unchanged
- with data derived from experiments on real test beds.
- First, we classify dew computing scenarios based on a multidimensional
- analysis of stream workloads with dimensions including data volume generated,
- data volume time distribution and processing time required per data unit.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Aclarar en alguna parte del texto que el foco de experimentación no es la
- evaluación de modelos de deep learning perse sino la evaluación de factibilidad
- y comparación de distintos ambientes de ejecución para ejecutar modelos
- con hardware de bajo costo.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
+\begin_layout Subsection
 Introduction
 \change_inserted -997162125 1709036290
 
@@ -199,9 +140,8 @@ status collapsed
 \change_inserted -997162125 1709035079
 
 \shape italic
-Presentar AI en el edge resaltando aspectos claves (posibilidad de ejecutar
- AI acudiendo lo menos posible al poder de cómputo de la nube, privacidad
- de datos).
+Presentar AI en el edge resaltando aspectos claves (posibilidad de ejecutar AI acudiendo lo menos posible al poder de cómputo de la nube,
+ privacidad de datos).
  Desarrollar estudio de Pablo sobre benchmarking en móviles individuales.
 \end_layout
 
@@ -210,8 +150,8 @@ Presentar AI en el edge resaltando aspectos claves (posibilidad de ejecutar
 \change_inserted -997162125 1709035079
 
 \shape italic
-Sin entrar en profundidad, mencionar trabajos que muestren el valor de realizar
- 
+Sin entrar en profundidad,
+ mencionar trabajos que muestren el valor de realizar 
 \begin_inset Quotes eld
 \end_inset
 
@@ -220,9 +160,8 @@ Distributed inference
 \end_inset
 
  en el edge.
- Introducir el concepto de Dew Computing como paradigma que aprovecha la
- capacidad de cómputo para realizar AI, no considerando capacidad de smartphones
- de forma aislada sinó planteando el aprovechamiento de clusters de smartphones.
+ Introducir el concepto de Dew Computing como paradigma que aprovecha la capacidad de cómputo para realizar AI,
+ no considerando capacidad de smartphones de forma aislada sinó planteando el aprovechamiento de clusters de smartphones.
 \end_layout
 
 \begin_layout Itemize
@@ -247,12 +186,11 @@ Distributed Inference
 \end_layout
 
 \begin_layout Standard
-Deep learning
-\change_inserted -997162125 1711459937
- (DL)
-\change_unchanged
- application to perform on-site tasks is expanding exponentially.
- In the healthcare domain, it is applied for predicting, detecting, diagnosing,
+Deep learning (DL) application to perform on-site tasks is expanding exponentially.
+ In the healthcare domain,
+ it is applied for predicting,
+ detecting,
+ diagnosing,
  and prognosing different diseases
 \begin_inset space ~
 \end_inset
@@ -266,7 +204,9 @@ literal "false"
 \end_inset
 
 .
- In food production, particularly, animal farming
+ In food production,
+ particularly,
+ animal farming
 \begin_inset space ~
 \end_inset
 
@@ -278,8 +218,10 @@ literal "false"
 
 \end_inset
 
- these tasks include animal behavior recognition, growth evaluation, individual
- identification, among others.
+ these tasks include animal behavior recognition,
+ growth evaluation,
+ individual identification,
+ among others.
  Associated to the smart city domain
 \begin_inset space ~
 \end_inset
@@ -292,33 +234,34 @@ literal "false"
 
 \end_inset
 
-, tasks include intelligent transportation, waste management, crime prediction,
+,
+ tasks include intelligent transportation,
+ waste management,
+ crime prediction,
  public infrastructure and green spaces maintenance.
- Many of these tasks involves the classification and/or object recognition
- using images as input.
- The application of CNNs (Convolutional Neural Networks) has become popular
- to perform these tasks due to the training procedure requires minimal human
- intervention compared to other machine learning techniques.
- In contrast, training a deep neural network model requires big datasets
- and powerful hardware.
- However, in these days, data gathering, leveraged by mobile and IoT devices,
- as well as computing power, provided by Cloud Computing platforms, allow
- to think in that such training process is facilitated compared to a couple
- of decades ago.
- Cloud Computing is considered not only in the training phase of DL models
- but also for making inferences.
- It implies that a trained model is deployed in a remote computing infrastructur
-e 
-\change_deleted -997162125 1711460348
+ Many of these tasks involves the classification and/or object recognition using images as input.
+ The application of CNNs (Convolutional Neural Networks) has become popular to perform these tasks due to the training procedure requires minimal human intervention compared to other machine learning techniques.
+ In contrast,
+ training a deep neural network model requires big datasets and powerful hardware.
+ However,
+ in these days,
+ data gathering,
+ leveraged by mobile and IoT devices,
+ as well as computing power,
+ provided by Cloud Computing platforms,
+ allow to think in that such training process is facilitated compared to a couple of decades ago.
+ Cloud Computing is considered not only in the training phase of DL models but also for making inferences.
+ It implies that a trained model deployed in a remote computing infrastructure is evaluated
+\change_deleted -997162125 1725994348
  
 \change_unchanged
-that executes the model evaluation for input that in some cases must traverse
- the Internet.
- The latency incur until having the inference result has been been identified
- a limitation for time-sensitive applications.
- To overcome this issue and others such as unavailability of Internet connection
-, network overloading, privacy protection, among others, edge-based architecture
-s has been proposed
+ for input data and producing output results that must be transferred traversing long-latency Internet communication.
+ This latency has been been identified a limitation for time-sensitive applications.
+ To overcome this issue and others such as unavailability of Internet connection,
+ network overloading,
+ privacy protection,
+ among others,
+ edge-based architectures has been proposed
 \begin_inset space ~
 \end_inset
 
@@ -334,8 +277,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Despite differences highlighted in the literature when referring to edge-based
- architectures
+Despite differences highlighted in the literature when referring to edge-based architectures
 \begin_inset space ~
 \end_inset
 
@@ -347,9 +289,9 @@ literal "false"
 
 \end_inset
 
-, some of these simply terminologic, others describing substantial differences
- in the way their constituent components are defined interoperates with
- components of other computing layers
+,
+ some of these simply terminologic,
+ others describing substantial differences in the way their constituent components are defined interoperates with components of other computing layers
 \begin_inset space ~
 \end_inset
 
@@ -361,44 +303,11 @@ literal "false"
 
 \end_inset
 
-, there are points in common which are minimizing data transportation and
- 
-\change_deleted -997162125 1711464408
-do more
-\change_inserted -997162125 1711464413
-increase
-\change_unchanged
- computing infrastructure
-\change_inserted -997162125 1711464417
- usage
-\change_unchanged
- close to where computing needs and data originates.
-
-\change_inserted -997162125 1711464857
- Heterogeneity and energy contrained are common features of computing infrastruc
-ture operating in cyber-physical and IoT systems.
- For these reasons, cooperation is a key concept of
-\change_unchanged
- Dew Computing 
-\change_inserted -997162125 1711464874
-which 
-\change_unchanged
-is one of these edge-based architectures that endow low processing power
- and consumer devices with the role
-\change_deleted -997162125 1711464925
-s
-\change_unchanged
- of 
-\change_inserted -997162125 1711568878
-main 
-\change_unchanged
-computing 
-\change_deleted -997162125 1711464959
-and storaging
-\change_inserted -997162125 1711464960
-resource
-\change_unchanged
- providers.
+,
+ there are points in common which are minimizing data transportation and increase computing infrastructure usage close to where computing needs and data originates.
+ Heterogeneity and energy contrained are common features of computing infrastructure operating in cyber-physical and IoT systems.
+ For these reasons,
+ cooperation is a key concept of Dew Computing which is one of these edge-based architectures that endow low processing power and consumer devices with the role of main computing resource providers.
 \end_layout
 
 \begin_layout Standard
@@ -414,23 +323,19 @@ literal "false"
 
 \end_inset
 
-, Dew computing has two modes of operation, local mode and global mode.
- In local mode, services are provided by Dew Servers with resources that
- can be accessed within the scope of a local area network.
- By contrast, the global operation mode involves reaching Cloud servers
- to mitigate limitations of resource constrained local nodes.
+,
+ Dew computing has two modes of operation,
+ local mode and global mode.
+ In local mode,
+ services are provided by Dew Servers with resources that can be accessed within the scope of a local area network.
+ By contrast,
+ the global operation mode involves reaching Cloud servers to mitigate limitations of resource constrained local nodes.
  Rendered services can be storage or computing capabilities.
- In this work, we focus on evaluating collaboration among consumer devices
- to perform cloud-independant 
-\change_deleted -997162125 1711111757
- 
-\change_unchanged
-computing services for real-time execution of machine vision tasks using
- CNN.
- We evaluate this with a series of experiments that comprise real smartphones
- and SBCs that exclusively relying on its local operation mode capabilities,
- collaborate in performing inferences using real CNN models deployed in
- targeted instances over data streams of different characteristics, i.e.,
+ In this work,
+ we focus on evaluating collaboration among consumer devices to perform cloud-independant computing services for real-time execution of computer vision tasks using CNN.
+ We evaluate this with a series of experiments that comprise real smartphones and SBCs that exclusively relying on its local operation mode capabilities,
+ collaborate in performing inferences using real CNN models deployed in targeted instances over data streams of different characteristics,
+ i.e.,
  workloads.
 \change_inserted -997162125 1710511776
 
@@ -438,7 +343,7 @@ computing services for real-time execution of machine vision tasks using
 
 \begin_layout Section
 Related works
-\change_inserted -997162125 1709035103
+\change_inserted -997162125 1725996077
 
 \begin_inset Note Note
 status collapsed
@@ -449,7 +354,8 @@ status collapsed
 
 \shape italic
 Discutir trabajos sobre distributed inference.
- Ejes de discución que serían necesario incluir: 
+ Ejes de discución que serían necesario incluir:
+ 
 \end_layout
 
 \begin_deeper
@@ -458,9 +364,14 @@ Discutir trabajos sobre distributed inference.
 \change_inserted -997162125 1709035103
 
 \shape italic
-Ejecución de la inferencia: ¿Ente qué capas de nodos se realiza la distribución
- de la inferencia (esto seguramente fuerce a tomar definiciones sobre edge,
- fog, cloud)? ¿sólo Edge?, ¿sólo Cloud? ¿Edge y Cloud? ¿Dew?
+Ejecución de la inferencia:
+ ¿Ente qué capas de nodos se realiza la distribución de la inferencia (esto seguramente fuerce a tomar definiciones sobre edge,
+ fog,
+ cloud)?
+ ¿sólo Edge?,
+ ¿sólo Cloud?
+ ¿Edge y Cloud?
+ ¿Dew?
 \end_layout
 
 \begin_layout Itemize
@@ -468,7 +379,9 @@ Ejecución de la inferencia: ¿Ente qué capas de nodos se realiza la distribuci
 \change_inserted -997162125 1709035103
 
 \shape italic
-Tipo de evaluación: ¿sobre ambientes reales?, ¿sobre ambientes simulados?
+Tipo de evaluación:
+ ¿sobre ambientes reales?,
+ ¿sobre ambientes simulados?
 \end_layout
 
 \end_deeper
@@ -477,8 +390,7 @@ Tipo de evaluación: ¿sobre ambientes reales?, ¿sobre ambientes simulados?
 \change_inserted -997162125 1709035103
 
 \shape italic
-Converger a que no hay trabajos que muestren empíricamente lo que un grupo
- de dispositivos puede ofrecer en términos de 
+Converger a que no hay trabajos que muestren empíricamente lo que un grupo de dispositivos puede ofrecer en términos de 
 \begin_inset Quotes eld
 \end_inset
 
@@ -492,23 +404,28 @@ Distributed inference
 \begin_layout Itemize
 
 \change_inserted -997162125 1709035103
-Trabajos a incluir en esta sección: 
+Trabajos a incluir en esta sección:
+ 
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
 
 \change_inserted -997162125 1709035103
-Charles Tim Batista Garrocho, Ricardo Augusto Rabelo Oliveira, 
+Charles Tim Batista Garrocho,
+ Ricardo Augusto Rabelo Oliveira,
+ 
 \begin_inset Quotes eld
 \end_inset
 
-Counting time in drops: views on the role and importance of smartwatches
- in dew computing
+Counting time in drops:
+ views on the role and importance of smartwatches in dew computing
 \begin_inset Quotes erd
 \end_inset
 
-, 2019, wireless networks.
+,
+ 2019,
+ wireless networks.
 \end_layout
 
 \end_deeper
@@ -520,141 +437,115 @@ Counting time in drops: views on the role and importance of smartwatches
 \end_layout
 
 \begin_layout Standard
-In this section we differentiate and objectively discuss efforts in the
- field of distributed inference research considering mobile devices as main
- computing resource provider.
- Such differentiation allow the reader to rapidly contextualize the contribution
- of this work.
-\end_layout
-
-\begin_layout Subsection
-Distributed Intelligence at the edge
+In this section we analyze different works in line with the concept of distributed inference which is present in recent research related to AI at the network edge.
+ All mentioned works include experimentation with real testbeds.
 \end_layout
 
 \begin_layout Standard
-When referring to distributed intelligence at the edge, it comes into mind
- the existence of tasks related to some sort of input collection and AI
- code execution in which intervene a fleet of resource limited nodes operating
- close to where the intelligence service is required and performing most
- or all the burden that such services imply by mostly relying on their computing
- and communicating capabilities.
- Such definition comprises concepts like federated learning and distributed
- inference, among others, that worth to differentiate because each can be
- associated to challenges with varying characteristics from the perspective
- of distributed systems.
-\end_layout
-
-\begin_layout Subsubsection
-Federated Learning
-\end_layout
-
-\begin_layout Standard
-Federated Learning (FL) consist in a decentralized training with data locally
- stored on participant devices and emphasizes on conserving participants
- data privacy.
- With a centralized coordination, the training sessions are coordinated
- by a central server that selects participants, schedule training tasks,
- receives model updates from participants and applies model updates to a
- global AI model and pushes the global model to participants again for local
- training.
- This procedure is repeated until the minimization of a loss function converges
- or the desired accuracy is achieved
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "mcmahan2017communication"
-literal "false"
-
-\end_inset
-
-.
- When coordination is desentralized, every node communicated through a P2P
- network, plays the roles of server and client, i.e., train with local data
- and apply updates to the model it receives from its neighbors.
-\end_layout
-
-\begin_layout Standard
-FL can be also classified in the dimension of data partitioning
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "nguyen2021federated"
-literal "false"
-
-\end_inset
-
- which refers to how training data is distributed over the samples and feature
- spaces.
- It can be Horizontal Federated Learning (HFL) when all participants contribute
- to training with local data in the same feature space but different sample
- space.
- Conversely, Vertical Federated Learning (VFL) is called when all participant
- contribute to training with the same sample space but over different feature
- spaces.
- In the third place, Federated Transfer Learning (FTL) is when participants
- contribute with different sample and feature spaces.
-\end_layout
-
-\begin_layout Standard
-Irrespective of the the FL classification, local training is performed with
- data and computing resources of participants devices.
- Training tasks are expected interfere the least with user's experience
- and causing the least to none monetary costs to the device owner, e.g., due
- to use of expensive and metered networks.
- For this reason, local training is scheduled to be performed when the device
- is charging and connected to WiFi
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "mcmahan2017communication"
-literal "false"
-
-\end_inset
-
-.
- These execution conditions, in sum to the fact that computing power differs
- between participants due heterogeneous hardware specs, and result updates
- might suffer from delays due to intermittent connection availability, training
- tasks fit into the category of delay tolerant batch processing tasks more
- than latency-sensitive real time tasks.
-\change_inserted -997162125 1691765071
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -997162125 1691587388
 \begin_inset Float table
+placement document
+alignment document
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted -997162125 1691587388
+\begin_layout Plain Layout
+Distributed inference type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Associated works
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vertical
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kang2017neurosurgeon,huang2020deepadapter,huang2020lightweight,eshratifar2019jointdnn,teerapittayanon2017distributed"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horizontal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "guo2023automated,huang2022toward,taufique2024adaptive,zhao2018deepthings,huang2021enabling"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -997162125 1691587621
-Intelligence at the edge: Overview
-\change_unchanged
-
+Approaches for distributed inference
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -665,127 +556,907 @@ Intelligence at the edge: Overview
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Subsubsection
-Distributed inference
-\change_inserted -997162125 1692103695
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -997162125 1693229079
-Make inferences is the task of predicting or classifying input data automaticall
-y by means of a trained model.
- In edge computing aims at not only preserve data privacy by avoiding the
- transport and storage of data in Cloud servers but to perform inferences
- fast enought to support decisions in realtime or near realtime.
- However, inferences are resource intensive tasks for edge devices with
- limited computing capabilities and/or that operate with batteries.
- Problems associated with the execution of complex models in these devices
- relate to, on one hand, models size which commonly exceeds the memory available
- in edge devices.
- Compress models, prunning
+When computing resources of at least a couple of nodes are used for performing inference tasks,
+ it is said that distributed inference is present.
+ The scheme in which such a distribution is given can be vertical
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "liu2018rethinking,li2016pruning"
+key "kang2017neurosurgeon,eshratifar2019jointdnn,teerapittayanon2017distributed"
 literal "false"
 
 \end_inset
 
-, quantization
+ or horizontal.
+ In vertical scheme collaborating nodes typically belong to different computing layers.
+ These layers are organized in a hierachical structure where nodes in a layer render services to those in the layer below using services provided by nodes in the layer above.
+ Nodes at the base of such hierarchy commonly present the less powerful computing capability and use the services of layers above to complete compute intensive tasks.
+ On the other side,
+ nodes at the top layer present the most powerful computing capability,
+ however,
+ reaching such nodes incur in long-latency communication when transfering tasks input/output.
+ For this reason,
+ its usage should be carefully analyzed specially applications with delay sensitive time constrains.
+ A classical example of this type of collaboration is given when a resource limited user device leverages the services of an Edge server or Edge layer to partial o completely compute the result of inference tasks.
+ Since the Edge layer can render computing services to a variable number of users in a locality,
+ depending on the burden at the time of receiving tasks,
+ the Edge layer can have sufficient resources to complete or partially performed a task.
+ In the later case,
+ the Edge layer would eventually leverage the services of a remote Cloud datacenter to fullfill the request without disattending deadlines that could be associated with tasks.
+ Like in
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "SongDeep2016,jacob2018quantization"
+key "eshratifar2019jointdnn,kang2017neurosurgeon"
 literal "false"
 
 \end_inset
 
- and knowledge distillation are among the most commonly applied techniques
- for mitigating the model size problem.
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -997162125 1693401171
-On the other hand, there is also an issue directly related to the constrained
- resources of edge devices for executing the amount of computing operations
- these models require to make inferences.
- In this regard, Split Computing (SC) aims at mitigate the need for resources
- by distributing the computational cost among several devices.
- The technique consist in splitting model layers vertically and assign groups
- of them to different devices.
- In this way, the computation of an inference is achieved by all devices
- in kind of pipeline.
- For instance, with a split operation that dissects a model into head and
- tail groups of layers, a device assigned with the head layers receive raw
- input and produce intermediate outputs for activating the tail layers that
- are executed by other device which will produce the final inference result.
- The split operation can be without or with DNN arquitecture modification.
- In the first case, split operation relies on natural bottlenecks inside
- the model, that is when intermediate layers whose output tensor size is
- smaller than the input.
- This is the case of DNN architectures like AlexNet, VGG and DenseNet.
- For other architectures, with different anatomy like ResNet, Inception-V3,
- Faster R-CNN and Mask R-CNN, the application of SC requires from the injection
- of artificial bottlenecks, e.g., through encoder layers.
- This case is refered as SC with DNN modification.
- The objective is to minimize the data size transferred from edge devices
- to edge servers and maintain as lightweight as possible the model part
- executed by the edge device.
- Early Exit (EE) is other strategy for speeding up inferences.
- In few words, EE consist in preparing a model to have multiple 
-\begin_inset Quotes eld
-\end_inset
-
-exits
-\begin_inset Quotes erd
-\end_inset
-
- or intermediate results.
- For a giving input, the model is able to produce outputs at different times
- with different accuracy.
- The computation of an inference ends when the provided output meets a desired
- accuracy level threshold, i.e., an acceptable result can be an intermediate,
- not necessary the final, result.
- In turn, the final result calculation can be aborted giving the possiblity
- to shorten the time in which a result is obtained.
- A comprehensive and detailed analysis of different techniques for SC and
- EE can be found in
-\begin_inset space ~
-\end_inset
-
-
+,
+ offloading decisions are evaluated considering communication throughput between computing layers.
+ Besides,
+ tasks logic which involves the evaluation of a DNN model is splitted into several parts.
+ In this splitting process authors propose to consider insights of data anatomy and computing requirements of model layers characterizing different DNN.
+ Partitions of model's topology are dynamically assigned and executed between a device and remote servers.
+ Other works adopting this distribution scheme are 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "matsubara2022split"
+key "huang2020lightweight,huang2020deepadapter,teerapittayanon2017distributed"
 literal "false"
 
 \end_inset
 
 .
- Despite many works made source code available for validity and results
- reproduction, the study highlight as an important future challenge the
- need for standarized experimetation settings and make them more practical
- since wireless communication, computation enviroment, models and datasets
- are of paramount importance to asses the convenience of applying different
- SC and EE techniques.
+ Several works evidence that vertical collaboration is feasible for allowing resource limited devices to execute compute-intensive tasks,
+ such as CV tasks using large DNN models,
+ however,
+ its major drawback relates to the long-latency communication dependency when offloading tasks to resource layers that provide the required computing capability to complete the tasks.
 \end_layout
 
 \begin_layout Standard
+Other inference distribution scheme is when nodes within a same layer collaborate in the execution of compute intensive tasks.
+ This scheme is known as horizontal collaboration.
+ A key difference with vertical collaboration scheme is that participating nodes and data rarely ocurrs outside the scope of a LAN or WLAN.
+ Even though this form of collaboration governs the internal communication of nodes within the same layer,
+ in this work,
+ we make special focus on the horizontal communication of resource constrained nodes including edge and user device nodes.
+ We identified several works proposing distribute inference under this form of collaboration
+\begin_inset space ~
+\end_inset
 
-\change_inserted -997162125 1693576942
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "guo2023automated,huang2022toward,taufique2024adaptive,zhao2018deepthings,huang2021enabling"
+literal "false"
+
+\end_inset
+
+ that we futher analyzed taking into account several dimensions.
+ For instance,
+ the type of paralelism proposed,
+ i.e.,
+ whether it is by intervening the anatomy of a DNN model,
+ partitioninig the data input or adopting a hybrid approach by combining the previous techniques.
+ Other dimension of analysis relates to the methodology used to evaluate the proposal.
+ We selected works whose methodology involve the setup of real testbeds describing the hardware used and the way resource heterogeneity is present in the experiments.
+ Moreover,
+ providing that QoS is a concept related adapt to dinamic changes in the workload and/or available resources,
+ we indicate the support of these works in this respect.
+ Finally,
+ we contextualize the strategy of each work for resource management mentioning the main motivation behind the proposal.
+ 
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" varwidth="true">
+<column alignment="left" valignment="top" varwidth="true">
+<column alignment="center" valignment="top" varwidth="true">
+<column alignment="center" valignment="top" varwidth="true">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parallelism type
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Experiments
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Online Adaptive QoS support
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Main motivation
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Work
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resource heterogeneity type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Model Partitioning
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Homogeneous nodes varying resource type and quantity –CPU Cores and GPU–
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Real hardware:
+ LAN with up to eight edge devices (Nvidia Jetson Xavier NX)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No (once generated and deployed,
+ mappings between sub-model and edge nodes are static during runtime)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Automate large CNN model partitioning,
+ deployment and execution on multiple resource-constrained edge devices
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "guo2023automated"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Homogeneus nodes varying CPU usage and network bandwidth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Real Hardware:
+ LAN with three IoT devices (Raspberry Pi 4)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes (uses a DRL -based adaptive allocator and a fault tolerant mechanism implemented using a message queue)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Accelerate performance with an intra-layer parallelism instead of layers sequential execution as in traditional hierarchical inference
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "huang2022toward"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Data partitioning
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Heterogeneous IoT devices
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Real Hardware:
+ LAN with four IoT devices (2x Odroid XU4,
+ Jetson Nano,
+ Rapsberry Pi 4)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes (accuracy-performance-heterogeneity tradeoffs exploitation)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exploit the concept of approximate computing to ensure performance and accuracy constraints considering heterogeneity of the edge cluster and nodes availability
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "taufique2024adaptive"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Heterogenous nodes (Smartphones
+\end_layout
+
+\begin_layout Plain Layout
+and IoT devices)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Real Hardware:
+ WLAN of different smartphones clusters size.
+ IoT devices operating in isolated mode.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes (Pull-Based scheme using a shared workload queue)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Compare real-time inference delivery capability of IoT devices and clusters of smartphones
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+This work
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hybrid
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Homogeneous nodes varying number of available devices
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Real Hardware:
+ WLAN with up to six IoT devices (Raspberry Pi 3)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes (work stealing)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Allow large DNN models to execute in resource limited devices achieving low memory footprint and execution latency
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhao2018deepthings"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Heterogeneous smartphones
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simulation:
+ with data profiled from hardware running real workloads
+\begin_inset Newline newline
+\end_inset
+
+Real Hardware:
+ a couple of real experiments
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes (uses DRL)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Reduce MEC server’s computing pressure
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "huang2021enabling"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Approaches for Collaborative Inference at the Edge
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Works can be also classified according to how workload execution is parallelized and we found three approaches of parallelism named model partitioning and data partitioning.
+ Within the former group layers composing a DNN model are deployed into different devices so that outputs computed by a device are inputs for other.
+ With this type of parallelism,
+ all participating devices are involved in computing inferences for all portions of the input.
+ By contrast,
+ when using a data partitioning paralellism edge nodes run the whole model over portions of the input.
+ With both type of parallelisms,
+ results for the whole input are obtained by joining partial results calculated by all participating devices.
+\end_layout
+
+\begin_layout Standard
+When making several devices to participate in inferences,
+ it emerges two questions related to devices that are:
+ Does the approach considers that inferences are executed on heterogeneous devices?
+ If yes,
+ the other question is what the approach does related to the performance differences of executing the same workload on devices with different computing capabilities to assure certain QoS.
+\end_layout
+
+\begin_layout Standard
 In
 \begin_inset space ~
 \end_inset
@@ -793,92 +1464,120 @@ In
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "al2023case"
+key "guo2023automated"
 literal "false"
 
 \end_inset
 
-, the concept of Hierarchical Inference (HI) is presented where collaboration
- between resource constrained edge devices and edge or cloud servers is
- driven by the complexity of data samples used as input for making inferences
- with different DL models versions \SpecialChar softhyphen
-a tiny version locally executed by the
- edge device and a large version running at edge or cloud servers-.
- There is a decision-making module that decides whether to perform a data
- offloading and solve the inference remotely or solve the inference locally
- with the tiny version.
- Authors warn about some considerations for effectively apply HI including
- that the energy cost of computing an inference locally should be less than
- transmiting a data sample, the accuracy of the tiny model should be reasonable
- for simple data and the fraction of simple data should be greater than
- that of complex data samples.
- Last but not least, it should be clearly defined how to differentiate simple
- and complex data samples.
-\change_unchanged
+,
+ authors propose AutoDiCE,
+ a tool for partitioning,
+ deploying,
+ and distributely executing a large CNN model on multiple resource-constrained edge devices.
+ The platform specification and mapping specification allow practitioners to indicate which submodel runs on which edge devices.
+ Communication between sub-models and full resources usage is implemented via MPI processes and OpenMP.
+ Although the tool was designed to support the horizontally and vertically distributed inferences,
+ it was tested using an horizontal one,
+ comprising homogeneous edge nodes communicated via a gigabits ethernet switch.
+ DeColla
+\begin_inset space ~
+\end_inset
 
-\end_layout
 
-\begin_layout Standard
-
-\change_inserted -997162125 1708090244
-A common denominator of all abovementioned techniques is distributed inference
- considering collaboration between edge devices and edge servers or even
- cloud servers.
- Few works study the collaboration between edge devices.
-\end_layout
-
-\begin_layout Subsection
-
-\change_inserted -997162125 1708090834
-Tools and mechanisms for enabling distributed mobile computing
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -997162125 1708091646
-For exploiting computing capabilities from edge nodes such as smartphones
- and SBCs, it is required a series of tools and mechanisms, most of which
- are presented as middleware services in high power distributed computing
- platforms such as computer clusters and datacenters.
- In this section we describe efforts in this regard.
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -997162125 1708091715
-Job Scheduling and Load Balancing: [Hirsch][Locke][Sahh]
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -997162125 1708091721
-Incentive mechanisms:
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -997162125 1710256034
-Nodes Discovery: 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "salem2017kinaara"
+key "huang2022toward"
 literal "false"
 
 \end_inset
 
-
+ utilizes DRL-based adaptive allocation for horizontal collaborative inference.
+ All DNN layers are present in all collaborating IoT devices.
+ Neurons calculation of each layer occurs in parallel,
+ is coordinated via a message queue and orchestrated by DeColla engine that operates in a requester IoT device.
+ Number of IoT devices,
+ available computing resource,
+ and the network condition are online evaluated upon each neuron assignment.
+ 
 \end_layout
 
 \begin_layout Standard
+In
+\begin_inset space ~
+\end_inset
 
-\change_inserted -997162125 1708091910
-Work logic update and deployment:
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "taufique2024adaptive"
+literal "false"
+
+\end_inset
+
+ the most appropriate pruned model version is selected online via an adpative workload distribution to meet the required application specific accuracy and performance level.
+ Such dynamic selection is performed using a base knowledge of accuracy-performance tradeoffs profiled from heterogeneous edge nodes and that is used in conjunction with a runtime monitoring system for resource management.
+ In
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhao2018deepthings"
+literal "false"
+
+\end_inset
+
+ the DeepThings framework is proposed for allowing the execution of a large CNN models in resource constrained devices.
+ The framework adopted a hybrid parallelization type due to it combines model and data partitioning schemes.
+ On one side,
+ as offline step the framework fused convolutional and pooling layers to create independent and distributable execution units which leads to reduce memory footprint and allow resource limited devices to contribute with the computation of partial results that are joint to produce the final result of an inference task.
+ On the other side,
+ workload represented by a single frame is divided into overlapping and distributable regions that are computed collaborately by a group of edge devices.
+ With this scheme,
+ inference capabilities differences of participant devices are considered with two strategies.
+ One of these is static and represented by the fact that memory requirements of fused layers executed by a device adapts to its available memory resources.
+ The other strategy is that data regions are dynamically distributed according to devices computing capabilities by following a work stealing scheme.
+ Other work adopting hybrid paralelization is eDDNN presented in
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "huang2021enabling"
+literal "false"
+
+\end_inset
+
+ which leverages cross-platform web technologies and WebRTC protocol to allow distributed inference among end devices.
+ The collaboration is mediated by an edge server which keeps track of nodes and tasks status information.
+ Tasks,
+ determined by images input size,
+ and the DNN model to be used,
+ are divided into sub-images and sub-models by a decision maker component that coordinates different pieces execution among end devices using a shared dependency table and real time nodes information.
+ Edge data duplication is present at the step of dividing an image into sub-images.
+ When distributing a convolutional operation by dividing the input and the model,
+ duplication is required for conserving results correcteness.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -997162125 1708091933
-Testing platform: [Cmateos][Toloza]
+In the discussed works,
+ horizontal distributed inference considering the collaboration of battery-operated end devices,
+ such as smartphones,
+ combined with data partitioning schemes are scarce,
+ meaning that the benefits and limitations of performing realtime CV tasks are yet unknown.
+ Our work,
+ shed light on providing empirical evidence for dimension the computing power of smartphone clusters.
+ Existing approaches exploiting data partitioning schemes add redundant data to the original input for performing distributed inference.
+ We propose a simple yet effective data partitioning scheme for performing realtime CV tasks which is evaluated under varying settings of real smartphones cooperating in WLAN clusters.
+ Since performance vary according to how workload is distributed,
+ we provide insights on the performance achieved and energy-related measurements using different state-of-the-art online heuristics.
+ Moreover,
+ performance comparisons of different smartphone clusters-load balancing heuristics combinations were compared against the peformance achieved by different edge nodes commonly used in IoT applications.
+ All experiments performed in this work,
+ denmostrate the viability of a platform for in-vivo experiments whose main components has been previouly published,
+ validated and publicly available for use.
 \end_layout
 
 \begin_layout Section
@@ -887,56 +1586,52 @@ System model & assumptions
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-Antes de comenzar a describir el modelo y asumpciones, tal vez sea prudente
- aclarar que si bien dew computing considera integración mínima con servicios
- cloud, en este paper exploramos la faceta Dew Computing que presinde de
- dichos servicios.
+Antes de comenzar a describir el modelo y asumpciones,
+ tal vez sea prudente aclarar que si bien dew computing considera integración mínima con servicios cloud,
+ en este paper exploramos la faceta Dew Computing que presinde de dichos servicios.
 \end_layout
 
 \end_inset
 
-We envision an autonomic Dew Computing scheme for dynamic load execution
- where input adquisition, filtering, processing are associated to AI tasks
- performed with components residing within the boundary of a wire(less)
- local area network and with independency of Cloud and/or Fog services.
- Generically, we can describe the Dew Computing scheme with components that
- play at least one of three roles named data acquirer role, data concentrator
- role and intelligence provider role.
- Components with the data acquirer role relay raw data sensed to a component
- with the role of data concentrator whose main duty is preprocessing raw
- data \SpecialChar softhyphen
--buffer, filter, denoise, segment it\SpecialChar softhyphen
+We envision an autonomic Dew Computing scheme for dynamic load execution where input adquisition,
+ filtering,
+ processing are associated to AI tasks performed with components residing within the boundary of a wire(less) local area network and with independency of Cloud and/or Fog services.
+ Generically,
+ we can describe the Dew Computing scheme with components that play at least one of three roles named data acquirer role,
+ data concentrator role and intelligence provider role.
+ Components with the data acquirer role relay raw data sensed to a component with the role of data concentrator whose main duty is preprocessing raw data \SpecialChar softhyphen
+-buffer,
+ filter,
+ denoise,
+ segment it\SpecialChar softhyphen
 -.
- Moreover, data concentrator components feed intelligence providers with
- the necessary preprocesed data to allow the latter to apply intelligence
- via AI algorithms, e.g, a deep learning model, to convert the preprocessed
- data it into valuable information for the purpose the Dew Computing scheme
- operates for.
+ Moreover,
+ data concentrator components feed intelligence providers with the necessary preprocesed data to allow the latter to apply intelligence via AI algorithms,
+ e.g,
+ a deep learning model,
+ to convert the preprocessed data it into valuable information for the purpose the Dew Computing scheme operates for.
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Mi impresión luego de darle algunas vueltas en la cabeza es que estoy definiendo
- entidades y un modelo de sistema que tiene muchos parecidos con otros modelos
- de sistema.
+Mi impresión luego de darle algunas vueltas en la cabeza es que estoy definiendo entidades y un modelo de sistema que tiene muchos parecidos con otros modelos de sistema.
  No hay puntos distintivos claros.
- Por ejemplo, mientras que plataformas IoT utilizan DSPS (Distributed Stream
- Processing Systems) deployados en la nube ¿Nosotros diríamos que utilizamos
- móviles? Al enfoque de utilizar nube se le pega por el lado de que no sirve
- para aplicaciones sensibles a retardos y aparece Edge computing.
- Por otra parte, si se quiere resolver problemas puntuales con altas prestacione
-s y sin nube no se puede dejar de mencionar al desarrollo de dispositivos
- embebidos con las FPGA.
+ Por ejemplo,
+ mientras que plataformas IoT utilizan DSPS (Distributed Stream Processing Systems) deployados en la nube ¿Nosotros diríamos que utilizamos móviles?
+ Al enfoque de utilizar nube se le pega por el lado de que no sirve para aplicaciones sensibles a retardos y aparece Edge computing.
+ Por otra parte,
+ si se quiere resolver problemas puntuales con altas prestaciones y sin nube no se puede dejar de mencionar al desarrollo de dispositivos embebidos con las FPGA.
 \end_layout
 
 \begin_layout Plain Layout
-¿Por qué tiene sentido pensar en Dew Computing?, ¿Qué es y qué no es Dew
- Computing? ¿Hasta donde llega Dew Computing, límite a partir del cual pasa
- ser 
+¿Por qué tiene sentido pensar en Dew Computing?,
+ ¿Qué es y qué no es Dew Computing?
+ ¿Hasta donde llega Dew Computing,
+ límite a partir del cual pasa ser 
 \begin_inset Quotes eld
 \end_inset
 
@@ -944,9 +1639,9 @@ jurisdicción
 \begin_inset Quotes erd
 \end_inset
 
- de otro paradigma? Si el límite es borroso, qué es lo nuevo que ofrece
- Dew Computing respecto a otros conceptos y sistemas para los que hay tecnología
-s con nombre y apellido.
+ de otro paradigma?
+ Si el límite es borroso,
+ qué es lo nuevo que ofrece Dew Computing respecto a otros conceptos y sistemas para los que hay tecnologías con nombre y apellido.
  Es el hecho de reusar comodity hardware no dedicado y subexplotado?
 \end_layout
 
@@ -957,24 +1652,32 @@ s con nombre y apellido.
 
 \begin_layout Standard
 In an attempt to establish an association of physical components and roles,
- we could say that data acquirer role is attributed to physical devices
- such as CMOS sensors, microphones, thermometers, vital signs sensors, in
- general, devices used to make observations or capture data in any format
- (images, text, sound).
- Data concentrator, by contrast, can be associated to devices with storaging
- capability, but also with minimum computing capability that enable it to
- run data preprocessing functions including data type convertion, formatting,
- frame extraction, data slicing, and also middleware tasks such as job creation,
+ we could say that data acquirer role is attributed to physical devices such as CMOS sensors,
+ microphones,
+ thermometers,
+ vital signs sensors,
+ in general,
+ devices used to make observations or capture data in any format (images,
+ text,
+ sound).
+ Data concentrator,
+ by contrast,
+ can be associated to devices with storaging capability,
+ but also with minimum computing capability that enable it to run data preprocessing functions including data type convertion,
+ formatting,
+ frame extraction,
+ data slicing,
+ and also middleware tasks such as job creation,
  job distribution and result collection.
- Finally, the intelligence provider role is mapped to devices with enough
- computing capability to apply AI algorithms to the received preprocessed
- data.
- Considering that commodity hardware in the form of edge and end-user devices
- are first-class citizen in Dew Computing, intelligent provider role can
- be directly mapped to Single Board Computers (SBC), smartwatches, and the
- so popular smartphones.
- In this sense, a smart camera that tags frames to help humans to detect
- security threats and actuate in consequence, or the 
+ Finally,
+ the intelligence provider role is mapped to devices with enough computing capability to apply AI algorithms to the received preprocessed data.
+ Considering that commodity hardware in the form of edge and end-user devices are first-class citizen in Dew Computing,
+ intelligent provider role can be directly mapped to Single Board Computers (SBC),
+ smartwatches,
+ and the so popular smartphones.
+ In this sense,
+ a smart camera that tags frames to help humans to detect security threats and actuate in consequence,
+ or the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -982,12 +1685,11 @@ Ok Google
 \begin_inset Quotes erd
 \end_inset
 
- words recognition by a smartphone that indicates the device to listen for
- voice commands from the user, are materializations of Dew Computing schemes
- where all roles are played by a single device.
- However, in this work, we propose an evaluation of Dew Computing power
- for performing tasks that exceeds the computing capability of a single
- resource-constrained device.
+ words recognition by a smartphone that indicates the device to listen for voice commands from the user,
+ are materializations of Dew Computing schemes where all roles are played by a single device.
+ However,
+ in this work,
+ we propose an evaluation of Dew Computing power for performing tasks that exceeds the computing capability of a single resource-constrained device.
 \end_layout
 
 \begin_layout Standard
@@ -995,18 +1697,16 @@ Ok Google
 status collapsed
 
 \begin_layout Plain Layout
-We, in turn, differentiate Dew Computing systems by the architectures into
- embeded and distributed.
- In embeded architectures data adquisition and resource provision processes
- are performed by a unique node.
- The personalized advertising and content suggestion that smartphones do
- by analyzing user web surfing history, app usages and user conversations
- is an example of an embeded Dew Computing System.
- On the other hand, distributed Dew computing architectures are those where
- data aquisition and/or data processing are performed distributely with
- devices residing within the same wireless LAN, e.g, an CMOS sensor in front
- of a car providing input images to intelligent nodes within the vehicle
- for alerting about potentially dangerous situations.
+We,
+ in turn,
+ differentiate Dew Computing systems by the architectures into embeded and distributed.
+ In embeded architectures data adquisition and resource provision processes are performed by a unique node.
+ The personalized advertising and content suggestion that smartphones do by analyzing user web surfing history,
+ app usages and user conversations is an example of an embeded Dew Computing System.
+ On the other hand,
+ distributed Dew computing architectures are those where data aquisition and/or data processing are performed distributely with devices residing within the same wireless LAN,
+ e.g,
+ an CMOS sensor in front of a car providing input images to intelligent nodes within the vehicle for alerting about potentially dangerous situations.
 \end_layout
 
 \end_inset
@@ -1015,10 +1715,8 @@ We, in turn, differentiate Dew Computing systems by the architectures into
 \end_layout
 
 \begin_layout Standard
-In a master-worker architecture, nodes with the role of Data concentrator
- would be also associated to master node responsabilities while worker nodes
- would be nodes contributing with computing resources for providing intelligence
- support.
+In a master-worker architecture,
+ nodes with the role of Data concentrator would be also associated to master node responsabilities while worker nodes would be nodes contributing with computing resources for providing intelligence support.
 \end_layout
 
 \begin_layout Standard
@@ -1032,25 +1730,22 @@ Guia para elaborar el contenido (sujeta a cambios):
 \begin_layout Itemize
 
 \shape italic
-Describir de forma genérica la descomposición de una arquitectura de procesamien
-to de un ambiente dew, mencionando las funciones de los componentes estableciend
-o un correspondencia con los siguientes roles:
+Describir de forma genérica la descomposición de una arquitectura de procesamiento de un ambiente dew,
+ mencionando las funciones de los componentes estableciendo un correspondencia con los siguientes roles:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
 
 \shape italic
-rol sensador de datos (nodo que a partir de una orden recibida comienza
- a enviar datos a un nodo concentrador de dichos datos)
+rol sensador de datos (nodo que a partir de una orden recibida comienza a enviar datos a un nodo concentrador de dichos datos)
 \end_layout
 
 \begin_layout Itemize
 
 \shape italic
-rol concentrador de datos (buffering, data ingestion) (este rol también
- se podría ver de reemplazar/asociar a la idea de una tarea de sensado del
- contexto que dispara o no la toma de datos)
+rol concentrador de datos (buffering,
+ data ingestion) (este rol también se podría ver de reemplazar/asociar a la idea de una tarea de sensado del contexto que dispara o no la toma de datos)
 \end_layout
 
 \begin_layout Itemize
@@ -1058,8 +1753,9 @@ rol concentrador de datos (buffering, data ingestion) (este rol también
 \shape italic
 rol pre-procesador de datos (conversión de datos de entrada en tareas AI,
  se puede asociar con conceptos de stream processing \SpecialChar softhyphen
--fixed windows, overlapping
- windows, session windows\SpecialChar softhyphen
+-fixed windows,
+ overlapping windows,
+ session windows\SpecialChar softhyphen
 -.)
 \end_layout
 
@@ -1073,14 +1769,12 @@ rol ejecutor de tareas AI
 \begin_layout Itemize
 
 \shape italic
-Mostrar instanciaciones: una donde todos los roles sean asignados a una
- SBC y otra donde la SBC funcione como concentrador y preprocesador de datos
- mientras que el cluster de smartphones como ejecutores.
+Mostrar instanciaciones:
+ una donde todos los roles sean asignados a una SBC y otra donde la SBC funcione como concentrador y preprocesador de datos mientras que el cluster de smartphones como ejecutores.
 \end_layout
 
 \begin_layout Itemize
-Idear taxonomía de escenarios donde sea suficiente/necesario hacer uso de
- más recursos del edge relacionándolo con características de aplicaciones
+Idear taxonomía de escenarios donde sea suficiente/necesario hacer uso de más recursos del edge relacionándolo con características de aplicaciones
 \end_layout
 
 \end_inset
@@ -1093,19 +1787,17 @@ Empirical evaluation
 \end_layout
 
 \begin_layout Standard
-We benchmarked the energy efficiency and computing capability of resource
- contrained edge nodes formed by groups of smartphones cooperating under
- the same wireless LAN and coordinated by a proxy that we compared with
- the performance achieved through edge nodes of type SBC commonly used for
- servicing IoT and edge applications.
+We benchmarked the energy efficiency and computing capability of resource contrained edge nodes formed by groups of smartphones cooperating under the same wireless LAN and coordinated by a proxy that we compared with the performance achieved through edge nodes of type SBC commonly used for servicing IoT and edge applications.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
+placement document
+alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1304,7 +1996,8 @@ Quad-core ARM Cortex-A57 MPCore
 \begin_layout Plain Layout
 
 \size scriptsize
-Gigabit Ethernet, M.2 Key E
+Gigabit Ethernet,
+ M.2 Key E
 \end_layout
 
 \end_inset
@@ -1370,7 +2063,8 @@ Intel Quad core i5-8250U
 \begin_layout Plain Layout
 
 \size scriptsize
-IEEE 802.11ac, Dual Band Wi-Fi
+IEEE 802.11ac,
+ Dual Band Wi-Fi
 \end_layout
 
 \end_inset
@@ -1758,39 +2452,40 @@ reference "tab:Edge-nodes-features"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- shows hardware details of resource contrained edge nodes used in the benchmark
- tests.
- Single board computers (SBC) are assumed to operate plugged to the electric
- power grid, i.e., potentially with infinity energy, while smartphones are
- assumed to exclusively use their batteries as main power source.
- All nodes have multicore processors (SBC with quad-cores and most of smartphone
-s with octa-cores), and 802.11 WiFi radio that theoretically is able to reach
- bandwidth between hundreds of Mbps (norm n) to few Gbps (norm ac).
+ shows hardware details of resource contrained edge nodes used in the benchmark tests.
+ Single board computers (SBC) are assumed to operate plugged to the electric power grid,
+ i.e.,
+ potentially with infinity energy,
+ while smartphones are assumed to exclusively use their batteries as main power source.
+ All nodes have multicore processors (SBC with quad-cores and most of smartphones with octa-cores),
+ and 802.11 WiFi radio that theoretically is able to reach bandwidth between hundreds of Mbps (norm n) to few Gbps (norm ac).
  Edge nodes main memory ranges from 2 to 8 GBs.
- As additional information, it is also included an estimated per unit adquisitio
-n cost in american dollars.
- When searching for cost-effective Dew configurations, the cost can be used
- as indicator to untie situations where several nodes achieved the desired
- throughput.
+ As additional information,
+ it is also included an estimated per unit adquisition cost in american dollars.
+ When searching for cost-effective Dew configurations,
+ the cost can be used as indicator to untie situations where several nodes achieved the desired throughput.
 \end_layout
 
 \begin_layout Standard
-As computing workload, we consider dynamic jobs (stream processing), concretely
- images streams that can be associated to machine vision tasks.
- We assumed latency-sensitive application scenarios of different domains
- that require real time response where the latter derived from inferences
- made with pre-trained deep learning models.
+As computing workload,
+ we consider dynamic jobs (stream processing),
+ concretely images streams that can be associated to machine vision tasks.
+ We assumed latency-sensitive application scenarios of different domains that require real time response where the latter derived from inferences made with pre-trained deep learning models.
  
 \end_layout
 
 \begin_layout Standard
-For setting up and executing benchmark tests, comprising tasks such as cluster
- formation, charge/discharge devices battery, deep learning models deployment,
- stream dynamics repetition, resuts collection and sumarization, we employed
- a tool set that combines open source software
+For setting up and executing benchmark tests,
+ comprising tasks such as cluster formation,
+ charge/discharge devices battery,
+ deep learning models deployment,
+ stream dynamics repetition,
+ resuts collection and sumarization,
+ we employed a tool set that combines open source software
 \begin_inset space ~
 \end_inset
 
@@ -1814,19 +2509,20 @@ literal "false"
 
 \end_inset
 
- modules designed and developed by our team that allow us to perform and
- repeat in-vitro evaluations, i.e., using real mobile devices, to compute
- real jobs with full control over physical devices and experimental variables
- such as battery level, devices externally injected and user load, wifi
- signal strenght, among others.
+ modules designed and developed by our team that allow us to perform and repeat in-vitro evaluations,
+ i.e.,
+ using real mobile devices,
+ to compute real jobs with full control over physical devices and experimental variables such as battery level,
+ devices externally injected and user load,
+ wifi signal strenght,
+ among others.
 \end_layout
 
 \begin_layout Standard
-The metrics we used to compare both Dew Computing approaches are: processing
- delay (w.r.t stream duration) and total energy consumption.
- Additionally for tests involving resource provision with a cluster of mobile
- devices, we report fairness to give insights of intra-cluster energy utilizatio
-n.
+The metrics we used to compare both Dew Computing approaches are:
+ processing delay (w.r.t stream duration) and total energy consumption.
+ Additionally for tests involving resource provision with a cluster of mobile devices,
+ we report fairness to give insights of intra-cluster energy utilization.
 \end_layout
 
 \begin_layout Standard
@@ -1841,11 +2537,11 @@ reference "subsec:DNN-models-benchmarking"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- elaborates on the deep learning models characteristics considered in experiment
-s.
+ elaborates on the deep learning models characteristics considered in experiments.
  In section
 \begin_inset space ~
 \end_inset
@@ -1857,12 +2553,13 @@ reference "sec:workload-characterization"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- we describe characteristics of dynamic jobs associated to different domains
- and study cases.
- Finally, Section
+ we describe characteristics of dynamic jobs associated to different domains and study cases.
+ Finally,
+ Section
 \begin_inset space ~
 \end_inset
 
@@ -1873,6 +2570,7 @@ reference "subsec:Benchmark-results"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -1895,8 +2593,7 @@ name "subsec:DNN-models-benchmarking"
 \end_layout
 
 \begin_layout Standard
-Benchmarking is a relevant task to approximate nodes performance in solving
- a specific task and this is what we did for nodes in Table
+Benchmarking is a relevant task to approximate nodes performance in solving a specific task and this is what we did for nodes in Table
 \begin_inset space ~
 \end_inset
 
@@ -1907,10 +2604,12 @@ reference "tab:Edge-nodes-features"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-, where task refers to make inferences using different tensorflow DNN models.
+,
+ where task refers to make inferences using different tensorflow DNN models.
  Tensorflow project
 \begin_inset Foot
 status collapsed
@@ -1936,23 +2635,17 @@ https://www.tensorflow.org/lite/performance/measurement
  .tflite
 \family default
  model.
- The tool measures the time a model takes to produce an inference, memory
- consumed among other information using synthetic input randomly generated.
- It worth mention that all inferences times reported in this paper are on
- the basis of using CPU support.
- Even though today there is especialized hardware, sometimes referred as
- AI hardware accelerators to run AI logic faster than with general purpose
- hardware like CPU, there are some practical limitations including library
- support for different platforms and propietary chips embeed only in high-end
- smartphones of certain brands that ralentless the massively use
+ The tool measures the time a model takes to produce an inference,
+ memory consumed among other information using synthetic input randomly generated.
+ It worth mention that all inferences times reported in this paper are on the basis of using CPU support.
+ Even though today there is especialized hardware,
+ sometimes referred as AI hardware accelerators to run AI logic faster than with general purpose hardware like CPU,
+ there are some practical limitations including library support for different platforms and propietary chips embeed only in high-end smartphones of certain brands that ralentless the massively use
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Si dejamos esta frase estaría bueno enfatizar en varias partes del texto
- que apuntamos a medir las capacidades de Dew en su expresión que permite
- llegar a la mayor parte de los usuarios (leasé a usuarios que de mínima
- tienen un cpu en sus bolsillos).
+Si dejamos esta frase estaría bueno enfatizar en varias partes del texto que apuntamos a medir las capacidades de Dew en su expresión que permite llegar a la mayor parte de los usuarios (leasé a usuarios que de mínima tienen un cpu en sus bolsillos).
 \end_layout
 
 \end_inset
@@ -1961,26 +2654,26 @@ Si dejamos esta frase estaría bueno enfatizar en varias partes del texto
 \end_layout
 
 \begin_layout Standard
-The notion of real time is context dependent and depending on the application
- an ever-present time delay of a few seconds satisfies the notion of real
- time.
- For this reason and with the aim of evaluating Dew Computing capabilities
- for potential different application scenarios, i.e., with different real-time
- notions, we used three DNN models that between them present quite disimil
- inferences times.
- It not part of the evaluation core to test DNN models in their most efficient
- version, i.e., we do not aim to test and improve models performance per se,
+The notion of real time is context dependent and depending on the application an ever-present time delay of a few seconds satisfies the notion of real time.
+ For this reason and with the aim of evaluating Dew Computing capabilities for potential different application scenarios,
+ i.e.,
+ with different real-time notions,
+ we used three DNN models that between them present quite disimil inferences times.
+ It not part of the evaluation core to test DNN models in their most efficient version,
+ i.e.,
+ we do not aim to test and improve models performance per se,
  although in a real implementation it is relevant to considered.
- Conversely, our objective is to compare the execution capabilities of edge
- devices and distributed systems composed by collaborating end user devices.
+ Conversely,
+ our objective is to compare the execution capabilities of edge devices and distributed systems composed by collaborating end user devices.
 \end_layout
 
 \begin_layout Standard
-All models used in benchmark tests take images as input and produce text
- as output, where text refers to bounding boxes, classes and confidence
- levels of recognized objects, or categories of a unique object depending
- on the purpose the model was trained for.
- One of the models is the widely known, publicly available YoloV4
+All models used in benchmark tests take images as input and produce text as output,
+ where text refers to bounding boxes,
+ classes and confidence levels of recognized objects,
+ or categories of a unique object depending on the purpose the model was trained for.
+ One of the models is the widely known,
+ publicly available YoloV4
 \begin_inset Foot
 status open
 
@@ -2002,20 +2695,19 @@ reference "fig:YoloV4-benchmarking"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- shows average inference times (in miliseconds) for different nodes when
- performing object detection using a YoloV4-tiny model ported to Tensorflow
- lite.
- We see, for instance, that a smartphone Xiaomi RN7 makes inferences in
- around 248 milliseconds, i.e., is able to process up to 4 FPS which doubles
- the capability of a RaspberryPi4, but is slower than a Gigabyte Brix which
- reaches nearly 10 FPS.
- Other of the benchmarked models used in experiments was proposed to make
- milk cows scoring to differentiate healthy and not healthy cow groups.
- The model encapsulate expert knowledge on the determination of what is
- known as Body Condition Score (BCS)
+ shows average inference times (in miliseconds) for different nodes when performing object detection using a YoloV4-tiny model ported to Tensorflow lite.
+ We see,
+ for instance,
+ that a smartphone Xiaomi RN7 makes inferences in around 248 milliseconds,
+ i.e.,
+ is able to process up to 4 FPS which doubles the capability of a RaspberryPi4,
+ but is slower than a Gigabyte Brix which reaches nearly 10 FPS.
+ Other of the benchmarked models used in experiments was proposed to make milk cows scoring to differentiate healthy and not healthy cow groups.
+ The model encapsulate expert knowledge on the determination of what is known as Body Condition Score (BCS)
 \begin_inset space ~
 \end_inset
 
@@ -2039,16 +2731,17 @@ reference "fig:Cow-BCS-Benchmarking"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
  shows the BCS average inference time that different edge nodes achieve.
- For instance, the Xiaomi RN7 smartphone completes an inference in around
- 184 milliseconds, i.e.
- is able to deliver barely more than 5 FPS, while a Gigabyte Brix node is
- around 15 FPS.
- The third model used was trained to recognize diabetes grade using foot
- images as input.
+ For instance,
+ the Xiaomi RN7 smartphone completes an inference in around 184 milliseconds,
+ i.e.
+ is able to deliver barely more than 5 FPS,
+ while a Gigabyte Brix node is around 15 FPS.
+ The third model used was trained to recognize diabetes grade using foot images as input.
  Figure
 \begin_inset space ~
 \end_inset
@@ -2060,19 +2753,20 @@ reference "fig:Foot-Benchmarking"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
  shows the inferences times obtain by different edge nodes.
- By comparing the fastest smartphone with fastest SBC it can be noted that
- Xiaomi RN7 completes an inference in around 1470 milliseconds while a Gigabyte
- Brix does the same in approximately 559 milliseconds.
- When comparing performance of DNN models, notice that for most of the edge
- nodes benchmarks, inference times differ in at least one order of magnitude.
- As said, a Xiaomi RN7 completes inferences in 248, 184 and 1470 milliseconds
- using yolov4 model, BCS model and diabetes foot model respectively.
- These differences were intentionally searched to test Dew Computing capabilitie
-s in heterogeneous computing scenarios.
+ By comparing the fastest smartphone with fastest SBC it can be noted that Xiaomi RN7 completes an inference in around 1470 milliseconds while a Gigabyte Brix does the same in approximately 559 milliseconds.
+ When comparing performance of DNN models,
+ notice that for most of the edge nodes benchmarks,
+ inference times differ in at least one order of magnitude.
+ As said,
+ a Xiaomi RN7 completes inferences in 248,
+ 184 and 1470 milliseconds using yolov4 model,
+ BCS model and diabetes foot model respectively.
+ These differences were intentionally searched to test Dew Computing capabilities in heterogeneous computing scenarios.
  Such heterogeneity resides in models anatomy.
  Table
 \begin_inset space ~
@@ -2085,11 +2779,11 @@ reference "tab:DNN_Models-characterization"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- shows layers count discriminated by type and total number of layers each
- model presents.
+ shows layers count discriminated by type and total number of layers each model presents.
 \change_inserted -997162125 1681488369
 
 \begin_inset Note Note
@@ -2098,11 +2792,13 @@ status open
 \begin_layout Plain Layout
 
 \change_inserted -997162125 1681489902
-Hay terminología sobre redes neuronales que sería bueno repasar para asegurarse
- de no meter la pata en la descripción, por ejemplo, diferencia entre layers,
- operators, nodes, functions.
- Si nos basamos en el grafo generado con netron se ven más de un nodo en
- una 
+Hay terminología sobre redes neuronales que sería bueno repasar para asegurarse de no meter la pata en la descripción,
+ por ejemplo,
+ diferencia entre layers,
+ operators,
+ nodes,
+ functions.
+ Si nos basamos en el grafo generado con netron se ven más de un nodo en una 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2111,14 +2807,10 @@ capa
 \end_inset
 
  o nivel del árbol.
- Por el contrario si se ejecuta una herramienta de profiling como mltk profile
- <modelo.tflite> la herramienta reporta tantas capas como nodos, aparentemente
- sin importar que aparezcan en un mismo nivel en el árbol de netron.
- También hay que tener en cuenta por ejemplo lo que se dice en https://stackover
-flow.com/questions/66693260/how-to-check-the-number-of-layers-in-a-neural-network
--in-python-and-when-should, donde hay nodos que no cuentan como capas aisladamen
-te sino en conjunto con otros nodos que representan el verdadero costo computaci
-onal.
+ Por el contrario si se ejecuta una herramienta de profiling como mltk profile <modelo.tflite> la herramienta reporta tantas capas como nodos,
+ aparentemente sin importar que aparezcan en un mismo nivel en el árbol de netron.
+ También hay que tener en cuenta por ejemplo lo que se dice en https://stackoverflow.com/questions/66693260/how-to-check-the-number-of-layers-in-a-neural-network-in-python-and-when-should,
+ donde hay nodos que no cuentan como capas aisladamente sino en conjunto con otros nodos que representan el verdadero costo computacional.
 \change_unchanged
 
 \end_layout
@@ -2134,6 +2826,8 @@ onal.
 
 \begin_layout Standard
 \begin_inset Float table
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -3383,10 +4077,9 @@ name "tab:DNN_Models-characterization"
 status collapsed
 
 \begin_layout Plain Layout
-However, the throughput in a loosly coupled distributed computing system
- is not necesary a linear combination of computing nodes performance isolately,
- particularly when the problem to solve has delay constraints and involves
- moving data throughout a wireless medium.
+However,
+ the throughput in a loosly coupled distributed computing system is not necesary a linear combination of computing nodes performance isolately,
+ particularly when the problem to solve has delay constraints and involves moving data throughout a wireless medium.
 \end_layout
 
 \end_inset
@@ -3414,10 +4107,10 @@ status collapsed
 \begin_layout Plain Layout
 
 \change_inserted -997162125 1683643275
-When tasks like the aforementioned involve dealing with moving subjects
- that might even stocastically appear in a scene, the output accuracy can
- be negatively affected by motion blur, defocus, and other distortions in
- the input.
+When tasks like the aforementioned involve dealing with moving subjects that might even stocastically appear in a scene,
+ the output accuracy can be negatively affected by motion blur,
+ defocus,
+ and other distortions in the input.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "guo2018efficient"
@@ -3445,18 +4138,19 @@ reference "subsec:DNN-models-benchmarking"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- use images as input, we consider workloads that can be associated to machine
- vision tasks and depend on a stream-like input.
- Machine vision tasks such as object detection and classification using
- deep learning are commonly applied in diverse domains.
- However, due to imperfections on the training data, input data capaturing
- devices, problem specific constrains like tracking or identify moving subjects,
- etc., make machine vision systems to produce outputs based on multiple frames
- more than on a single shot frame which is used to disambiguate erroneous
- inferences and improve output accuracy
+ use images as input,
+ we consider workloads that can be associated to machine vision tasks and depend on a stream-like input.
+ Machine vision tasks such as object detection and classification using deep learning are commonly applied in diverse domains.
+ However,
+ due to imperfections on the training data,
+ input data capaturing devices,
+ problem specific constrains like tracking or identify moving subjects,
+ etc.,
+ make machine vision systems to produce outputs based on multiple frames more than on a single shot frame which is used to disambiguate erroneous inferences and improve output accuracy
 \begin_inset space ~
 \end_inset
 
@@ -3469,15 +4163,15 @@ literal "false"
 \end_inset
 
 .
- To complete the experimental setting of our dew computing scenario, we
- consider video frames streams printing different workload to the execution
- system.
+ To complete the experimental setting of our dew computing scenario,
+ we consider video frames streams printing different workload to the execution system.
 \end_layout
 
 \begin_layout Standard
-Without loosing generality, we associate each model-stream pair a different
- domains/usage contexts where Dew Computing could be applied.
- These domains are: a smart city application scenario that we call 
+Without loosing generality,
+ we associate each model-stream pair a different domains/usage contexts where Dew Computing could be applied.
+ These domains are:
+ a smart city application scenario that we call 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3485,7 +4179,8 @@ Sense while Travel
 \begin_inset Quotes erd
 \end_inset
 
-, a dairy farm application scenario called 
+,
+ a dairy farm application scenario called 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3507,9 +4202,7 @@ E-health early diagnosis
 status collapsed
 
 \begin_layout Plain Layout
-Categorizar streams y rates de sampleo de los streams de acuerdo a la frecuencia
- con la que cambia la información el objeto al que se le esté tomando las
- imágenes o al tiempo que el objeto permance bajo la cámara.
+Categorizar streams y rates de sampleo de los streams de acuerdo a la frecuencia con la que cambia la información el objeto al que se le esté tomando las imágenes o al tiempo que el objeto permance bajo la cámara.
 \end_layout
 
 \end_inset
@@ -3518,29 +4211,28 @@ Categorizar streams y rates de sampleo de los streams de acuerdo a la frecuencia
 \end_layout
 
 \begin_layout Itemize
-Sense while Travel (SWT): a city can take advantage of mobile agents such
- as urban line buses to collect information of relevant street events while
- traveling, e.g., for statistical purposes.
+Sense while Travel (SWT):
+ a city can take advantage of mobile agents such as urban line buses to collect information of relevant street events while traveling,
+ e.g.,
+ for statistical purposes.
  Images captured with a bus front camera might feed a YOLO v4 model which,
- as output, gives a plain text representation of objects class found in
- an image and the accuracy percentage of each detected object class.
- An energy eficient way to achieve this without having to process a large
- amount of frames with redundant information, is to cleverly select a sample
- rate accordingly with the expected moving change of detection target.
- Without loosing generality, we state this sample rate in 2 FPS and evaluate
- the system for a stream of 30 minutes lenght.
- These parameters equates approximately to have 15 km of sensed data when
- the stream is produced by a vehicle travelling at 30 km/h.
+ as output,
+ gives a plain text representation of objects class found in an image and the accuracy percentage of each detected object class.
+ An energy eficient way to achieve this without having to process a large amount of frames with redundant information,
+ is to cleverly select a sample rate accordingly with the expected moving change of detection target.
+ Without loosing generality,
+ we state this sample rate in 2 FPS and evaluate the system for a stream of 30 minutes lenght.
+ These parameters equates approximately to have 15 km of sensed data when the stream is produced by a vehicle travelling at 30 km/h.
 \end_layout
 
 \begin_layout Itemize
-Body Condition Score (BCS): in a dairy farm, outfitted cows, i.e., cows that
- are either overweighted or underweighted tend to produce less milk than
- those properly weighted.
- Identify such animals to give them a proper treatment is crucial to maintain
- the cow roundup fully productive.
- To identify such animals a DNN model is used which takes depth images taken
- from top of a cow with a camera strategically positioned
+Body Condition Score (BCS):
+ in a dairy farm,
+ outfitted cows,
+ i.e.,
+ cows that are either overweighted or underweighted tend to produce less milk than those properly weighted.
+ Identify such animals to give them a proper treatment is crucial to maintain the cow roundup fully productive.
+ To identify such animals a DNN model is used which takes depth images taken from top of a cow with a camera strategically positioned
 \begin_inset space ~
 \end_inset
 
@@ -3553,39 +4245,37 @@ literal "false"
 \end_inset
 
 .
- The image capturing procedure should be performed within a time window
- that not exceceds 10 seconds.
- During such time, providing that animals naturally don't state quite under
- the camera and the capture should contain a specific part of the cow, a
- high percent of captured images, e.g.
- a 50%, is expected to be have to be tagged and filtered as not useful input
- for the DNN model.
- Moreover, during the transition of one animal to the next under the lens
- of camera, which can take 10 seconds in average, it is proper to stop capturing
- images.
- To make the body condition score calculus feasible, realiable, and energy
- effienct it is proper to count with no less than a hundred of frames ready
- to serve as input for the DNN model, from each cow.
- All these constraints configure a stream processing scenario where depth
- images can be produced at a sample rate of 15 FPS during 10 seconds, followed
- by other 10 seconds where none images are captured.
+ The image capturing procedure should be performed within a time window that not exceceds 10 seconds.
+ During such time,
+ providing that animals naturally don't state quite under the camera and the capture should contain a specific part of the cow,
+ a high percent of captured images,
+ e.g.
+ a 50%,
+ is expected to be have to be tagged and filtered as not useful input for the DNN model.
+ Moreover,
+ during the transition of one animal to the next under the lens of camera,
+ which can take 10 seconds in average,
+ it is proper to stop capturing images.
+ To make the body condition score calculus feasible,
+ realiable,
+ and energy effienct it is proper to count with no less than a hundred of frames ready to serve as input for the DNN model,
+ from each cow.
+ All these constraints configure a stream processing scenario where depth images can be produced at a sample rate of 15 FPS during 10 seconds,
+ followed by other 10 seconds where none images are captured.
 \end_layout
 
 \begin_layout Itemize
-E-health early diagnosis (EED): periodically, older people in a nursing
- home subject themselves to control different health parameters as a way
- to prevent the appearance of some pathology or monitoring a pre-existence
- illnees.
- We envision an advanced e-health scenario where a DNN model encapsulates
- medicine expert knowledge to allow, e.g.
+E-health early diagnosis (EED):
+ periodically,
+ older people in a nursing home subject themselves to control different health parameters as a way to prevent the appearance of some pathology or monitoring a pre-existence illnees.
+ We envision an advanced e-health scenario where a DNN model encapsulates medicine expert knowledge to allow,
+ e.g.
  
 \change_deleted -997162125 1683813476
  
 \change_unchanged
-diabetes diagnosis using foot images., Imaging an encounter of a nurse in
- which as part of the healthcare service consist in taking pictures in burst
- of all patients feet resulting in a stream of images with the a shape of
- 10 FPS during 2 seconds followed by 7 seconds without images capturing.
+diabetes diagnosis using foot images.,
+ Imaging an encounter of a nurse in which as part of the healthcare service consist in taking pictures in burst of all patients feet resulting in a stream of images with the a shape of 10 FPS during 2 seconds followed by 7 seconds without images capturing.
 \end_layout
 
 \begin_layout Standard
@@ -3604,6 +4294,7 @@ reference "fig:Cow-images-stream"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -3614,10 +4305,12 @@ reference "fig:Cow-image-example"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- on one side, and figures
+ on one side,
+ and figures
 \begin_inset space ~
 \end_inset
 
@@ -3628,6 +4321,7 @@ reference "fig:Street-images-stream"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -3638,16 +4332,18 @@ reference "fig:street-image-example"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- on the other side, show a timeline representation of the data kilobytes
- produced by a stream and an example of the DNN input image for Sense While
- Travel and Body Condition Score Calculus scenarios respectively.
+ on the other side,
+ show a timeline representation of the data kilobytes produced by a stream and an example of the DNN input image for Sense While Travel and Body Condition Score Calculus scenarios respectively.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -3655,6 +4351,8 @@ status open
 \begin_layout Plain Layout
 \align left
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3693,6 +4391,8 @@ name "fig:street-image-example"
 
 
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3736,6 +4436,8 @@ name "fig:YoloV4-benchmarking"
 
 
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3815,12 +4517,16 @@ SWT - workload characterization
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3858,6 +4564,8 @@ name "fig:Cow-image-example"
 
 
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3904,6 +4612,8 @@ name "fig:Cow-BCS-Benchmarking"
 
 
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3963,12 +4673,16 @@ BCS - workload characterization
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -4008,6 +4722,8 @@ name "fig:Foot-image-example-1"
 
 
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status collapsed
@@ -4052,6 +4768,8 @@ name "fig:Foot-Benchmarking"
 
 
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -4110,13 +4828,13 @@ EED - workload characterization
 \end_layout
 
 \begin_layout Standard
-Irrespective of the application domain, the three examples represent streams
- with different characteristics not only by the dynamics of input image
- generation but also the computing power required to perform inferences.
- In addition, it is assumed that inferences results should be available
- at the master node with minimun delay, i.e., as close as possible to a real
- time detection, which is a characteristic of computing services provided
- at edge.
+Irrespective of the application domain,
+ the three examples represent streams with different characteristics not only by the dynamics of input image generation but also the computing power required to perform inferences.
+ In addition,
+ it is assumed that inferences results should be available at the master node with minimun delay,
+ i.e.,
+ as close as possible to a real time detection,
+ which is a characteristic of computing services provided at edge.
 \end_layout
 
 \begin_layout Subsection
@@ -4132,6 +4850,8 @@ name "subsec:Benchmark-results"
 
 \begin_layout Standard
 \begin_inset Float table
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -5114,6 +5834,8 @@ Sense while travel scenario (30 minutes stream)
 
 \begin_layout Standard
 \begin_inset Float table
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -5783,6 +6505,8 @@ Body Condition Score scenario (03:50 minutes stream)
 
 
 \begin_inset Float table
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -6454,13 +7178,12 @@ E-health early detection scenario (08:55 minutes stream)
 \end_layout
 
 \begin_layout Standard
-In all scenarios, the best makespan was obtained when using a pull-based
- load balancing scheme.
- With such scheme, as soon as a worker node finishes a work unit and the
- corresponding result is received by the master, the worker node is able
- to pull another work units from a common queue.
- The work completion delivering rate adapts to the job completion rate of
- participating nodes.
+In all scenarios,
+ the best makespan was obtained when using a pull-based load balancing scheme.
+ With such scheme,
+ as soon as a worker node finishes a work unit and the corresponding result is received by the master,
+ the worker node is able to pull another work units from a common queue.
+ The work completion delivering rate adapts to the job completion rate of participating nodes.
  
 \end_layout
 
@@ -6469,78 +7192,79 @@ Conclusions and Future works
 \end_layout
 
 \begin_layout Standard
-In this work we explored the capabilities of Dew Computing for performing
- real-time inferences using three deep learning models and stream-like workloads.
- Puntually, we tested and compare the performance obtained by several Dew
- Computing settings built with commodity hardware including SBCs and smartphone
- clusters.
+In this work we explored the capabilities of Dew Computing for performing real-time inferences using three deep learning models and stream-like workloads.
+ Puntually,
+ we tested and compare the performance obtained by several Dew Computing settings built with commodity hardware including SBCs and smartphone clusters.
  Some of the conclusions that we arrive at are:
 \end_layout
 
 \begin_layout Standard
-- Makespan attained with tiny clusters composed by 3-4 middle-range smartphones
- using a pull-based execution scheme is competitive compared to the computing
- capability of an SBC equiped with an intel core i5 8th generation in delivering
- near real-time inferences.
+- Makespan attained with tiny clusters composed by 3-4 middle-range smartphones using a pull-based execution scheme is competitive compared to the computing capability of an SBC equiped with an intel core i5 8th generation in delivering near real-time inferences.
  It suggests that to satisfy certain delay sensitive application scenarios,
- the exploitation of already-in-place smartphones clusters should be analyzed
- and considered before the investment and deployment of SBCs.
+ the exploitation of already-in-place smartphones clusters should be analyzed and considered before the investment and deployment of SBCs.
 \end_layout
 
 \begin_layout Standard
-- A pull-based scheme shows better makespan than the classical Round Robin
- for intra-cluster load balancing load.
- However, in some scenarios with apparently plentyfull computing resources
- to satify the computing demand, e.g., cluster 301 y cluster 408 with SWT
- scenario, Round Robin behaved competitive and also achieves better fairness
- score than a pull-based scheme.
- In other words, due to resources abundance, the addition of more resources
- seems to be not translated into a makespan reduction but into the improvement
- score of other metric, which reveal that there is more room for further
- exploration of load balancing schemes to target the best balance between
- different metrics, e.g., makespan, fairness, global remaining energy, parallelism
- level, etc.
+- A pull-based scheme shows better makespan than the classical Round Robin for intra-cluster load balancing load.
+ However,
+ in some scenarios with apparently plentyfull computing resources to satify the computing demand,
+ e.g.,
+ cluster 301 y cluster 408 with SWT scenario,
+ Round Robin behaved competitive and also achieves better fairness score than a pull-based scheme.
+ In other words,
+ due to resources abundance,
+ the addition of more resources seems to be not translated into a makespan reduction but into the improvement score of other metric,
+ which reveal that there is more room for further exploration of load balancing schemes to target the best balance between different metrics,
+ e.g.,
+ makespan,
+ fairness,
+ global remaining energy,
+ parallelism level,
+ etc.
 \end_layout
 
 \begin_layout Standard
-- Despite differences observed in inference times obtained via tensorflow
- benchmarking tool and results collected in experiments using real input,
- when cross comparing model performance, relative positions between edge
- nodes are almost the same, meaning that it is feasible to derive a model
- agnostic nodes ranking to help a load balancing component to decide how
- to distribute jobs based on nodes performance.
+- Despite differences observed in inference times obtained via tensorflow benchmarking tool and results collected in experiments using real input,
+ when cross comparing model performance,
+ relative positions between edge nodes are almost the same,
+ meaning that it is feasible to derive a model agnostic nodes ranking to help a load balancing component to decide how to distribute jobs based on nodes performance.
 \end_layout
 
 \begin_layout Standard
 As future works we visualize several points of improvements.
- In line with developing new load balancing heuristics, and based on results
- of preliminary runs we plan to improve previously published heuristics
- that use MFLOPs to rank nodes computing capability.
- An alternative is to use information derived from Tensorflow benchmarking
- tool.
+ In line with developing new load balancing heuristics,
+ and based on results of preliminary runs we plan to improve previously published heuristics that use MFLOPs to rank nodes computing capability.
+ An alternative is to use information derived from Tensorflow benchmarking tool.
  Other future direction is to consider other forms of workload distributions,
- i.e., that exploit internals of DNN arquitectures, for example, split computing,
- early exiting techniques, model quantization; other forms of workload execution
-, e.g, using flags that reduce the inference time, e.g, make inferences over
- a batch of images, or accelerators such as the XNNPACK support to better
- exploit CPU capabilities of mobile platforms while performing network inference
-s.
+ i.e.,
+ that exploit internals of DNN arquitectures,
+ for example,
+ split computing,
+ early exiting techniques,
+ model quantization;
+ other forms of workload execution,
+ e.g,
+ using flags that reduce the inference time,
+ e.g,
+ make inferences over a batch of images,
+ or accelerators such as the XNNPACK support to better exploit CPU capabilities of mobile platforms while performing network inferences.
 \end_layout
 
 \begin_layout Standard
-Other improvements to the distributed execution system prototype made up
- of end user devices are in the line of refinining aspects such as: 
+Other improvements to the distributed execution system prototype made up of end user devices are in the line of refinining aspects such as:
+ 
 \begin_inset Newline newline
 \end_inset
 
-- Workers full exploitation: as CPU profiles of experiments run reveal,
+- Workers full exploitation:
+ as CPU profiles of experiments run reveal,
  CPU utilization is not full.
- Even though flags, such as XNNPACK, ncnn, are presented as accelerators
- to better exploit CPU capabilities, the technology is applied only to tensorflo
-w framework.
- A library agnostic solution that consider not only better exploitation
- of CPU but also maximum CPU usage configured by end users would signify
- another relevant step towards a middleware that make Dew Computing a reality.
+ Even though flags,
+ such as XNNPACK,
+ ncnn,
+ are presented as accelerators to better exploit CPU capabilities,
+ the technology is applied only to tensorflow framework.
+ A library agnostic solution that consider not only better exploitation of CPU but also maximum CPU usage configured by end users would signify another relevant step towards a middleware that make Dew Computing a reality.
 \change_inserted -997162125 1709042940
 
 \end_layout
@@ -6548,51 +7272,51 @@ w framework.
 \begin_layout Standard
 
 \change_inserted -997162125 1709044810
-- Improve workers exploitation by considering model anatomy and workers
- capability: for prediction and/or classification tasks using deep learning,
+- Improve workers exploitation by considering model anatomy and workers capability:
+ for prediction and/or classification tasks using deep learning,
  one or several models can be utilized.
  Each model migh differ in their number of layers.
- The model, in turn, can be splitted into different groups of layers where
- each group can be assigned to nodes with different computing and/or transferrin
-g capabilities in order to improve the inference time.
- Similar point of improvements can be thought for the application of ensemble
- learning techniques where the final output to a prediction or classification
- task is built by averaging partial outputs of different weak models.
- In this sense, and considering that weak models differ in their anatomy
- and output quality, heavy models can be deployed in high capable devices,
+ The model,
+ in turn,
+ can be splitted into different groups of layers where each group can be assigned to nodes with different computing and/or transferring capabilities in order to improve the inference time.
+ Similar point of improvements can be thought for the application of ensemble learning techniques where the final output to a prediction or classification task is built by averaging partial outputs of different weak models.
+ In this sense,
+ and considering that weak models differ in their anatomy and output quality,
+ heavy models can be deployed in high capable devices,
  while lighter models on low capable devices.
  How to rate a device as high or low capable is challenging due to the,
- device connection unstability, heterogeneous hardware, owner usage, i.e.,
+ device connection unstability,
+ heterogeneous hardware,
+ owner usage,
+ i.e.,
  the high dynamic nature of device clusters.
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-- Input/output transfer latency: workers request input images to a master
- which, in turn, pull them from an HDD.
+- Input/output transfer latency:
+ workers request input images to a master which,
+ in turn,
+ pull them from an HDD.
  Such decision was made as part of as experimental platform.
- However, migrate the input provisioning in the master node to a more on-the-fly
- scheme that uses main memory instead of HDD to buffering images might considera
-ble reduce latency in the input provisioning.
- Naturally, trade offs between main memory amount and reduced latency will
- emerge.
+ However,
+ migrate the input provisioning in the master node to a more on-the-fly scheme that uses main memory instead of HDD to buffering images might considerable reduce latency in the input provisioning.
+ Naturally,
+ trade offs between main memory amount and reduced latency will emerge.
  
 \end_layout
 
 \begin_layout Standard
-- Wireless medium optimization: wireless medium usage can be optimized since
- images and results are currently transported through a two hop wireless
- network, i.e., a router mediates the communication between master and workers
- nodes.
- It means that bytes are wirelessly transferred from the master to the router
- and from the router to the workers in the case of inputs, or in the other
- way around for outputs.
- Whenever possible, such data transferring scheme could be sinplified and
- wireless communication reduced to a single hop.
- One posibility is to perform the master role and the sensing task within
- the same physical node or in separate nodes but communicated through a
- high speed wired connection.
+- Wireless medium optimization:
+ wireless medium usage can be optimized since images and results are currently transported through a two hop wireless network,
+ i.e.,
+ a router mediates the communication between master and workers nodes.
+ It means that bytes are wirelessly transferred from the master to the router and from the router to the workers in the case of inputs,
+ or in the other way around for outputs.
+ Whenever possible,
+ such data transferring scheme could be sinplified and wireless communication reduced to a single hop.
+ One posibility is to perform the master role and the sensing task within the same physical node or in separate nodes but communicated through a high speed wired connection.
 \end_layout
 
 \begin_layout Standard
