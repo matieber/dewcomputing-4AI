@@ -1514,7 +1514,7 @@ literal "false"
 
 \end_inset
 
- the most appropriate pruned model version is selected online via an adpative workload distribution to meet the required application specific accuracy and performance level.
+ the most appropriate version among different pruned models is selected online via an adpative workload distribution to meet the required application specific accuracy and performance level.
  Such dynamic selection is performed using a base knowledge of accuracy-performance tradeoffs profiled from heterogeneous edge nodes and that is used in conjunction with a runtime monitoring system for resource management.
  In
 \begin_inset space ~
@@ -1572,7 +1572,7 @@ In the discussed works,
  Existing approaches exploiting data partitioning schemes add redundant data to the original input for performing distributed inference.
  We propose a simple yet effective data partitioning scheme for performing realtime CV tasks which is evaluated under varying settings of real smartphones cooperating in WLAN clusters.
  Since performance vary according to how workload is distributed,
- we provide insights on the performance achieved and energy-related measurements using different state-of-the-art online heuristics.
+ we provide insights on the performance achieved and energy-related measurements using different state-of-the-art online heuristics and smartphone clusters.
  Moreover,
  performance comparisons of different smartphone clusters-load balancing heuristics combinations were compared against the peformance achieved by different edge nodes commonly used in IoT applications.
  All experiments performed in this work,
@@ -1596,6 +1596,11 @@ Antes de comenzar a describir el modelo y asumpciones,
 
 \end_inset
 
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 We envision an autonomic Dew Computing scheme for dynamic load execution where input adquisition,
  filtering,
  processing are associated to AI tasks performed with components residing within the boundary of a wire(less) local area network and with independency of Cloud and/or Fog services.
@@ -1615,7 +1620,7 @@ We envision an autonomic Dew Computing scheme for dynamic load execution where i
  to convert the preprocessed data it into valuable information for the purpose the Dew Computing scheme operates for.
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Mi impresión luego de darle algunas vueltas en la cabeza es que estoy definiendo entidades y un modelo de sistema que tiene muchos parecidos con otros modelos de sistema.
@@ -1650,7 +1655,7 @@ jurisdicción
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 In an attempt to establish an association of physical components and roles,
  we could say that data acquirer role is attributed to physical devices such as CMOS sensors,
  microphones,
@@ -1692,6 +1697,11 @@ Ok Google
  we propose an evaluation of Dew Computing power for performing tasks that exceeds the computing capability of a single resource-constrained device.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status collapsed
@@ -1715,8 +1725,73 @@ We,
 \end_layout
 
 \begin_layout Standard
-In a master-worker architecture,
- nodes with the role of Data concentrator would be also associated to master node responsabilities while worker nodes would be nodes contributing with computing resources for providing intelligence support.
+We envision a system that opportunistically scavenges computing cycles of nomadic hardware,
+ such as smartphones,
+ to complement –or eventually replaced– the performance delivered by low power edge nodes.
+ Particularly,
+ we shed light on the computing capability of different smartphone clusters and load balancing heuristics for processing streams,
+ in this work,
+ of images to complete CV tasks in realtime or near realtime by harnessing deep neural networks.
+ Definition of appropriate incentives to smartphone users –tasks executors–,
+ privacy preservation and security mechanisms for tasks submitters as for tasks executors,
+ are outside the scope of the current work.
+\end_layout
+
+\begin_layout Standard
+We assume a master-worker architecture operating within the scope of WLAN,
+ with a master node officiating as tasks submitter and worker nodes contributing with computing resources,
+ i.e.,
+ playing the role of tasks executors.
+ A master node is assigned with the roles of data concentrator and tasks coordinator.
+ Playing the first role implies that the node exposes end points for receiving raw data and preprocessed data.
+ On one side,
+ raw data transfered to a master node is captured by devices with sensing capabilities,
+ e.g.,
+ RGB,
+ IR or depth images taken with different camera devices.
+ On the other side,
+ preprocessed data is obtained by applying a series of computational operations to decode,
+ synthetized and/or represent raw data in a format that can be more efficiently stored,
+ retrieved or analized.
+ Moreover,
+ playing the role of tasks coordinator means that the node runs logic to decides how to apportion or distribute the load involved in preprocessing raw data by available worker nodes to meet the expected QoS.
+ Finally,
+ worker nodes opportunistically connected to the LAN where a master node operates,
+ register through a master node service to contribute with computing resources and wait for tasks assigned by the master node.
+ As tasks completion occurs,
+ results are sent back to the master node.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/proxy-based_mdc.pdf
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Main nodes schematic overview
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1782,13 +1857,33 @@ Idear taxonomía de escenarios donde sea suficiente/necesario hacer uso de más 
 
 \end_layout
 
+\begin_layout Standard
+We aim at measuring the feasibility of using different smartphones groups cooperating under the same WLAN for performing CV tasks and compared the performance achieved with that of edge nodes of type SBC commonly used for servicing IoT and edge applications.
+ 
+\end_layout
+
 \begin_layout Section
 Empirical evaluation
 \end_layout
 
 \begin_layout Standard
-We benchmarked the energy efficiency and computing capability of resource contrained edge nodes formed by groups of smartphones cooperating under the same wireless LAN and coordinated by a proxy that we compared with the performance achieved through edge nodes of type SBC commonly used for servicing IoT and edge applications.
- 
+To conduct this study we employed different hardware as edge nodes,
+ whose characteristics are shown in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Edge-nodes-features"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1802,12 +1897,14 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="6">
+<lyxtabular version="3" rows="9" columns="8">
 <features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
 <column alignment="left" valignment="top" width="0pt">
 <column alignment="left" valignment="top" width="14col%">
+<column alignment="left" valignment="top" width="14col%">
 <column alignment="left" valignment="top" width="31col%">
 <column alignment="left" valignment="top" width="10col%">
+<column alignment="left" valignment="top" width="15col%">
 <column alignment="left" valignment="top" width="15col%">
 <column alignment="left" valignment="top" width="7col%">
 <row>
@@ -1828,7 +1925,18 @@ Edge Node Type
 \begin_layout Plain Layout
 
 \size scriptsize
-Edge Node Model
+Edge Node Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Short name
 \end_layout
 
 \end_inset
@@ -1862,6 +1970,17 @@ RAM
 
 \size scriptsize
 Conectivity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Battery Capacity (mAh)
 \end_layout
 
 \end_inset
@@ -1902,6 +2021,17 @@ Raspberry Pi 4
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+RPi4
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1935,6 +2065,17 @@ Wi-Fi 802.11ac
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1963,7 +2104,18 @@ Wi-Fi 802.11ac
 \begin_layout Plain Layout
 
 \size scriptsize
-Jetson Nano
+Nvidia Jetson Nano
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+NvJN
 \end_layout
 
 \end_inset
@@ -2002,6 +2154,17 @@ Gigabit Ethernet,
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -2031,6 +2194,17 @@ Gigabit Ethernet,
 
 \size scriptsize
 Gigabyte Brix GB-BRi5H-8250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+GBx
 \end_layout
 
 \end_inset
@@ -2065,6 +2239,17 @@ Intel Quad core i5-8250U
 \size scriptsize
 IEEE 802.11ac,
  Dual Band Wi-Fi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
 \end_layout
 
 \end_inset
@@ -2104,6 +2289,17 @@ Samsung A02
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+SamA02
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2133,6 +2329,17 @@ Quad-core 1.5 GHz Cortex-A53
 
 \size scriptsize
 Wi-Fi 802.11 b/g/n
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4900
 \end_layout
 
 \end_inset
@@ -2170,6 +2377,17 @@ Motorola Moto G6
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MotG6
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2199,6 +2417,17 @@ Octa-core 1.8 GHz Cortex-A53
 
 \size scriptsize
 Wi-Fi 802.11 a/b/g/n
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3000
 \end_layout
 
 \end_inset
@@ -2236,6 +2465,17 @@ Samsung A30
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+SamA30
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2265,6 +2505,17 @@ Octa-core (2x1.8 GHz Cortex-A73 & 6x1.6 GHz Cortex-A53)
 
 \size scriptsize
 Wi-Fi 802.11 a/b/g/n/ac
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3900
 \end_layout
 
 \end_inset
@@ -2302,6 +2553,17 @@ Xiaomi Redmi Note 7
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+XRN7
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2331,6 +2593,17 @@ Octa-core (4x2.2 GHz Kryo 260 Gold & 4x1.8 GHz Kryo 260 Silver)
 
 \size scriptsize
 Wi-Fi 802.11 a/b/g/n/ac
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4000
 \end_layout
 
 \end_inset
@@ -2368,6 +2641,17 @@ Motorola Moto G9 Play
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MotG9
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2401,6 +2685,17 @@ Wi-Fi 802.11 a/b/g/n/ac
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+5000
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -2424,7 +2719,8 @@ Wi-Fi 802.11 a/b/g/n/ac
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Edge computing candidate nodes
+Edge computing nodes:
+ hardware features
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Edge-nodes-features"
@@ -2441,88 +2737,14 @@ name "tab:Edge-nodes-features"
 
 \end_inset
 
- Table
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Edge-nodes-features"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- shows hardware details of resource contrained edge nodes used in the benchmark tests.
- Single board computers (SBC) are assumed to operate plugged to the electric power grid,
- i.e.,
- potentially with infinity energy,
- while smartphones are assumed to exclusively use their batteries as main power source.
- All nodes have multicore processors (SBC with quad-cores and most of smartphones with octa-cores),
- and 802.11 WiFi radio that theoretically is able to reach bandwidth between hundreds of Mbps (norm n) to few Gbps (norm ac).
+ All nodes have multicore processors and 802.11 WiFi radio that theoretically is able to reach bandwidth between hundreds of Mbps (norm n) to few Gbps (norm ac).
  Edge nodes main memory ranges from 2 to 8 GBs.
- As additional information,
- it is also included an estimated per unit adquisition cost in american dollars.
- When searching for cost-effective Dew configurations,
+ In our setups,
+ Single board computers (SBC) operate plugged to the electric power grid,
+ while smartphones operate using the battery as main power source.
+ Additionally we included an estimated per unit adquisition cost in american dollars.
+ When searching for cost-effective configurations,
  the cost can be used as indicator to untie situations where several nodes achieved the desired throughput.
-\end_layout
-
-\begin_layout Standard
-As computing workload,
- we consider dynamic jobs (stream processing),
- concretely images streams that can be associated to machine vision tasks.
- We assumed latency-sensitive application scenarios of different domains that require real time response where the latter derived from inferences made with pre-trained deep learning models.
- 
-\end_layout
-
-\begin_layout Standard
-For setting up and executing benchmark tests,
- comprising tasks such as cluster formation,
- charge/discharge devices battery,
- deep learning models deployment,
- stream dynamics repetition,
- resuts collection and sumarization,
- we employed a tool set that combines open source software
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "hirsch2021platform,yannibelli2023speeding"
-literal "false"
-
-\end_inset
-
- and hardware
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "toloza2022motrol"
-literal "false"
-
-\end_inset
-
- modules designed and developed by our team that allow us to perform and repeat in-vitro evaluations,
- i.e.,
- using real mobile devices,
- to compute real jobs with full control over physical devices and experimental variables such as battery level,
- devices externally injected and user load,
- wifi signal strenght,
- among others.
-\end_layout
-
-\begin_layout Standard
-The metrics we used to compare both Dew Computing approaches are:
- processing delay (w.r.t stream duration) and total energy consumption.
- Additionally for tests involving resource provision with a cluster of mobile devices,
- we report fairness to give insights of intra-cluster energy utilization.
 \end_layout
 
 \begin_layout Standard
@@ -2593,7 +2815,7 @@ name "subsec:DNN-models-benchmarking"
 \end_layout
 
 \begin_layout Standard
-Benchmarking is a relevant task to approximate nodes performance in solving a specific task and this is what we did for nodes in Table
+Benchmarking is a relevant task to approximate nodes performance in solving a specific task and this procedure was done for nodes in Table
 \begin_inset space ~
 \end_inset
 
@@ -2640,40 +2862,33 @@ https://www.tensorflow.org/lite/performance/measurement
  It worth mention that all inferences times reported in this paper are on the basis of using CPU support.
  Even though today there is especialized hardware,
  sometimes referred as AI hardware accelerators to run AI logic faster than with general purpose hardware like CPU,
- there are some practical limitations including library support for different platforms and propietary chips embeed only in high-end smartphones of certain brands that ralentless the massively use
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Si dejamos esta frase estaría bueno enfatizar en varias partes del texto que apuntamos a medir las capacidades de Dew en su expresión que permite llegar a la mayor parte de los usuarios (leasé a usuarios que de mínima tienen un cpu en sus bolsillos).
-\end_layout
-
-\end_inset
-
- of Dew Computing as we envision.
+ there are some practical limitations including library support for different platforms and propietary chips embeed only in high-end smartphones of certain brands that ralentless the massively use of mobile distributed computing as we envision.
 \end_layout
 
 \begin_layout Standard
 The notion of real time is context dependent and depending on the application an ever-present time delay of a few seconds satisfies the notion of real time.
- For this reason and with the aim of evaluating Dew Computing capabilities for potential different application scenarios,
+ For this reason and with the aim of evaluating smartphone based settings for potential different application scenarios,
  i.e.,
  with different real-time notions,
- we used three DNN models that between them present quite disimil inferences times.
+ we used three DNN models that present quite disimil inferences times.
  It not part of the evaluation core to test DNN models in their most efficient version,
  i.e.,
- we do not aim to test and improve models performance per se,
- although in a real implementation it is relevant to considered.
+ we do not aim to test and improve models performance per se.
  Conversely,
- our objective is to compare the execution capabilities of edge devices and distributed systems composed by collaborating end user devices.
+ our objective is to compare the performance achieved with edge devices and smartphone based opportunistic clusters.
 \end_layout
 
 \begin_layout Standard
-All models used in benchmark tests take images as input and produce text as output,
+All models used in benchmark tests are pretrained models that take images as input and produce text as output,
  where text refers to bounding boxes,
  classes and confidence levels of recognized objects,
  or categories of a unique object depending on the purpose the model was trained for.
- One of the models is the widely known,
- publicly available YoloV4
+ To test different mobile distributed computing scenarios,
+ we intentionally selected models that,
+ when used to make inferences,
+ present dismil computing time.
+ In this sense,
+ one of the models is YoloV4
 \begin_inset Foot
 status open
 
@@ -2683,7 +2898,7 @@ https://github.com/hunglc007/tensorflow-yolov4-tflite
 
 \end_inset
 
- used to perform object detection.
+ used to perform real-time object detection.
  Figure
 \begin_inset space ~
 \end_inset
@@ -2706,8 +2921,7 @@ nolink "false"
  i.e.,
  is able to process up to 4 FPS which doubles the capability of a RaspberryPi4,
  but is slower than a Gigabyte Brix which reaches nearly 10 FPS.
- Other of the benchmarked models used in experiments was proposed to make milk cows scoring to differentiate healthy and not healthy cow groups.
- The model encapsulate expert knowledge on the determination of what is known as Body Condition Score (BCS)
+ Other of the benchmarked models encapsulate expert knowledge in what is known as Body Condition Score (BCS)
 \begin_inset space ~
 \end_inset
 
@@ -2719,7 +2933,8 @@ literal "false"
 
 \end_inset
 
-.
+ and was proposed to score milk cows to differentiate healthy and not healthy cow groups.
+ The model uses squeezeNet as base architecture.
  Figure
 \begin_inset space ~
 \end_inset
@@ -2766,24 +2981,7 @@ nolink "false"
  a Xiaomi RN7 completes inferences in 248,
  184 and 1470 milliseconds using yolov4 model,
  BCS model and diabetes foot model respectively.
- These differences were intentionally searched to test Dew Computing capabilities in heterogeneous computing scenarios.
- Such heterogeneity resides in models anatomy.
- Table
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:DNN_Models-characterization"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- shows layers count discriminated by type and total number of layers each model presents.
+ 
 \change_inserted -997162125 1681488369
 
 \begin_inset Note Note
@@ -2815,22 +3013,31 @@ capa
 
 \end_layout
 
+\begin_layout Plain Layout
+The reported times are to some extent relates to the total layers of each model.
+ and particularly CONV layers which is within the most time-consuming layers in CNNs representing a considerable portion of the computing time an inference takes
+\begin_inset space ~
 \end_inset
 
 
-\change_deleted -997162125 1683724975
- 
-\change_unchanged
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kang2017neurosurgeon"
+literal "false"
 
+\end_inset
+
+.
+ It helps to explain the reason behind the difference in inference times between models.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float table
+\begin_layout Plain Layout
+\begin_inset Float figure
 placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2848,7 +3055,7 @@ status open
 \begin_layout Plain Layout
 
 \size scriptsize
-Operator
+Layer/CNN Model
 \end_layout
 
 \end_inset
@@ -2859,7 +3066,8 @@ Operator
 \begin_layout Plain Layout
 
 \size scriptsize
-YoloV4
+BCS (base arch.
+ SqueezeNet)
 \end_layout
 
 \end_inset
@@ -2870,7 +3078,8 @@ YoloV4
 \begin_layout Plain Layout
 
 \size scriptsize
-BCS
+SWT (base arch.
+ YoloV4)
 \end_layout
 
 \end_inset
@@ -2881,7 +3090,8 @@ BCS
 \begin_layout Plain Layout
 
 \size scriptsize
-Diabetes
+Diabetes (base arch.
+ EfficientNetB4)
 \end_layout
 
 \end_inset
@@ -2905,7 +3115,7 @@ CONV_2D
 \begin_layout Plain Layout
 
 \size scriptsize
-21
+26
 \end_layout
 
 \end_inset
@@ -2916,7 +3126,7 @@ CONV_2D
 \begin_layout Plain Layout
 
 \size scriptsize
-26
+21
 \end_layout
 
 \end_inset
@@ -2997,7 +3207,7 @@ CONCATENATION
 \begin_layout Plain Layout
 
 \size scriptsize
-17
+8
 \end_layout
 
 \end_inset
@@ -3008,7 +3218,7 @@ CONCATENATION
 \begin_layout Plain Layout
 
 \size scriptsize
-8
+17
 \end_layout
 
 \end_inset
@@ -3043,7 +3253,7 @@ RELU
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+8
 \end_layout
 
 \end_inset
@@ -3054,7 +3264,7 @@ RELU
 \begin_layout Plain Layout
 
 \size scriptsize
-8
+0
 \end_layout
 
 \end_inset
@@ -3089,7 +3299,7 @@ MEAN
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+1
 \end_layout
 
 \end_inset
@@ -3100,7 +3310,7 @@ MEAN
 \begin_layout Plain Layout
 
 \size scriptsize
-1
+0
 \end_layout
 
 \end_inset
@@ -3135,7 +3345,7 @@ SOFTMAX
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+1
 \end_layout
 
 \end_inset
@@ -3146,7 +3356,7 @@ SOFTMAX
 \begin_layout Plain Layout
 
 \size scriptsize
-1
+0
 \end_layout
 
 \end_inset
@@ -3227,7 +3437,7 @@ MUL
 \begin_layout Plain Layout
 
 \size scriptsize
-24
+0
 \end_layout
 
 \end_inset
@@ -3238,7 +3448,7 @@ MUL
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+24
 \end_layout
 
 \end_inset
@@ -3319,7 +3529,7 @@ PAD
 \begin_layout Plain Layout
 
 \size scriptsize
-2
+0
 \end_layout
 
 \end_inset
@@ -3330,7 +3540,7 @@ PAD
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+2
 \end_layout
 
 \end_inset
@@ -3365,7 +3575,7 @@ ADD
 \begin_layout Plain Layout
 
 \size scriptsize
-6
+0
 \end_layout
 
 \end_inset
@@ -3376,7 +3586,7 @@ ADD
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+6
 \end_layout
 
 \end_inset
@@ -3411,7 +3621,7 @@ SUB
 \begin_layout Plain Layout
 
 \size scriptsize
-6
+0
 \end_layout
 
 \end_inset
@@ -3422,7 +3632,7 @@ SUB
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+6
 \end_layout
 
 \end_inset
@@ -3457,7 +3667,7 @@ RESHAPE
 \begin_layout Plain Layout
 
 \size scriptsize
-18
+0
 \end_layout
 
 \end_inset
@@ -3468,7 +3678,7 @@ RESHAPE
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+18
 \end_layout
 
 \end_inset
@@ -3687,7 +3897,7 @@ LEAKY_RELU
 \begin_layout Plain Layout
 
 \size scriptsize
-19
+0
 \end_layout
 
 \end_inset
@@ -3698,7 +3908,7 @@ LEAKY_RELU
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+19
 \end_layout
 
 \end_inset
@@ -3733,7 +3943,7 @@ SPLIT
 \begin_layout Plain Layout
 
 \size scriptsize
-3
+0
 \end_layout
 
 \end_inset
@@ -3744,7 +3954,7 @@ SPLIT
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+3
 \end_layout
 
 \end_inset
@@ -3779,7 +3989,7 @@ LOGISTIC
 \begin_layout Plain Layout
 
 \size scriptsize
-12
+0
 \end_layout
 
 \end_inset
@@ -3790,7 +4000,7 @@ LOGISTIC
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+12
 \end_layout
 
 \end_inset
@@ -3825,7 +4035,7 @@ RESIZE_BILINEAR
 \begin_layout Plain Layout
 
 \size scriptsize
-1
+0
 \end_layout
 
 \end_inset
@@ -3836,7 +4046,7 @@ RESIZE_BILINEAR
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+1
 \end_layout
 
 \end_inset
@@ -3871,7 +4081,7 @@ SPLIT_V
 \begin_layout Plain Layout
 
 \size scriptsize
-2
+0
 \end_layout
 
 \end_inset
@@ -3882,7 +4092,7 @@ SPLIT_V
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+2
 \end_layout
 
 \end_inset
@@ -3917,7 +4127,7 @@ STRIDED_SLICE
 \begin_layout Plain Layout
 
 \size scriptsize
-12
+0
 \end_layout
 
 \end_inset
@@ -3928,7 +4138,7 @@ STRIDED_SLICE
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+12
 \end_layout
 
 \end_inset
@@ -3963,7 +4173,7 @@ EXP
 \begin_layout Plain Layout
 
 \size scriptsize
-6
+0
 \end_layout
 
 \end_inset
@@ -3974,7 +4184,7 @@ EXP
 \begin_layout Plain Layout
 
 \size scriptsize
-0
+6
 \end_layout
 
 \end_inset
@@ -4009,7 +4219,7 @@ Total layers number
 \begin_layout Plain Layout
 
 \size scriptsize
-152
+47
 \end_layout
 
 \end_inset
@@ -4020,7 +4230,7 @@ Total layers number
 \begin_layout Plain Layout
 
 \size scriptsize
-47
+152
 \end_layout
 
 \end_inset
@@ -4048,7 +4258,7 @@ Total layers number
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Models outline
+Models characterization
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:DNN_Models-characterization"
@@ -4063,12 +4273,17 @@ name "tab:DNN_Models-characterization"
 
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
+
+\change_deleted -997162125 1683724975
+ 
+\change_unchanged
 
 \end_layout
 
@@ -4127,30 +4342,18 @@ literal "false"
 
 
 \change_unchanged
- Based on the fact that deep learning models of section
-\begin_inset space ~
-\end_inset
+In this section we describe workloads associated to machine vision tasks that must be performed over a stream-like input.
+ Machine vision tasks such as object detection and classification using CNNs are commonly applied in diverse domains.
+\begin_inset Note Note
+status collapsed
 
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:DNN-models-benchmarking"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- use images as input,
- we consider workloads that can be associated to machine vision tasks and depend on a stream-like input.
- Machine vision tasks such as object detection and classification using deep learning are commonly applied in diverse domains.
- However,
+\begin_layout Plain Layout
+However,
  due to imperfections on the training data,
  input data capaturing devices,
- problem specific constrains like tracking or identify moving subjects,
+ problem specific constrains like tracking or identify moving objects,
  etc.,
- make machine vision systems to produce outputs based on multiple frames more than on a single shot frame which is used to disambiguate erroneous inferences and improve output accuracy
+ make machine vision systems to produce outputs based on multiple frames more than on a single shot frame which is used to disambiguate noisy input and improve output accuracy
 \begin_inset space ~
 \end_inset
 
@@ -4163,13 +4366,17 @@ literal "false"
 \end_inset
 
 .
- To complete the experimental setting of our dew computing scenario,
- we consider video frames streams printing different workload to the execution system.
+\end_layout
+
+\end_inset
+
+ To complete the experimental setting,
+ we consider video frames streams of different lenght and distinct frame rate that serve as input to the CNN models described above and in conjuntion both things shape heterogeneous workloads to the of our mobile distributed computing execution system.
 \end_layout
 
 \begin_layout Standard
 Without loosing generality,
- we associate each model-stream pair a different domains/usage contexts where Dew Computing could be applied.
+ we associate each model-stream pair different domain/usage contexts.
  These domains are:
  a smart city application scenario that we call 
 \begin_inset Quotes eld
@@ -4188,16 +4395,16 @@ Body Condition Score
 \begin_inset Quotes erd
 \end_inset
 
- and a health monitoring application scenario called 
+ and a human healthcare monitoring application scenario called 
 \begin_inset Quotes eld
 \end_inset
 
-E-health early diagnosis
+Desease Monitoring and Early Diagnosis
 \begin_inset Quotes erd
 \end_inset
 
 .
- Next we describe the workload dynamics of each scenario:
+ Next we describe the dynamics of each scenario that give sense to the stream-like input assumed:
 \begin_inset Note Note
 status collapsed
 
@@ -4214,25 +4421,29 @@ Categorizar streams y rates de sampleo de los streams de acuerdo a la frecuencia
 Sense while Travel (SWT):
  a city can take advantage of mobile agents such as urban line buses to collect information of relevant street events while traveling,
  e.g.,
- for statistical purposes.
- Images captured with a bus front camera might feed a YOLO v4 model which,
+ for statistical purposes,
+ crime detection,
+ infrastructure maintenance planning,
+ etc.
+ Images captured with a bus front camera might feed a YOLO model which,
  as output,
- gives a plain text representation of objects class found in an image and the accuracy percentage of each detected object class.
+ gives a plain text representation of objects present in an image and the accuracy percentage of each detected object class.
  An energy eficient way to achieve this without having to process a large amount of frames with redundant information,
  is to cleverly select a sample rate accordingly with the expected moving change of detection target.
- Without loosing generality,
- we state this sample rate in 2 FPS and evaluate the system for a stream of 30 minutes lenght.
- These parameters equates approximately to have 15 km of sensed data when the stream is produced by a vehicle travelling at 30 km/h.
+ We assume this sample rate in 2 FPS and evaluate the system performance for a stream of 30 minutes lenght.
+ These parameters equates approximately to sensed data of 15 km of a road assuming a vehicle travelling at 30 km/h.
+ In summary,
+ the stream describing this scenario includes 3600 images given within a time window of 30' minutes.
 \end_layout
 
 \begin_layout Itemize
-Body Condition Score (BCS):
+Body Condition Score Calculus (BCS):
  in a dairy farm,
  outfitted cows,
  i.e.,
  cows that are either overweighted or underweighted tend to produce less milk than those properly weighted.
  Identify such animals to give them a proper treatment is crucial to maintain the cow roundup fully productive.
- To identify such animals a DNN model is used which takes depth images taken from top of a cow with a camera strategically positioned
+ To classify such animals a CNN model is used which takes depth images taken from top of a cow with a camera strategically positioned
 \begin_inset space ~
 \end_inset
 
@@ -4251,38 +4462,33 @@ literal "false"
  a high percent of captured images,
  e.g.
  a 50%,
- is expected to be have to be tagged and filtered as not useful input for the DNN model.
+ is expected to be have to be tagged and filtered as not useful input for the CNN model.
  Moreover,
  during the transition of one animal to the next under the lens of camera,
  which can take 10 seconds in average,
  it is proper to stop capturing images.
  To make the body condition score calculus feasible,
  realiable,
- and energy effienct it is proper to count with no less than a hundred of frames ready to serve as input for the DNN model,
+ and energy effienct it is proper to count with no less than a hundred of frames ready to serve as input for the CNN model,
  from each cow.
  All these constraints configure a stream processing scenario where depth images can be produced at a sample rate of 15 FPS during 10 seconds,
  followed by other 10 seconds where none images are captured.
+ In summary,
+ the stream describing this scenario includes 1740 images given within a time window of 3' minutes and 34'' seconds.
 \end_layout
 
 \begin_layout Itemize
-E-health early diagnosis (EED):
- periodically,
- older people in a nursing home subject themselves to control different health parameters as a way to prevent the appearance of some pathology or monitoring a pre-existence illnees.
- We envision an advanced e-health scenario where a DNN model encapsulates medicine expert knowledge to allow,
- e.g.
- 
-\change_deleted -997162125 1683813476
- 
-\change_unchanged
-diabetes diagnosis using foot images.,
- Imaging an encounter of a nurse in which as part of the healthcare service consist in taking pictures in burst of all patients feet resulting in a stream of images with the a shape of 10 FPS during 2 seconds followed by 7 seconds without images capturing.
+Disease Monitoring and Early Diagnosis (DMED):
+ We envision a remote monitoring m-health scenario where a CNN model encapsulates expert knowledge on different patologies to allow people,
+ e.g.,
+ older people receiving intensive care services,
+ to analize different health parameters as a way to prevent the appearance of some pathology or monitoring a pre-existence illnees.
+ We assume an scenario where a caregiver or nurse rendering services in an eldery residence is assigned with the task of taking pictures of all patients foot tissue resulting in a stream of images with the a shape of 10 FPS during 2 seconds with pauses of 7 seconds without images capturing.
+ In summary,
+ the stream describing this scenario includes 600 images given within a time window of 8' minutes and 55'' seconds.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -997162125 1683816205
-The dynamics described above are 
-\change_unchanged
 Figures
 \begin_inset space ~
 \end_inset
@@ -4309,8 +4515,11 @@ nolink "false"
 
 \end_inset
 
- on one side,
- and figures
+ show a timeline representation of the data stream shape,
+ i.e.,
+ the kilobytes of data produced per second,
+ and an example of the input for the CNN used in the Body Condition Score Calculus scenario.
+ Similar information can be found in figures
 \begin_inset space ~
 \end_inset
 
@@ -4325,7 +4534,8 @@ nolink "false"
 
 \end_inset
 
- and 
+,
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:street-image-example"
@@ -4336,8 +4546,190 @@ nolink "false"
 
 \end_inset
 
- on the other side,
- show a timeline representation of the data kilobytes produced by a stream and an example of the DNN input image for Sense While Travel and Body Condition Score Calculus scenarios respectively.
+ and figures
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Foot-images-stream-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Foot-image-example-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for SWT and DMED scenarios respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/cow_images.84.png
+	scale 32
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cow image example
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cow-image-example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align right
+\begin_inset Graphics
+	filename figures/BCS_xnnpack_true.png
+	scale 35
+	BoundingBox 0bp 50bp 1050bp 600bp
+	clip
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cow BCS CNN model benchmarking
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cow-BCS-Benchmarking"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/cow_bcs_stream_exerpt.eps
+	scale 35
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cow images stream
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cow-images-stream"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+BCS - workload characterization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4395,7 +4787,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -4413,7 +4805,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-YoloV4 tiny DNN model benchmarking
+YoloV4 tiny CNN model benchmarking
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:YoloV4-benchmarking"
@@ -4513,165 +4905,6 @@ SWT - workload characterization
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename figures/cow_images.84.png
-	scale 32
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Cow image example
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Cow-image-example"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\noindent
-\align right
-\begin_inset Graphics
-	filename figures/BCS_xnnpack_true.png
-	scale 35
-	BoundingBox 0bp 50bp 1050bp 600bp
-	clip
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Cow BCS DNN model benchmarking
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Cow-BCS-Benchmarking"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/cow_bcs_stream_exerpt.eps
-	scale 35
-	clip
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Cow images stream
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Cow-images-stream"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-BCS - workload characterization
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement document
 alignment document
@@ -4726,7 +4959,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4745,7 +4978,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Foot image DNN model benchmarking
+Foot image CNN model benchmarking
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Foot-Benchmarking"
@@ -4772,7 +5005,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4814,7 +5047,7 @@ name "fig:Foot-images-stream-1"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-EED - workload characterization
+DMED - workload characterization
 \end_layout
 
 \end_inset
@@ -4828,13 +5061,983 @@ EED - workload characterization
 \end_layout
 
 \begin_layout Standard
-Irrespective of the application domain,
- the three examples represent streams with different characteristics not only by the dynamics of input image generation but also the computing power required to perform inferences.
+Irrespective of the domain,
+ these application example scenarios present streams with different characteristics not only by the dynamics of input generation but also the computing capability required to perform inferences.
  In addition,
  it is assumed that inferences results should be available at the master node with minimun delay,
  i.e.,
- as close as possible to a real time detection,
- which is a characteristic of computing services provided at edge.
+ as close as possible to a real time detection.
+\end_layout
+
+\begin_layout Subsection
+Experiments setup and metrics
+\end_layout
+
+\begin_layout Standard
+For setting up and executing tests we employed a tool set that combines several open source software
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hirsch2021platform,yannibelli2023speeding"
+literal "false"
+
+\end_inset
+
+ and hardware
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "toloza2022motrol"
+literal "false"
+
+\end_inset
+
+ modules.
+ The tool set allow us to automate tasks involved in experimenting with smartphones and real workload including cluster formation,
+ devices preparation (battery charge/discharge actions),
+ deep learning models deployment,
+ stream dynamics reproducibility,
+ collection and summarization of results.
+\end_layout
+
+\begin_layout Standard
+Workload in edge computing and IoT scenarios,
+ is commonly compute with edge nodes such as SBC.
+ In the benchmarks we compare performance of several SBC-based and smartphone-based setups to complete the workloads described in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:workload-characterization"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+Edge Setup
+\begin_inset Quotes erd
+\end_inset
+
+ column in Tables
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:BCS-Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:SWT-Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:DMED-Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ differentiates both setups.
+ Considering that smartphone-based setups comprise clusters of smartphones,
+ Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Smartphone-based-setups-details"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ expands on the model and battery information of nodes integrating each cluster.
+ All clusters present a single instance of each smartphone model.
+ Smartphone models values are indicated using a short name that can be found in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Edge-nodes-features"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The order that short names values appear in a row correspond to the order in which Initial Battery Level values appear.
+ The latter were randomly chosen.
+ Cluster heterogeneity arises from the combination of smartphones quantity,
+ models and initial battery levels.
+ Max.
+ Cluster Energy and Initial Cluster Energy,
+ both expressed in Joules,
+ as well as,
+ Initial Cluster Battery expressed in %,
+ all derived from individual smartphones data,
+ complements the cluster information.
+\end_layout
+
+\begin_layout Standard
+We report makespan and total energy consumption.
+ Additionally for smartphone based setups,
+ we report Fairness as a metric that sumarizes intra-cluster energy utilization.
+ Since all smartphone-based setups comprise clusters of at least two heterogenous smartphones,
+ it was necesary to indicate the load balancing strategy used to distribute load.
+ For this reason,
+ all smartphone-based setups contain Round Robin or Pull-Based in the load balancing column.
+ Round Robin is a classic load balancing strategy that assigns an incomming job to the next available node in a rotating sequence,
+ ensuring workload is evently distributed among all participating devices.
+ By contrast,
+ with a Pull-Based approach jobs are pulled by nodes from a shared queue based on their availability.
+ In our configurations,
+ nodes were configured to pull at most one job per request.
+ In turn,
+ a node is able to make a request when the result of the previouly pulled job was sent back to the proxy i.e.,
+ the job is marked by the system as complete.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="7">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cluster ID
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cluster size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Smartphones models
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Initial Battery Levels %
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Initial Cluster Energy (Joules)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Max.
+ Cluster Energy (Joules)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Initial Cluster Battery %
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 304
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MotG6,
+ XRN7,
+ MotG9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+77,
+ 25,
+ 53
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+81712.80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+164880
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+49.55
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 409
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MotG6,
+ SamA30,
+ XRN7,
+ MotG9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+88,
+ 80,
+ 38,
+ 49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+133941.6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+218934
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+61.18
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 202
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+XRN7,
+ MotG9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+87,
+ 75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+99532.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+123840
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+80.37
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 302
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+SamA30,
+ SamA02,
+ MotG9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+27,
+ 45,
+ 60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+86195.88
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+190368
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+45.28
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 301
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+SamA30,
+ XRN7,
+ MotG9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+27,
+ 45,
+ 60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+80582.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+177894
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+45.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 408
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MotG6,
+ SamA30,
+ XRN7,
+ MotG9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+30,
+ 27,
+ 45,
+ 60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+92894.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+218934
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+42.43
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 305
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MotG9,
+ MotG6,
+ SamA30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+54,
+ 92,
+ 25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+88206.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+163494
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+53.95
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cluster 411
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MotG6,
+ SamA30,
+ XRN7,
+ MotG9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+25,
+ 52,
+ 44,
+ 38
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+88753.68
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+218934
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+40.54
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Smartphone-based setups details
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Smartphone-based-setups-details"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -4859,1031 +6062,32 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="12" columns="7">
-<features booktabs="true" tabularvalignment="middle">
-<column alignment="left" valignment="top" width="9page%">
-<column alignment="left" valignment="top" width="7page%">
-<column alignment="left" valignment="top" width="8page%">
-<column alignment="left" valignment="top" width="10page%">
-<column alignment="left" valignment="top" width="7page%">
-<column alignment="left" valignment="top" width="7page%">
-<column alignment="left" valignment="top" width="7page%">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Edge Node
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Max.
- Batt.
- (mAh)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Init.
- Energy (%)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Load Balancing
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Makespan (mins)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Jain's Fairness Index
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Consumed Energy (%)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Raspberry pi 4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-63.2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Jetson Nano
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-34.27
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Gigabyte Brix
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-30.14
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Cluster 202
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-9000
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-80.33
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Round Robin
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-45.28
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.924
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-6.77
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Pull Based
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-44.66
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.924
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-6.77
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Cluster 302
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-13800
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-45.35
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Round Robin
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-41.53
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.933
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-4.63
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Pull Based
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-32.34
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-0.96
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-3.92
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Cluster 301
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-12900
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-45.37
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Round Robin
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-30.76
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-0.96
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-3.92
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Pull Based
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-30.42
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.896
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-3.53
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Cluster 408
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-15900
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-42.47
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Round Robin
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-30.41
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-0.907
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-3.31
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Pull Based
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-30.24
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.818
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-2.80
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Sense while travel scenario (30 minutes stream)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="7">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="9page%">
-<column alignment="left" valignment="top" width="7page%">
-<column alignment="left" valignment="top" width="7page%">
+<column alignment="left" valignment="top" width="9page%">
 <column alignment="left" valignment="top" width="10page%">
 <column alignment="left" valignment="top" width="7page%">
 <column alignment="left" valignment="top" width="7page%">
 <column alignment="left" valignment="top" width="7page%">
+<column alignment="left" valignment="top" width="7page%">
 <row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell multicolumn="1" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
-Edge Node
+Edge Setup
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell multicolumn="2" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size scriptsize
-Max.
- Energy (mAh)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Init.
- Energy (%)
 \end_layout
 
 \end_inset
@@ -5905,7 +6109,7 @@ Load Balancing
 \begin_layout Plain Layout
 
 \size scriptsize
-Makespan (mins)
+Makespan - Stream Time (mins)
 \end_layout
 
 \end_inset
@@ -5927,20 +6131,31 @@ Jain's Fairness Index
 \begin_layout Plain Layout
 
 \size scriptsize
-Consumed Energy (%)
+Cluster Consumed Battery (%)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Consumed Energy (Joules)
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
-Raspberry pi 4
+SBC-based
 \end_layout
 
 \end_inset
@@ -5951,21 +6166,7 @@ Raspberry pi 4
 \begin_layout Plain Layout
 
 \size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
+RPi4
 \end_layout
 
 \end_inset
@@ -5987,7 +6188,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-26.92
+24.45
 \end_layout
 
 \end_inset
@@ -6010,32 +6211,27 @@ N/A
 
 \size scriptsize
 N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3501.97
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size scriptsize
-Jetson Nano
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
 
 \end_layout
 
@@ -6047,7 +6243,7 @@ Jetson Nano
 \begin_layout Plain Layout
 
 \size scriptsize
-N/A
+NvJN
 \end_layout
 
 \end_inset
@@ -6068,6 +6264,8 @@ N/A
 
 \begin_layout Plain Layout
 
+\size scriptsize
+6.86
 \end_layout
 
 \end_inset
@@ -6090,32 +6288,27 @@ N/A
 
 \size scriptsize
 N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2147.13
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size scriptsize
-Gigabyte Brix
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
 
 \end_layout
 
@@ -6127,7 +6320,7 @@ Gigabyte Brix
 \begin_layout Plain Layout
 
 \size scriptsize
-N/A
+GBx
 \end_layout
 
 \end_inset
@@ -6177,37 +6370,35 @@ N/A
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Smartphone-based
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
 Cluster 304
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-12000
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-49.4
 \end_layout
 
 \end_inset
@@ -6251,23 +6442,25 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-volver a correr
+1.42
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2341.29
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6329,37 +6522,35 @@ Pull Based
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2605.10
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
 Cluster 409
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-15900
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-61.2
 \end_layout
 
 \end_inset
@@ -6403,14 +6594,25 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-0.68
+0.69
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1510.64
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6419,16 +6621,7 @@ Round Robin
 
 \end_inset
 </cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell multirow="4" alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6476,7 +6669,18 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-0.68
+0.69
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1510.64
 \end_layout
 
 \end_inset
@@ -6493,7 +6697,984 @@ Pull Based
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Body Condition Score scenario (03:50 minutes stream)
+Body Condition Score Calculus scenario (03:50 minutes data stream)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:BCS-Results"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="7">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="9page%">
+<column alignment="left" valignment="top" width="9page%">
+<column alignment="left" valignment="top" width="10page%">
+<column alignment="left" valignment="top" width="7page%">
+<column alignment="left" valignment="top" width="7page%">
+<column alignment="left" valignment="top" width="7page%">
+<column alignment="left" valignment="top" width="7page%">
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Edge Setup
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Load Balancing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Makespan - Stream Time (mins)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Jain's Fairness Index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cluster Consumed Battery (%)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Consumed Energy (Joules)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+SBC-based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+RPi4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+63.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+14827.11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+NvJN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+34.27
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+10246.13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+GBx
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+30.14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Smartphone-based
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cluster 202
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Round Robin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+45.28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.924
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+8408.74
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Pull Based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+44.66
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.924
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+8408.74
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cluster 302
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Round Robin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+41.53
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.933
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4.64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+8833.07
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Pull Based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+32.34
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.92
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+7462,43
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cluster 301
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Round Robin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+30.76
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6991.23
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Pull Based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+30.42
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.896
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.54
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6297.45
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cluster 408
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Round Robin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+30.41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.907
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+7268.61
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Pull Based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+30.24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.818
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.81
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6152.04
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sense while travel scenario (30 minutes data stream)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:SWT-Results"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6517,44 +7698,29 @@ status open
 <lyxtabular version="3" rows="8" columns="7">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="10page%">
-<column alignment="left" valignment="top" width="7page%">
-<column alignment="left" valignment="top" width="7page%">
+<column alignment="left" valignment="top" width="10page%">
 <column alignment="left" valignment="top" width="10page%">
 <column alignment="left" valignment="top" width="7page%">
 <column alignment="left" valignment="top" width="7page%">
 <column alignment="left" valignment="top" width="7page%">
+<column alignment="left" valignment="top" width="7page%">
 <row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell multicolumn="1" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
-Edge Node
+Edge Setup
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell multicolumn="2" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size scriptsize
-Max.
- Energy (mAh)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Init.
- Energy (%)
 \end_layout
 
 \end_inset
@@ -6576,7 +7742,7 @@ Load Balancing
 \begin_layout Plain Layout
 
 \size scriptsize
-Makespan (mins)
+Makespan - Stream Time (mins)
 \end_layout
 
 \end_inset
@@ -6598,20 +7764,31 @@ Jain's Fairness Index
 \begin_layout Plain Layout
 
 \size scriptsize
-Consumed Energy (%)
+Cluster Consumed Battery (%)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Consumed Energy (Joules)
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
-Raspberry pi 4
+SBC-based
 \end_layout
 
 \end_inset
@@ -6622,21 +7799,7 @@ Raspberry pi 4
 \begin_layout Plain Layout
 
 \size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-N/A
+RPi4
 \end_layout
 
 \end_inset
@@ -6658,7 +7821,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-27.72
+30.93
 \end_layout
 
 \end_inset
@@ -6681,32 +7844,27 @@ N/A
 
 \size scriptsize
 N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6302.99
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size scriptsize
-Jetson Nano
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
 
 \end_layout
 
@@ -6718,7 +7876,7 @@ Jetson Nano
 \begin_layout Plain Layout
 
 \size scriptsize
-N/A
+NvJN
 \end_layout
 
 \end_inset
@@ -6739,6 +7897,8 @@ N/A
 
 \begin_layout Plain Layout
 
+\size scriptsize
+16.08
 \end_layout
 
 \end_inset
@@ -6761,32 +7921,27 @@ N/A
 
 \size scriptsize
 N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3733.47
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size scriptsize
-Gigabyte Brix
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Formula $\infty$
-\end_inset
-
 
 \end_layout
 
@@ -6798,7 +7953,7 @@ Gigabyte Brix
 \begin_layout Plain Layout
 
 \size scriptsize
-N/A
+GBx
 \end_layout
 
 \end_inset
@@ -6848,6 +8003,15 @@ N/A
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
@@ -6856,29 +8020,18 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
+Smartphone-based
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 Cluster 305
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-11900
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-54.1
 \end_layout
 
 \end_inset
@@ -6927,27 +8080,29 @@ Round Robin
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3122.73
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
 <cell multirow="4" alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -7000,8 +8155,28 @@ Pull Based
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2583.20
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
 <cell multirow="3" alignment="left" valignment="middle" bottomline="true" usebox="none">
 \begin_inset Text
 
@@ -7009,28 +8184,6 @@ Pull Based
 
 \size scriptsize
 Cluster 411
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-15900
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-40.5
 \end_layout
 
 \end_inset
@@ -7074,14 +8227,25 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-2.3
+2.32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+5079.27
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -7090,16 +8254,7 @@ Round Robin
 
 \end_inset
 </cell>
-<cell multirow="4" alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell multirow="4" alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -7147,7 +8302,18 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-1.4
+1.44
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3152.65
 \end_layout
 
 \end_inset
@@ -7164,7 +8330,14 @@ Pull Based
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-E-health early detection scenario (08:55 minutes stream)
+Disease Monitoring and Early Diagnosis scenario (08:55 minutes data stream)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:DMED-Results"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -7178,13 +8351,78 @@ E-health early detection scenario (08:55 minutes stream)
 \end_layout
 
 \begin_layout Standard
-In all scenarios,
- the best makespan was obtained when using a pull-based load balancing scheme.
- With such scheme,
- as soon as a worker node finishes a work unit and the corresponding result is received by the master,
- the worker node is able to pull another work units from a common queue.
- The work completion delivering rate adapts to the job completion rate of participating nodes.
- 
+To compare real-time response of all setups,
+ we measure how much makespan differs from the stream duration.
+ The nearest to zero difference,
+ the better the execution capability qualifies as real time.
+ By comparing this indicator among all SBC-based setups,
+ it is observed that,
+ in all scenarios,
+ the Gigabyte Brix hardware performs the best followed by Nvidia Jetson Nano in and the Raspberry Pi 4 in second and third place respectively.
+ Moreover,
+ when comparing the different smartphone-base setups,
+ we found that pull-based load balancing scheme achieves lower makespan than setups using round robin.
+ This is because using pull-based allow the system to approtions the workload in accordance availability and computing capability of worker nodes.
+ In other words,
+ as a worker node finishes a job unit and push the result to the master node,
+ it is able to pull from a shared queue and start working on another job unit.
+ With this load balancing scheme,
+ for BCS scenario,
+ Cluster 409 is competitive in terms of makespan w.r.t the GBx SBC-based setup.
+\end_layout
+
+\begin_layout Standard
+When comparing load balancing strategies in table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:BCS-Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ some observations emerge.
+ For example,
+ when computing resources are scarce or insuficient to cope with real time processing,
+ e.g.
+ Cluster 304,
+ it is observed that by using round robin,
+ the whole processing not only takes longer than with a pull-based approach but also devices battery usage is less balanced than when using pull-based according to the fairness indicator.
+ On the contrary,
+ Cluster 409 presents sufficient computing resources to deliver a realtime processing,
+ which is true when using a pull-based approach but not when using Round Robin.
+ Energy consumed and Fairness remain the same independently of the load balancing strategy.
+\end_layout
+
+\begin_layout Standard
+In table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:BCS-Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ which shows the results for SWT scenario there are observed different situations.
+ For instance,
+ with Cluster 202,
+ which seems insuficcient to deliver a real time performance both load balancing strategies perform very similar in all indicators.
+ This can be explained by the fact that the cluster is composed by devices that despite being different brands,
+ applying one or other load balancing strategy derive in similar results because both nodes present quite similar computing capability measured in terms of MFLOPs.
 \end_layout
 
 \begin_layout Section
@@ -7192,14 +8430,14 @@ Conclusions and Future works
 \end_layout
 
 \begin_layout Standard
-In this work we explored the capabilities of Dew Computing for performing real-time inferences using three deep learning models and stream-like workloads.
+In this work we explored the capabilities of mobile distributed computing for performing real-time inferences using three deep learning models and stream-like workloads.
  Puntually,
- we tested and compare the performance obtained by several Dew Computing settings built with commodity hardware including SBCs and smartphone clusters.
+ we tested and compare the performance achieved by several settings built with commodity hardware including SBCs and smartphone clusters.
  Some of the conclusions that we arrive at are:
 \end_layout
 
 \begin_layout Standard
-- Makespan attained with tiny clusters composed by 3-4 middle-range smartphones using a pull-based execution scheme is competitive compared to the computing capability of an SBC equiped with an intel core i5 8th generation in delivering near real-time inferences.
+- Makespan attained with tiny clusters composed by 2-4 middle-range smartphones using a pull-based load balancing scheme is competitive compared to the computing capability of an SBC equiped with an intel core i5 8th generation in delivering near real-time inferences.
  It suggests that to satisfy certain delay sensitive application scenarios,
  the exploitation of already-in-place smartphones clusters should be analyzed and considered before the investment and deployment of SBCs.
 \end_layout
