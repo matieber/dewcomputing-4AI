@@ -5064,9 +5064,9 @@ DMED - workload characterization
 Irrespective of the domain,
  these application example scenarios present streams with different characteristics not only by the dynamics of input generation but also the computing capability required to perform inferences.
  In addition,
- it is assumed that inferences results should be available at the master node with minimun delay,
+ it is assumed that inferences results should be available at the master node with minimun latency,
  i.e.,
- as close as possible to a real time detection.
+ as close as possible to a real time.
 \end_layout
 
 \begin_layout Subsection
@@ -5108,7 +5108,7 @@ literal "false"
 
 \begin_layout Standard
 Workload in edge computing and IoT scenarios,
- is commonly compute with edge nodes such as SBC.
+ is commonly compute with edge nodes such as SBCs.
  In the benchmarks we compare performance of several SBC-based and smartphone-based setups to complete the workloads described in Section
 \begin_inset space ~
 \end_inset
@@ -5205,7 +5205,7 @@ nolink "false"
 \end_inset
 
 .
- The order that short names values appear in a row correspond to the order in which Initial Battery Level values appear.
+ The order that short names values appear in a row corresponds to the order in which Initial Battery Level values appear.
  The latter were randomly chosen.
  Cluster heterogeneity arises from the combination of smartphones quantity,
  models and initial battery levels.
@@ -5219,13 +5219,177 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-We report makespan and total energy consumption.
- Additionally for smartphone based setups,
+One of the metrics we report is accumulated inference latency.
+ To compare accumulated inference latency,
+ we measure how long the makespan deviates from the stream time.
+ The stream time is the time window where CV tasks are created,
+ while makespan is the time the system employs in completing all CV tasks.
+ Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Inference-accumulated-latency"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ graphically represents these concepts.
+ By following both time lines,
+ we see that CV tasks inference completion naturally happens after CV tasks creation.
+ While tasks creation could occur by following a quite controlled and periodically process,
+ tasks inference process does not.
+ This is what 
+\begin_inset Formula $α,β,γ,δ,ε,ζ$
+\end_inset
+
+ represent in the CV tasks inference timeline associated to each CV task completion event,
+ i.e.,
+ different completion times that could be given as consequence but not limited to variations in network latency,
+ CNN data input content and nodes execution capability.
+ When substracting stream time to makespan,
+ the result is the accumulated inference latency.
+ The nearest this difference to zero,
+ the better the setup achieves the completion of a CV task before a new CV task is available,
+ meaning that the setup better qualifies as with real time inference capability.
+ Then,
+ a derived metric which gives the average time employed by the setup to complete a CV task after a new CV task is available,
+ could be obtained dividing the accumulated inference latency by the number of CV tasks created.
+ We call this latter simply inference latency.
+ 
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/Latency_metric.eps
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Accumulated inference latency
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Inference-accumulated-latency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Other metric we report is total energy consumption.
+ To measure energy consumption we followed two approches depending on the type of setup.
+ For SBC-based setups we employ a power monitor that using a toroid connected as shown in Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SBC-Power-Monitoring scheme"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ allow us to collect current and voltage readings from an SBC in a non-invasive way while running workloads.
+ The power monitor is connected to the 220V AC power and it has a socket after a toroid where the SBC power source is connected.
+ Current and Voltage readings are transmitted in real time via a usb port to a laptop.
+ The power monitor gives two current and voltage values per second.
+ Then,
+ for a workload scenario whose inference time is around 3' minutes 50'' seconds,
+ the reported energy consumption is obtained by averaging 460 samples.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/power_meter_labeled.png
+	lyxscale 50
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+SBC power monitoring connection scheme
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SBC-Power-Monitoring scheme"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As for smartphone based setups the described approach for registering energy consumpution is not practical,
+ because smartphone batteries are used as power source,
+ we employed a different approach.
+ We registered initial smartphones battery levels and battery levels at the end of a workload scenario.
+ Then,
+ we used battery manufacturer information,
+ such as battery mAh and operating voltage,
+ of each smartphone to approximate the total energy used in the execution of the workload.
+\end_layout
+
+\begin_layout Standard
+Additionally for smartphone based setups,
  we report Fairness as a metric that sumarizes intra-cluster energy utilization.
  Since all smartphone-based setups comprise clusters of at least two heterogenous smartphones,
  it was necesary to indicate the load balancing strategy used to distribute load.
  For this reason,
- all smartphone-based setups contain Round Robin or Pull-Based in the load balancing column.
+ all smartphone-based setups are indicated with Round Robin or Pull-Based as value in the load balancing column.
  Round Robin is a classic load balancing strategy that assigns an incomming job to the next available node in a rotating sequence,
  ensuring workload is evently distributed among all participating devices.
  By contrast,
@@ -5921,7 +6085,7 @@ MotG9,
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5932,7 +6096,7 @@ cluster 411
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5943,7 +6107,7 @@ cluster 411
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5957,7 +6121,7 @@ MotG6,
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5971,7 +6135,7 @@ MotG6,
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5982,7 +6146,7 @@ MotG6,
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5993,7 +6157,7 @@ MotG6,
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6265,7 +6429,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-6.86
+3.24
 \end_layout
 
 \end_inset
@@ -6343,7 +6507,7 @@ N/A
 
 \series bold
 \size scriptsize
-3.9
+0.05
 \end_layout
 
 \end_inset
@@ -6375,6 +6539,8 @@ N/A
 
 \begin_layout Plain Layout
 
+\size scriptsize
+4524.82
 \end_layout
 
 \end_inset
@@ -6420,7 +6586,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-6.81
+3.03
 \end_layout
 
 \end_inset
@@ -6495,7 +6661,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-4.96
+1.19
 \end_layout
 
 \end_inset
@@ -6572,7 +6738,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-5.06
+1.27
 \end_layout
 
 \end_inset
@@ -6647,7 +6813,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-3.96
+0.18
 \end_layout
 
 \end_inset
@@ -6854,7 +7020,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-63.2
+34.91
 \end_layout
 
 \end_inset
@@ -6931,7 +7097,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-34.27
+4.71
 \end_layout
 
 \end_inset
@@ -7009,7 +7175,7 @@ N/A
 
 \series bold
 \size scriptsize
-30.14
+0.02
 \end_layout
 
 \end_inset
@@ -7041,6 +7207,8 @@ N/A
 
 \begin_layout Plain Layout
 
+\size scriptsize
+22403.73
 \end_layout
 
 \end_inset
@@ -7086,7 +7254,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-45.28
+15.06
 \end_layout
 
 \end_inset
@@ -7161,7 +7329,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-44.66
+14.49
 \end_layout
 
 \end_inset
@@ -7238,7 +7406,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-41.53
+11.30
 \end_layout
 
 \end_inset
@@ -7313,7 +7481,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-32.34
+2.19
 \end_layout
 
 \end_inset
@@ -7390,7 +7558,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-30.76
+0.52
 \end_layout
 
 \end_inset
@@ -7465,7 +7633,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-30.42
+0.27
 \end_layout
 
 \end_inset
@@ -7542,7 +7710,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-30.41
+0.18
 \end_layout
 
 \end_inset
@@ -7617,7 +7785,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-30.24
+0.10
 \end_layout
 
 \end_inset
@@ -7821,7 +7989,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-30.93
+22.43
 \end_layout
 
 \end_inset
@@ -7898,7 +8066,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-16.08
+7.43
 \end_layout
 
 \end_inset
@@ -7976,7 +8144,7 @@ N/A
 
 \series bold
 \size scriptsize
-8.99
+0.06
 \end_layout
 
 \end_inset
@@ -8008,6 +8176,8 @@ N/A
 
 \begin_layout Plain Layout
 
+\size scriptsize
+7834.28
 \end_layout
 
 \end_inset
@@ -8053,7 +8223,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-33.67
+24.75
 \end_layout
 
 \end_inset
@@ -8128,7 +8298,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-12.84
+3.94
 \end_layout
 
 \end_inset
@@ -8205,7 +8375,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-25.24
+16.31
 \end_layout
 
 \end_inset
@@ -8280,7 +8450,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-9.34
+0.43
 \end_layout
 
 \end_inset
@@ -8351,12 +8521,8 @@ name "tab:DMED-Results"
 \end_layout
 
 \begin_layout Standard
-To compare real-time response of all setups,
- we measure how much makespan differs from the stream duration.
- The nearest to zero difference,
- the better the execution capability qualifies as real time.
- By comparing this indicator among all SBC-based setups,
- it is observed that,
+By comparing this indicator among all SBC-based setups,
+ we observed that,
  in all scenarios,
  the Gigabyte Brix hardware performs the best followed by Nvidia Jetson Nano in and the Raspberry Pi 4 in second and third place respectively.
  Moreover,
@@ -8368,7 +8534,7 @@ To compare real-time response of all setups,
  it is able to pull from a shared queue and start working on another job unit.
  With this load balancing scheme,
  for BCS scenario,
- Cluster 409 is competitive in terms of makespan w.r.t the GBx SBC-based setup.
+ Cluster 409 is competitive in terms of real timeness w.r.t the GBx SBC-based setup.
 \end_layout
 
 \begin_layout Standard
