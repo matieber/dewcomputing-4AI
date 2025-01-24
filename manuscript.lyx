@@ -2738,9 +2738,9 @@ name "tab:Edge-nodes-features"
 \end_inset
 
  All nodes have multicore processors and 802.11 WiFi radio that theoretically is able to reach bandwidth between hundreds of Mbps (norm n) to few Gbps (norm ac).
- Edge nodes main memory ranges from 2 to 8 GBs.
+ Edge nodes main memory ranges from 2 to 8 Gb.
  In our setups,
- Single board computers (SBC) operate plugged to the electric power grid,
+ Single board computers (SBC) operate plugged to the electricity power grid,
  while smartphones operate using the battery as main power source.
  Additionally we included an estimated per unit adquisition cost in american dollars.
  When searching for cost-effective configurations,
@@ -2956,7 +2956,19 @@ nolink "false"
  i.e.
  is able to deliver barely more than 5 FPS,
  while a Gigabyte Brix node is around 15 FPS.
- The third model used was trained to recognize diabetes grade using foot images as input.
+ The third model used was trained to recognize diabetes grade using foot images as input
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bergoeing2023exploring"
+literal "false"
+
+\end_inset
+
+.
  Figure
 \begin_inset space ~
 \end_inset
@@ -2976,16 +2988,16 @@ nolink "false"
  By comparing the fastest smartphone with fastest SBC it can be noted that Xiaomi RN7 completes an inference in around 1470 milliseconds while a Gigabyte Brix does the same in approximately 559 milliseconds.
  When comparing performance of DNN models,
  notice that for most of the edge nodes benchmarks,
- inference times differ in at least one order of magnitude.
+ inference times differ up to one order of magnitude.
  As said,
- a Xiaomi RN7 completes inferences in 248,
- 184 and 1470 milliseconds using yolov4 model,
- BCS model and diabetes foot model respectively.
+ a Xiaomi RN7 completes inferences in 184,
+ 248 and 1470 milliseconds for BCS model,
+ yolov4 model and diabetes foot model respectively.
  
 \change_inserted -997162125 1681488369
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -4371,7 +4383,7 @@ literal "false"
 \end_inset
 
  To complete the experimental setting,
- we consider video frames streams of different lenght and distinct frame rate that serve as input to the CNN models described above and in conjuntion both things shape heterogeneous workloads to the of our mobile distributed computing execution system.
+ we consider video frames streams of different lenght and distinct frame rate that serve as input to the CNN models described above and in conjuntion both things shape heterogeneous workloads to the of our mobile distributed computing execution system under evaluation.
 \end_layout
 
 \begin_layout Standard
@@ -4418,25 +4430,6 @@ Categorizar streams y rates de sampleo de los streams de acuerdo a la frecuencia
 \end_layout
 
 \begin_layout Itemize
-Sense while Travel (SWT):
- a city can take advantage of mobile agents such as urban line buses to collect information of relevant street events while traveling,
- e.g.,
- for statistical purposes,
- crime detection,
- infrastructure maintenance planning,
- etc.
- Images captured with a bus front camera might feed a YOLO model which,
- as output,
- gives a plain text representation of objects present in an image and the accuracy percentage of each detected object class.
- An energy eficient way to achieve this without having to process a large amount of frames with redundant information,
- is to cleverly select a sample rate accordingly with the expected moving change of detection target.
- We assume this sample rate in 2 FPS and evaluate the system performance for a stream of 30 minutes lenght.
- These parameters equates approximately to sensed data of 15 km of a road assuming a vehicle travelling at 30 km/h.
- In summary,
- the stream describing this scenario includes 3600 images given within a time window of 30' minutes.
-\end_layout
-
-\begin_layout Itemize
 Body Condition Score Calculus (BCS):
  in a dairy farm,
  outfitted cows,
@@ -4456,13 +4449,14 @@ literal "false"
 \end_inset
 
 .
- The image capturing procedure should be performed within a time window that not exceceds 10 seconds.
+ The image capturing procedure is performed within a time window that not exceceds 10 seconds.
  During such time,
  providing that animals naturally don't state quite under the camera and the capture should contain a specific part of the cow,
  a high percent of captured images,
- e.g.
- a 50%,
- is expected to be have to be tagged and filtered as not useful input for the CNN model.
+ let say 50%,
+ are dropped,
+ i.e.,
+ tagged and filtered as not useful input for the CNN model.
  Moreover,
  during the transition of one animal to the next under the lens of camera,
  which can take 10 seconds in average,
@@ -4471,10 +4465,31 @@ literal "false"
  realiable,
  and energy effienct it is proper to count with no less than a hundred of frames ready to serve as input for the CNN model,
  from each cow.
- All these constraints configure a stream processing scenario where depth images can be produced at a sample rate of 15 FPS during 10 seconds,
- followed by other 10 seconds where none images are captured.
- In summary,
- the stream describing this scenario includes 1740 images given within a time window of 3' minutes and 34'' seconds.
+ All these constraints configure a stream processing scenario where depth images can be produced at a rate of 15 FPS during 10 seconds,
+ followed by other 10 seconds without images captures.
+ We determined that an atomic CV task woud be represented by the burden of applying the CNN model to fiftheen consecutive frames,
+ meaning that a CV task is created every second which gives a total of ten CV tasks created for a cow.
+ Considering that the dataset used to simulate this scenario includes 1740 images,
+ the resulting workload stream comprises 116 CV tasks given within a time window of 3' minutes and 34'' seconds.
+\end_layout
+
+\begin_layout Itemize
+Sense while Travel (SWT):
+ a city can take advantage of mobile agents such as urban line buses to collect information of relevant street events while traveling,
+ e.g.,
+ for statistical purposes,
+ crime detection,
+ infrastructure maintenance planning,
+ etc.
+ Images captured with a bus front camera might feed a YOLO model which gives a plain text representation of objects present in an image and the accuracy percentage of each detected object class as output.
+ An energy eficient way to achieve this without having to process a large amount of frames with redundant information,
+ is to cleverly select a sample rate accordingly with the expected moving change of detection target.
+ We assume this sample rate in 2 FPS and evaluate the system performance for a stream duration of 30 minutes.
+ These parameters equates approximately to sense data of 15 km of a road assuming a vehicle travelling at 30 km/h.
+ A CV task would be represented by the application of the CNN model to two consecutive filtered frames,
+ meaning that a CV task is created every second.
+ Providing that the dataset used to simulate this scenario includes 3600 images,
+ the resulting workload stream comprises 1800 CV tasks given within a time window of 30' minutes.
 \end_layout
 
 \begin_layout Itemize
@@ -4483,9 +4498,25 @@ Disease Monitoring and Early Diagnosis (DMED):
  e.g.,
  older people receiving intensive care services,
  to analize different health parameters as a way to prevent the appearance of some pathology or monitoring a pre-existence illnees.
- We assume an scenario where a caregiver or nurse rendering services in an eldery residence is assigned with the task of taking pictures of all patients foot tissue resulting in a stream of images with the a shape of 10 FPS during 2 seconds with pauses of 7 seconds without images capturing.
- In summary,
- the stream describing this scenario includes 600 images given within a time window of 8' minutes and 55'' seconds.
+ We assume an scenario where a caregiver or nurse rendering services in an eldery residence is assigned with the task of taking pictures of all patients foot tissue resulting in a data stream of 10 FPS during 2 seconds with pauses of 7 seconds without images capturing.
+ In this case,
+ a CV task is represented by the burden of applying the model described in
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bergoeing2023exploring"
+literal "false"
+
+\end_inset
+
+ to 2 consecutive frames,
+ meaning that during image capturing time,
+ five CV tasks are created per second.
+ Providing that the dataset used to simulate this scenario incluides 600 images,
+ the resulting workload stream comprises 300 CV tasks given within a time window of 8' minutes and 55'' seconds.
 \end_layout
 
 \begin_layout Standard
@@ -4515,9 +4546,9 @@ nolink "false"
 
 \end_inset
 
- show a timeline representation of the data stream shape,
+ show a timeline representation of the data input stream shape,
  i.e.,
- the kilobytes of data produced per second,
+ the kilobytes of data transfered per second,
  and an example of the input for the CNN used in the Body Condition Score Calculus scenario.
  Similar information can be found in figures
 \begin_inset space ~
@@ -4677,7 +4708,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5220,10 +5251,10 @@ nolink "false"
 
 \begin_layout Standard
 One of the metrics we report is accumulated inference latency.
- To compare accumulated inference latency,
+ To calculate accumulated inference latency,
  we measure how long the makespan deviates from the stream time.
  The stream time is the time window where CV tasks are created,
- while makespan is the time the system employs in completing all CV tasks.
+ while makespan is the time the inference system employs in completing all CV tasks created.
  Figure
 \begin_inset space ~
 \end_inset
@@ -5240,9 +5271,8 @@ nolink "false"
 \end_inset
 
 ,
- graphically represents these concepts.
- By following both time lines,
- we see that CV tasks inference completion naturally happens after CV tasks creation.
+ graphically represents how these entities coexist in time.
+ Inference completion of a task naturally occurs in time after the CV task creation.
  While tasks creation could occur by following a quite controlled and periodically process,
  tasks inference process does not.
  This is what 
@@ -5256,12 +5286,10 @@ nolink "false"
  When substracting stream time to makespan,
  the result is the accumulated inference latency.
  The nearest this difference to zero,
- the better the setup achieves the completion of a CV task before a new CV task is available,
- meaning that the setup better qualifies as with real time inference capability.
- Then,
- a derived metric which gives the average time employed by the setup to complete a CV task after a new CV task is available,
+ the better the setup capabililty is to respond with proper inferences time compared to the time taken to create all CV tasks.
+ A derived metric which gives a notion of the average time employed by the setup to complete a CV task after a new CV task is available,
  could be obtained dividing the accumulated inference latency by the number of CV tasks created.
- We call this latter simply inference latency.
+ We call this latter inference latency.
  
 \begin_inset Float figure
 placement document
@@ -5273,7 +5301,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename figures/Latency_metric.eps
+	filename figures/Latency_metric.svg
 
 \end_inset
 
@@ -5334,12 +5362,12 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename figures/power_meter_labeled.png
+	filename figures/power_meter_labeled.svg
 	lyxscale 50
 	scale 10
 
@@ -5373,20 +5401,128 @@ name "fig:SBC-Power-Monitoring scheme"
 \end_layout
 
 \begin_layout Standard
-As for smartphone based setups the described approach for registering energy consumpution is not practical,
+Since for smartphone based setups the described approach for registering energy consumpution is not practical,
  because smartphone batteries are used as power source,
  we employed a different approach.
- We registered initial smartphones battery levels and battery levels at the end of a workload scenario.
+ We registered smartphones battery levels at the begining and at the end of a workload scenario.
  Then,
  we used battery manufacturer information,
  such as battery mAh and operating voltage,
- of each smartphone to approximate the total energy used in the execution of the workload.
+ of each smartphone to approximate the total energy used during the workload scenario execution (WSE).
+ The following is an example of such calculus expressed in Joules:
+\begin_inset Formula 
+\begin{equation}
+WSEJoules=\sum_{i=0}^{\#smartphones}(battLevelDrops^{i}*battMAh^{i}*0.01)*battVoltage^{i}*3.6
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Additionally for smartphone based setups,
- we report Fairness as a metric that sumarizes intra-cluster energy utilization.
- Since all smartphone-based setups comprise clusters of at least two heterogenous smartphones,
+where 
+\begin_inset Formula $\#smartphones$
+\end_inset
+
+ corresponds to the amount of smartphones integrating the cluster,
+ 
+\begin_inset Formula $battLevelDrops^{i}$
+\end_inset
+
+is the amount of battery level drops the smartphone 
+\begin_inset Formula $i$
+\end_inset
+
+ used for executing the assigned workload,
+ which is in turn calculated as:
+ 
+\begin_inset Formula 
+\begin{equation}
+battLevelDrops=batt_{endWSE}-batt_{startWSE}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $batt_{startWSE}$
+\end_inset
+
+ and 
+\begin_inset Formula $batt_{endWSE}$
+\end_inset
+
+ are the battery level of smartphone 
+\begin_inset Formula $i$
+\end_inset
+
+ at the start and end of the workload scenario execution respectively,
+ 
+\begin_inset Formula $battMah^{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $battVoltage^{i}$
+\end_inset
+
+ are milli-amperes hour and operating voltage information respectively,
+ provided by the battery manufacturer of smartphone 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Formula
+\begin_inset space ~
+\end_inset
+
+1 emerges from combining a rule of three that relates battery percentage usage with the unit convertion formula from mAh to Joules which is 
+\begin_inset Formula $mAh*voltage*3.6=JoulesOfenergy$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Additionally,
+ since a workload scenario execution using smartphone based setups might cause different battery percentage usage on each node,
+ we report Jain's fairness index
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jain1984quantitative"
+literal "false"
+
+\end_inset
+
+ as a metric that sumarizes intra-cluster energy utilization.
+ In other words,
+ the metric is used to measure the disparity of energy pulled by the system from resource provider nodes.
+ The metric takes values from 0 to 1.
+ The nearest the index to value of one the more balanced the energy utilization between nodes is.
+ The Jain's index applied formula is expressed as following,
+ where :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Fairness=\frac{\left[\sum_{i=0}^{\#smartphones}battLevelDrops^{i}\right]^{2}}{\#smartphones*\left(\sum_{i=0}^{\#smartphones}\left[(battLevelDrops^{i})\right]^{2}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since all smartphone-based setups comprise clusters of at least two heterogenous smartphones,
  it was necesary to indicate the load balancing strategy used to distribute load.
  For this reason,
  all smartphone-based setups are indicated with Round Robin or Pull-Based as value in the load balancing column.
@@ -5485,6 +5621,16 @@ Initial Cluster Energy (Joules)
 \size scriptsize
 Max.
  Cluster Energy (Joules)
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+To calculate this value it was used a formula derived from formula 1 and asumming each smartphone is fully charged.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6273,7 +6419,8 @@ Load Balancing
 \begin_layout Plain Layout
 
 \size scriptsize
-Makespan - Stream Time (mins)
+Acc.
+ Inference Latency (secs)
 \end_layout
 
 \end_inset
@@ -6352,7 +6499,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-24.45
+1467
 \end_layout
 
 \end_inset
@@ -6429,7 +6576,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-3.24
+134.4
 \end_layout
 
 \end_inset
@@ -6507,7 +6654,7 @@ N/A
 
 \series bold
 \size scriptsize
-0.05
+3.0
 \end_layout
 
 \end_inset
@@ -6586,7 +6733,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-3.03
+181.8
 \end_layout
 
 \end_inset
@@ -6661,7 +6808,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-1.19
+71.4
 \end_layout
 
 \end_inset
@@ -6738,7 +6885,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-1.27
+76.2
 \end_layout
 
 \end_inset
@@ -6813,7 +6960,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-0.18
+10.8
 \end_layout
 
 \end_inset
@@ -6941,7 +7088,8 @@ Load Balancing
 \begin_layout Plain Layout
 
 \size scriptsize
-Makespan - Stream Time (mins)
+Acc.
+ Inference Latency (secs)
 \end_layout
 
 \end_inset
@@ -7020,7 +7168,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-34.91
+2094.6
 \end_layout
 
 \end_inset
@@ -7097,7 +7245,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-4.71
+282.6
 \end_layout
 
 \end_inset
@@ -7175,7 +7323,7 @@ N/A
 
 \series bold
 \size scriptsize
-0.02
+1.2
 \end_layout
 
 \end_inset
@@ -7254,7 +7402,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-15.06
+903.6
 \end_layout
 
 \end_inset
@@ -7329,7 +7477,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-14.49
+869.4
 \end_layout
 
 \end_inset
@@ -7406,7 +7554,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-11.30
+678.0
 \end_layout
 
 \end_inset
@@ -7481,7 +7629,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-2.19
+131.4
 \end_layout
 
 \end_inset
@@ -7558,7 +7706,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-0.52
+31.2
 \end_layout
 
 \end_inset
@@ -7633,7 +7781,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-0.27
+16.2
 \end_layout
 
 \end_inset
@@ -7710,7 +7858,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-0.18
+10.8
 \end_layout
 
 \end_inset
@@ -7785,7 +7933,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-0.10
+6.0
 \end_layout
 
 \end_inset
@@ -7910,7 +8058,8 @@ Load Balancing
 \begin_layout Plain Layout
 
 \size scriptsize
-Makespan - Stream Time (mins)
+Acc.
+ Inference Latency (secs)
 \end_layout
 
 \end_inset
@@ -7989,7 +8138,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-22.43
+1345.8
 \end_layout
 
 \end_inset
@@ -8066,7 +8215,7 @@ N/A
 \begin_layout Plain Layout
 
 \size scriptsize
-7.43
+445.8
 \end_layout
 
 \end_inset
@@ -8144,7 +8293,7 @@ N/A
 
 \series bold
 \size scriptsize
-0.06
+3.6
 \end_layout
 
 \end_inset
@@ -8223,7 +8372,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-24.75
+1485.0
 \end_layout
 
 \end_inset
@@ -8298,7 +8447,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-3.94
+236.4
 \end_layout
 
 \end_inset
@@ -8375,7 +8524,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-16.31
+978.6
 \end_layout
 
 \end_inset
@@ -8450,7 +8599,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-0.43
+25.8
 \end_layout
 
 \end_inset
@@ -8520,32 +8669,60 @@ name "tab:DMED-Results"
 
 \end_layout
 
-\begin_layout Standard
-By comparing this indicator among all SBC-based setups,
- we observed that,
- in all scenarios,
- the Gigabyte Brix hardware performs the best followed by Nvidia Jetson Nano in and the Raspberry Pi 4 in second and third place respectively.
- Moreover,
- when comparing the different smartphone-base setups,
- we found that pull-based load balancing scheme achieves lower makespan than setups using round robin.
- This is because using pull-based allow the system to approtions the workload in accordance availability and computing capability of worker nodes.
- In other words,
- as a worker node finishes a job unit and push the result to the master node,
- it is able to pull from a shared queue and start working on another job unit.
- With this load balancing scheme,
- for BCS scenario,
- Cluster 409 is competitive in terms of real timeness w.r.t the GBx SBC-based setup.
+\begin_layout Subsubsection
+Performance analysis
 \end_layout
 
 \begin_layout Standard
-When comparing load balancing strategies in table
+According to the accumulated inference latency metric,
+ when comparing all SBC-based setups,
+ it is observed that the minimum value in all tested workload stream scenarios is obtained with the Gigabyte Brix setup.
+ The close to zero value indicates that inference service performed with this setup is near to real time,
+ i.e.,
+ inference results to all CV tasks are obtained within the stream time.
+ Concretely,
+ in the BCS scenario,
+ the accumulated latency in a stream time of 3' 50'' was 3 seconds.
+ In the SWT scenario,
+ the accumulated latency in a stream time of 30' was 1.2 seconds while in the DMED scenario with a stream time of 8'55'',
+ the value for same metric was 3.6 seconds.
+ With the Raspberry Pi4 and Nvidia Jetson Nano setups the accumulated inference latency was significantly greater than with the Gigabyte Brix setup.
+ In most cases,
+ the inference latency was the stream time multiplied by a factor of two to four.
+ The Nvidia Jetson nano setups performed better than the Raspberry Pi4 setups in all cases.
+ However,
+ the workload always overpassed the inference capability.
+ Reducing workload would be necessary with these setups to achieve a near to real time performace.
+ Some alternatives to reduce workload are creating lightweight CV tasks by dropping frames and/or offloading some CV tasks to other Edge nodes.
+ These alternatives could come,
+ in turn,
+ with some QoS degradation.
+\end_layout
+
+\begin_layout Standard
+When comparing smartphone-based setups for BCS scenario,
+ we confirm what several simulated studies conclude which is that by incrementing the number of participating smartphones,
+ performance improves,
+ i.e,
+ lower accumulated inference latency is obtained.
+ This is also true for SWT and DMED scenarios.
+ However,
+ not only the number of smartphones impact on the setup inference service capability,
+ the smartphones computing characteristics also affect.
+ Clusters 301 and 302,
+ for instance,
+ are of the same size.
+ Both clusters are composed by a Samsung A30 and a Motorola Moto G9 play.
+ However,
+ the Samsung A02 smartphone present in Cluster 302 is not present in Cluster 301 which has a Xiaomi Redmi Note 7 instead.
+ If we compared the inference times associated to these smartphone models reported in Figures
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:BCS-Results"
+reference "fig:Cow-BCS-Benchmarking"
 plural "false"
 caps "false"
 noprefix "false"
@@ -8554,28 +8731,9 @@ nolink "false"
 \end_inset
 
 ,
- some observations emerge.
- For example,
- when computing resources are scarce or insuficient to cope with real time processing,
- e.g.
- Cluster 304,
- it is observed that by using round robin,
- the whole processing not only takes longer than with a pull-based approach but also devices battery usage is less balanced than when using pull-based according to the fairness indicator.
- On the contrary,
- Cluster 409 presents sufficient computing resources to deliver a realtime processing,
- which is true when using a pull-based approach but not when using Round Robin.
- Energy consumed and Fairness remain the same independently of the load balancing strategy.
-\end_layout
-
-\begin_layout Standard
-In table
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:BCS-Results"
+reference "fig:YoloV4-benchmarking"
 plural "false"
 caps "false"
 noprefix "false"
@@ -8583,12 +8741,60 @@ nolink "false"
 
 \end_inset
 
- which shows the results for SWT scenario there are observed different situations.
- For instance,
- with Cluster 202,
- which seems insuficcient to deliver a real time performance both load balancing strategies perform very similar in all indicators.
- This can be explained by the fact that the cluster is composed by devices that despite being different brands,
- applying one or other load balancing strategy derive in similar results because both nodes present quite similar computing capability measured in terms of MFLOPs.
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Foot-Benchmarking"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ we will note that the computing capability of the Samsung A02 is in between 2.62 and 3.99 times slower than that of the Xiaomi Redmi Note 7.
+ The effect of such difference is observed in the performance values obtained for the SWT scenario where both clusters were tested.
+ While the accumulated inference latency with Cluster 301 was in between 
+\begin_inset Formula $\backsim$
+\end_inset
+
+16 and 
+\begin_inset Formula $\backsim$
+\end_inset
+
+31 seconds,
+ with Cluster 302 it was in between 
+\begin_inset Formula $\backsim$
+\end_inset
+
+131 and 
+\begin_inset Formula $\backsim$
+\end_inset
+
+678 seconds.
+\end_layout
+
+\begin_layout Standard
+Other observation when comparing smartphone-based setups is that in general pull-based load balancing scheme achieves lower accumulated inference latency than when using round robin.
+ This is because using pull-based allow the system to balance the workload in accordance to the availability and computing capability of worker nodes rather than treat all nodes with the same capability as round robin does.
+ This advantage of pull-based over round robin is not observed in clusters composed by nodes with quite similar computing capability,
+ which is the case of Cluster 202 in SWT scenario.
+ In general,
+ pull-based load balancing better exploits clusters specially when these are characterize by nodes heterogeneity.
+ In turn,
+ the more competitive accumulated inference latency comparison to that obtained by the Gigabyte Brix setup was always achieved with a pull-based load balancing scheme.
+ For example,
+ in the BCS scenario,
+ the difference between Cluster 409 and Gigabyte Brix setups was less than 8 seconds which is,
+ in turn,
+ seven times shorter than the second best setup.
+ A similar analysis is valid in the SWT and in DMED scenarios,
+ with the Clusters 408 and 411 respectively.
+\end_layout
+
+\begin_layout Subsubsection
+Energy consumption analysis
 \end_layout
 
 \begin_layout Section
