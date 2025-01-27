@@ -5296,7 +5296,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -7662,7 +7662,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-7462,43
+7462.43
 \end_layout
 
 \end_inset
@@ -8674,9 +8674,8 @@ Performance analysis
 \end_layout
 
 \begin_layout Standard
-According to the accumulated inference latency metric,
- when comparing all SBC-based setups,
- it is observed that the minimum value in all tested workload stream scenarios is obtained with the Gigabyte Brix setup.
+When comparing all setups,
+ it is observed that the lowest accumulated inference latency value in all tested workload stream scenarios is obtained with the Gigabyte Brix setup.
  The close to zero value indicates that inference service performed with this setup is near to real time,
  i.e.,
  inference results to all CV tasks are obtained within the stream time.
@@ -8715,7 +8714,7 @@ When comparing smartphone-based setups for BCS scenario,
  Both clusters are composed by a Samsung A30 and a Motorola Moto G9 play.
  However,
  the Samsung A02 smartphone present in Cluster 302 is not present in Cluster 301 which has a Xiaomi Redmi Note 7 instead.
- If we compared the inference times associated to these smartphone models reported in Figures
+ If we compared the inference times associated to the latter mentioned smartphone models reported in Figures
 \begin_inset space ~
 \end_inset
 
@@ -8754,7 +8753,7 @@ nolink "false"
 
 ,
  we will note that the computing capability of the Samsung A02 is in between 2.62 and 3.99 times slower than that of the Xiaomi Redmi Note 7.
- The effect of such difference is observed in the performance values obtained for the SWT scenario where both clusters were tested.
+ The effect of such difference is observed in the performance values registered for the SWT scenario where both clusters are tested.
  While the accumulated inference latency with Cluster 301 was in between 
 \begin_inset Formula $\backsim$
 \end_inset
@@ -8794,7 +8793,115 @@ Other observation when comparing smartphone-based setups is that in general pull
 \end_layout
 
 \begin_layout Subsubsection
-Energy consumption analysis
+Energy consumption-performance tradeoff analysis
+\end_layout
+
+\begin_layout Standard
+Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Energy-consumption-Performance-tradeoff"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reports the energy consumption and accumulated inference latency tradeoff between different setups in each tested scenario.
+ The best setups are those that achieve the minimun accumulated inference latency using the least energy,
+ i.e.,
+ those positioned close to the origin.
+ As can be observed in all scenarios,
+ the best balance is always achieved by orange dots with a label starting with Cl which corresponds to smartphone-based setups.
+ It can be noted,
+ for instance,
+ that the accumulated inference latency of GBx setups are the lowest in bcs,
+ swt and dmed scenarios,
+ however,
+ these are also associated to the highest values of energy utilization.
+ Moreover,
+ the slowest setups are not necesary associated to the most convenient in terms of energy consumption.
+ Interestingly,
+ smartphone-based setups,
+ particularly size four clusters using pull-based as load balancing scheme offer a good tradeoff in all scenarios,
+ i.e.,
+ competitive performance with the least energy consumption.
+ These are the cases of Cl409-PB,
+ Cl408-PB and Cl411-PB for BCS,
+ SWT and DMED scenarios respectively.
+ In other words,
+ for the BCS scenario,
+ when it is acceptable that all CV tasks results were calculated with a delay of 7.8 seconds w.r.t to the fastest setup,
+ then the Cluster 409 setup with pull-based scheme can achieve the objetive by utilizing 
+\begin_inset Formula $\backsim$
+\end_inset
+
+1510 Joules,
+ i.e.,
+ almost three times less energy than by using the Gigabyte Brix setup that utilizes .
+ Similar relations can be found for SWT and DMED scenarios.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/energy-performance-tradeoff.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Energy consumption / Performance tradeoff
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Energy-consumption-Performance-tradeoff"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Battery utilization analysis
+\end_layout
+
+\begin_layout Standard
+For smartphone-based setups,
+ it is relevant to show how CV tasks impact on clusters total energy availability,
+ and how energy utilization divides among smartphones integrating the cluster.
 \end_layout
 
 \begin_layout Section
@@ -8809,7 +8916,7 @@ In this work we explored the capabilities of mobile distributed computing for pe
 \end_layout
 
 \begin_layout Standard
-- Makespan attained with tiny clusters composed by 2-4 middle-range smartphones using a pull-based load balancing scheme is competitive compared to the computing capability of an SBC equiped with an intel core i5 8th generation in delivering near real-time inferences.
+- Makespan attained with tiny clusters composed by 3-4 low to middle-end smartphones using a pull-based load balancing scheme offer competitive performance compared to an SBC equiped with an intel core i5 8th generation in computing real-time inferences.
  It suggests that to satisfy certain delay sensitive application scenarios,
  the exploitation of already-in-place smartphones clusters should be analyzed and considered before the investment and deployment of SBCs.
 \end_layout
