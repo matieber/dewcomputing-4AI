@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="148.13759mm"
+   height="57.39307mm"
+   viewBox="0 0 148.13759 57.39307"
    version="1.1"
    id="svg1"
-   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="Latency_metric.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,20 +24,25 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0066252"
-     inkscape:cx="238.91713"
-     inkscape:cy="163.41733"
+     inkscape:cx="-186.76266"
+     inkscape:cy="165.40416"
      inkscape:window-width="1920"
-     inkscape:window-height="1008"
+     inkscape:window-height="1009"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="34"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
-     showgrid="true">
+     showgrid="true"
+     inkscape:pageshadow="2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
     <inkscape:grid
        id="grid35"
        units="mm"
-       originx="0"
-       originy="0"
+       originx="-6.8577227"
+       originy="-41.530469"
        spacingx="0.99999998"
        spacingy="1"
        empcolor="#0099e5"
@@ -51,7 +56,7 @@
   <defs
      id="defs1">
     <rect
-       x="16.858869"
+       x="16.85887"
        y="171.57411"
        width="25.288303"
        height="15.980803"
@@ -60,7 +65,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-6.8577223,-41.530469)">
     <path
        style="fill:#000000;stroke:#dc0000;stroke-width:0.265924;stroke-linecap:butt;stroke-dasharray:none;stroke-opacity:1"
        d="m 33.554212,65.086617 51.971753,0.0031"
@@ -111,7 +117,7 @@
          sodipodi:role="line"
          style="fill:#000000;fill-opacity:1;stroke-width:0.0639921"
          x="41.750664"
-         y="75.07695"
+         y="75.076958"
          id="tspan5" /><tspan
          sodipodi:role="line"
          style="fill:#000000;fill-opacity:1;stroke-width:0.0639921"
@@ -475,7 +481,7 @@
    style="font-size:1.72632px;baseline-shift:sub;stroke-width:0.0639921"
    id="tspan12-2-5">ni</tspan></tspan></text>
     <path
-       style="fill:none;stroke:#0000dc;stroke-width:0.265924;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-width:0.265924;stroke-dasharray:none;stroke-opacity:1"
        d="m 43.422126,48.087636 51.971753,0.0031 0.02172,0.100037"
        id="path1-9"
        sodipodi:nodetypes="ccc" />
@@ -485,7 +491,7 @@
        id="path1-6-6"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:none;stroke:#0000dc;stroke-width:0.414346;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-width:0.414346;stroke-dasharray:none;stroke-opacity:1"
        d="m 43.349559,47.366682 c 0,1.503095 0,1.503095 0,1.503095"
        id="path2-85" />
     <text
@@ -533,16 +539,16 @@
          transform="scale(1.0411539,0.96047279)"><tspan
            sodipodi:role="line"
            id="tspan2-81"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="50.237514">cv</tspan><tspan
            sodipodi:role="line"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="50.795807"
            id="tspan5-0" /><tspan
            sodipodi:role="line"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="51.354103"
            id="tspan4-30">t1</tspan></text>
@@ -550,7 +556,7 @@
          id="g12-4"
          style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-opacity:1">
         <path
-           style="fill:none;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+           style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1"
            d="m 16.188521,46.634481 c 0,0.487876 0,0.487876 0,0.487876"
            id="path2-6-4" />
         <text
@@ -629,7 +635,7 @@
        transform="matrix(3.1034191,0,0,3.0808957,14.715766,-95.492456)"
        style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-opacity:1">
       <path
-         style="fill:none;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1"
          d="m 16.188521,46.634481 c 0,0.487876 0,0.487876 0,0.487876"
          id="path2-6-7-9" />
       <text
@@ -641,16 +647,16 @@
          transform="scale(1.0411539,0.96047279)"><tspan
            sodipodi:role="line"
            id="tspan2-0-3"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="50.237514">cv</tspan><tspan
            sodipodi:role="line"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="50.795807"
            id="tspan5-2-8" /><tspan
            sodipodi:role="line"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="51.354103"
            id="tspan4-3-8">t2</tspan></text>
@@ -660,7 +666,7 @@
        transform="matrix(3.1034191,0,0,3.0808957,26.232464,-95.479803)"
        style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-opacity:1">
       <path
-         style="fill:none;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1"
          d="m 16.188521,46.634481 c 0,0.487876 0,0.487876 0,0.487876"
          id="path2-6-2-1" />
       <text
@@ -672,16 +678,16 @@
          transform="scale(1.0411539,0.96047279)"><tspan
            sodipodi:role="line"
            id="tspan2-7-6"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="50.237514">cv</tspan><tspan
            sodipodi:role="line"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="50.795807"
            id="tspan5-3-4" /><tspan
            sodipodi:role="line"
-           style="fill:#000000;fill-opacity:1;stroke-width:0.0206951;stroke:#000000;stroke-opacity:1"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0206951;stroke-opacity:1"
            x="15.482539"
            y="51.354103"
            id="tspan4-61-3">t3</tspan></text>
@@ -691,7 +697,7 @@
        transform="matrix(3.1034191,0,0,3.0808957,37.735697,-95.478435)"
        style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-opacity:1">
       <path
-         style="fill:none;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-width:0.134;stroke-dasharray:none;stroke-opacity:1"
          d="m 16.188521,46.634481 c 0,0.487876 0,0.487876 0,0.487876"
          id="path2-6-9-3" />
     </g>
@@ -758,7 +764,7 @@
    style="font-size:1.72632px;baseline-shift:sub;stroke-width:0.0639921"
    id="tspan35">ni+ζ</tspan></tspan></text>
     <path
-       style="fill:none;stroke:#0000dc;stroke-width:0.414346;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#0000dc;stroke-width:0.414346;stroke-dasharray:none;stroke-opacity:1"
        d="m 150.40142,47.495278 c 0,1.503095 0,1.503095 0,1.503095"
        id="path2-8-0" />
     <path
@@ -1072,7 +1078,7 @@
          ry="0.17777215" />
     </g>
     <path
-       style="fill:none;fill-opacity:1;stroke:#dc0000;stroke-width:0.278;stroke-linecap:butt;stroke-miterlimit:3.6;stroke-dasharray:0.278,1.66799998;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#dc0000;stroke-width:0.278;stroke-linecap:butt;stroke-miterlimit:3.6;stroke-dasharray:0.278, 1.668;stroke-dashoffset:0;stroke-opacity:1"
        d="M 85.680223,65.097796 H 109.65582"
        id="path35" />
     <path

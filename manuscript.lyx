@@ -6584,16 +6584,63 @@ literal "false"
 \end_inset
 
  modules.
- The tool set allow us to automate tasks involved in experimenting with smartphones and real workload including cluster formation,
+ The tool set allow us to automate tasks involved in experimenting with smartphones and real workload
+\change_inserted 1518850539 1738276554
+s
+\change_unchanged
+ including cluster formation,
  devices preparation (battery charge/discharge actions),
  deep learning models deployment,
  stream dynamics reproducibility,
- collection and summarization of results.
+ 
+\change_inserted 1518850539 1738276571
+and finally 
+\change_unchanged
+collecti
+\change_deleted 1518850539 1738276581
+o
+\change_unchanged
+n
+\change_inserted 1518850539 1738276582
+g
+\change_unchanged
+ and summari
+\change_inserted 1518850539 1738276592
+zing
+\change_deleted 1518850539 1738276595
+zation of
+\change_unchanged
+ results.
 \end_layout
 
 \begin_layout Standard
-Workload in edge computing and IoT scenarios,
- is commonly compute with edge nodes such as SBCs.
+
+\change_inserted 1518850539 1738276646
+As discussed earlier in the paper,
+ w
+\change_deleted 1518850539 1738276646
+W
+\change_unchanged
+orkload
+\change_inserted 1518850539 1738276631
+s
+\change_unchanged
+ in edge computing and IoT scenarios
+\change_deleted 1518850539 1738276634
+,
+ is
+\change_inserted 1518850539 1738276635
+ are
+\change_unchanged
+ commonly compute
+\change_inserted 1518850539 1738276636
+d
+\change_unchanged
+ with 
+\change_inserted 1518850539 1738276680
+medium-to-high-end 
+\change_unchanged
+edge nodes such as SBCs.
  In the benchmarks we compare performance of several SBC-based and smartphone-based setups to complete the workloads described in Section
 \begin_inset space ~
 \end_inset
@@ -6673,8 +6720,22 @@ nolink "false"
 \end_inset
 
  expands on the model and battery information of nodes integrating each cluster.
- All clusters present a single instance of each smartphone model.
- Smartphone models values are indicated using a short name that can be found in Table
+ All clusters 
+\change_deleted 1518850539 1738276714
+present
+\change_inserted 1518850539 1738276715
+include
+\change_unchanged
+ a single instance of each smartphone model.
+ Smartphone 
+\change_inserted 1518850539 1738276735
+brands and 
+\change_unchanged
+models
+\change_deleted 1518850539 1738276726
+ values
+\change_unchanged
+ are indicated using a short name that can be found in Table
 \begin_inset space ~
 \end_inset
 
@@ -6690,11 +6751,37 @@ nolink "false"
 \end_inset
 
 .
- The order that short names values appear in a row corresponds to the order in which Initial Battery Level values appear.
+ The order that 
+\change_inserted 1518850539 1738276746
+these 
+\change_unchanged
+short names 
+\change_deleted 1518850539 1738276749
+values 
+\change_unchanged
+appear in a row corresponds to the order in which Initial Battery Level values appear.
  The latter were randomly chosen.
  Cluster heterogeneity arises from the combination of smartphones quantity,
  models and initial battery levels.
  Max.
+\change_inserted 1518850539 1738276774
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738276788
+al venir leyendo queda raro dos puntos tan seguidos.
+ por ahí se puede poner acá el nombre completo de la columna
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
  Cluster Energy and Initial Cluster Energy,
  both expressed in Joules,
  as well as,
@@ -6704,11 +6791,50 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-One of the metrics we report is accumulated inference latency.
+One of the metrics we report is accumulated inference latency
+\change_inserted 1518850539 1738276866
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738276874
+escritura estilo VY ;)
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 1518850539 1738276832
+.
  To calculate accumulated inference latency,
- we measure how long the makespan deviates from the stream time.
+ we
+\change_inserted 1518850539 1738276837
+,
+ a
+\change_unchanged
+ measure 
+\change_inserted 1518850539 1738276842
+of 
+\change_unchanged
+how long the makespan deviates from the stream time.
  The stream time is the time window where CV tasks are created,
- while makespan is the time the inference system employs in completing all CV tasks created.
+ while makespan is the time the inference system employs in completing all
+\change_inserted 1518850539 1738276896
+ the
+\change_unchanged
+ 
+\change_inserted 1518850539 1738276901
+created 
+\change_unchanged
+CV tasks
+\change_deleted 1518850539 1738276899
+ created
+\change_unchanged
+.
  Figure
 \begin_inset space ~
 \end_inset
@@ -6724,7 +6850,11 @@ nolink "false"
 
 \end_inset
 
+
+\change_deleted 1518850539 1738276905
 ,
+
+\change_unchanged
  graphically represents how these entities coexist in time.
  Inference completion of a task naturally occurs in time after the CV task creation.
  While tasks creation could occur by following a quite controlled and periodically process,
@@ -6734,13 +6864,25 @@ nolink "false"
 \end_inset
 
  represent in the CV tasks inference timeline associated to each CV task completion event,
- i.e.,
+ i.e.
+\change_deleted 1518850539 1738276946
+,
+
+\change_unchanged
  different completion times that could be given as consequence but not limited to variations in network latency,
  CNN data input content and nodes execution capability.
- When substracting stream time to makespan,
+ When sub
+\change_deleted 1518850539 1738276969
+s
+\change_unchanged
+tracting stream time to makespan,
  the result is the accumulated inference latency.
  The nearest this difference to zero,
- the better the setup capabililty is to respond with proper inferences time compared to the time taken to create all CV tasks.
+ the better the setup capabili
+\change_deleted 1518850539 1738276959
+l
+\change_unchanged
+ty is to respond with proper inferences time compared to the time taken to create all CV tasks.
  A derived metric which gives a notion of the average time employed by the setup to complete a CV task after a new CV task is available,
  could be obtained dividing the accumulated inference latency by the number of CV tasks created.
  We call this latter inference latency.
@@ -6765,6 +6907,11 @@ status open
 
 \begin_layout Plain Layout
 Accumulated inference latency
+\change_inserted 1518850539 1738277074
+:
+ visual explanation
+\change_unchanged
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Inference-accumulated-latency"
@@ -6785,9 +6932,57 @@ name "fig:Inference-accumulated-latency"
 \end_layout
 
 \begin_layout Standard
-Other metric we report is total energy consumption.
- To measure energy consumption we followed two approches depending on the type of setup.
- For SBC-based setups we employ a power monitor that using a toroid connected as shown in Figure
+
+\change_inserted 1518850539 1738277433
+Ano
+\change_deleted 1518850539 1738277432
+O
+\change_unchanged
+ther metric we report is total energy consumption.
+ To measure energy consumption we followed two appro
+\change_inserted 1518850539 1738277437
+a
+\change_unchanged
+ches depending on the type of setup.
+ For SBC-based setups we employ a power monitor
+\change_inserted 1518850539 1738279530
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738279544
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738279545
+
+https://www.powermeter.com.ar/home
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ that 
+\change_deleted 1518850539 1738279572
+using
+\change_inserted 1518850539 1738279572
+uses
+\change_unchanged
+ a toroid connected as shown in Figure
 \begin_inset space ~
 \end_inset
 
@@ -6802,13 +6997,42 @@ nolink "false"
 
 \end_inset
 
- allow us to collect current and voltage readings from an SBC in a non-invasive way while running workloads.
+
+\change_inserted 1518850539 1738279577
+,
+
+\change_unchanged
+ 
+\change_inserted 1518850539 1738279580
+which 
+\change_unchanged
+allow us to collect current and voltage readings from an SBC in a non-invasive way while running workloads.
  The power monitor is connected to the 220V AC power and it has a socket after a toroid where the SBC power source is connected.
- Current and Voltage readings are transmitted in real-time via a usb port to a laptop.
+ Current and Voltage readings are transmitted in real-time via a 
+\change_deleted 1518850539 1738279629
+usb
+\change_inserted 1518850539 1738279629
+USB
+\change_unchanged
+ port to a laptop.
  The power monitor gives two current and voltage values per second.
  Then,
- for a workload scenario whose inference time is around 3' minutes 50'' seconds,
+ for a workload scenario whose inference time is around 3
+\change_deleted 1518850539 1738279644
+'
+\change_unchanged
+ minutes 
+\change_inserted 1518850539 1738279651
+and 
+\change_unchanged
+50
+\change_deleted 1518850539 1738279649
+''
+\change_unchanged
+ seconds,
  the reported energy consumption is obtained by averaging 460 samples.
+\change_deleted 1518850539 1738279655
+
 \end_layout
 
 \begin_layout Standard
@@ -6817,7 +7041,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6856,15 +7080,68 @@ name "fig:SBC-Power-Monitoring scheme"
 \end_layout
 
 \begin_layout Standard
-Since for smartphone based setups the described approach for registering energy consumpution is not practical,
- because smartphone batteries are used as power source,
- we employed a different approach.
- We registered smartphones battery levels at the begining and at the end of a workload scenario.
+Since for smartphone
+\change_inserted 1518850539 1738279933
+-
+\change_deleted 1518850539 1738279933
+ 
+\change_unchanged
+based setups the described approach for registering energy consump
+\change_deleted 1518850539 1738279951
+u
+\change_unchanged
+tion 
+\change_deleted 1518850539 1738279991
+is not practical
+\change_inserted 1518850539 1738279992
+cannot be used
+\change_unchanged
+,
+ because smartphone batteries are 
+\change_deleted 1518850539 1738280003
+used
+\change_inserted 1518850539 1738280007
+employed
+\change_unchanged
+ as power source,
+ we 
+\change_deleted 1518850539 1738280015
+employed
+\change_inserted 1518850539 1738280018
+followed
+\change_unchanged
+ a different approach.
+ We registered smartphones battery levels at the begin
+\change_inserted 1518850539 1738280028
+n
+\change_unchanged
+ing and at the end of a workload scenario.
  Then,
- we used battery manufacturer information,
- such as battery mAh and operating voltage,
- of each smartphone to approximate the total energy used during the workload scenario execution (WSE).
- The following is an example of such calculus expressed in Joules:
+ we used battery manufacturer information
+\change_deleted 1518850539 1738280055
+,
+
+\change_unchanged
+ 
+\change_inserted 1518850539 1738280059
+–
+\change_unchanged
+such as battery mAh and operating voltage
+\change_inserted 1518850539 1738280062
+–
+\change_deleted 1518850539 1738280062
+,
+
+\change_unchanged
+ of each smartphone to approximate the total energy used during the workload scenario execution (WSE)
+\change_inserted 1518850539 1738280086
+,
+ 
+\change_deleted 1518850539 1738280089
+.
+ The following is an example of such calculus 
+\change_unchanged
+expressed in Joules:
 \begin_inset Formula 
 \begin{equation}
 WSEJoules=\sum_{i=0}^{\#smartphones}(battLevelDrops^{i}*battMAh^{i}*0.01)*battVoltage^{i}*3.6
@@ -6885,7 +7162,11 @@ where
 \begin_inset Formula $battLevelDrops^{i}$
 \end_inset
 
-is the amount of battery level drops the smartphone 
+is the amount of battery level drops 
+\change_inserted 1518850539 1738280140
+registered for 
+\change_unchanged
+the smartphone 
 \begin_inset Formula $i$
 \end_inset
 
@@ -6934,7 +7215,13 @@ where
 \begin_inset space ~
 \end_inset
 
-1 emerges from combining a rule of three that relates battery percentage usage with the unit convertion formula from mAh to Joules which is 
+1 emerges from combining a rule of three that relates battery percentage usage with the unit conver
+\change_inserted 1518850539 1738280184
+s
+\change_deleted 1518850539 1738280184
+t
+\change_unchanged
+ion formula from mAh to Joules which is 
 \begin_inset Formula $mAh*voltage*3.6=JoulesOfenergy$
 \end_inset
 
@@ -6943,7 +7230,13 @@ where
 
 \begin_layout Standard
 Additionally,
- since a workload scenario execution using smartphone based setups might cause different battery percentage usage on each node,
+ since a workload scenario execution using smartphone
+\change_inserted 1518850539 1738280190
+-
+\change_deleted 1518850539 1738280190
+ 
+\change_unchanged
+based setups might cause different battery percentage usage on each node,
  we report Jain's fairness index
 \begin_inset space ~
 \end_inset
@@ -6956,13 +7249,39 @@ literal "false"
 
 \end_inset
 
- as a metric that sumarizes intra-cluster energy utilization.
+ as a metric that sum
+\change_inserted 1518850539 1738280204
+m
+\change_unchanged
+arizes intra-cluster energy utilization.
  In other words,
  the metric is used to measure the disparity of energy pulled by the system from resource provider nodes.
  The metric takes values from 0 to 1.
- The nearest the index to value of one the more balanced the energy utilization between nodes is.
- The Jain's index applied formula is expressed as following,
- where :
+ The nearest the index to value of one the more balanced the energy utilization 
+\change_deleted 1518850539 1738280224
+between
+\change_inserted 1518850539 1738280225
+among
+\change_unchanged
+ 
+\change_inserted 1518850539 1738280223
+cluster 
+\change_unchanged
+nodes is.
+ The Jain's index 
+\change_inserted 1518850539 1738280262
+inspired
+\change_deleted 1518850539 1738280263
+applied
+\change_unchanged
+ formula 
+\change_deleted 1518850539 1738280268
+is expressed as following,
+ where 
+\change_inserted 1518850539 1738280269
+we applied is
+\change_unchanged
+:
 \end_layout
 
 \begin_layout Standard
@@ -6978,18 +7297,87 @@ Fairness=\frac{\left[\sum_{i=0}^{\#smartphones}battLevelDrops^{i}\right]^{2}}{\#
 
 \begin_layout Standard
 Since all smartphone-based setups comprise clusters of at least two heterogenous smartphones,
- it was necesary to indicate the load balancing strategy used to distribute load.
+ it was neces
+\change_inserted 1518850539 1738279677
+s
+\change_unchanged
+ary to indicate the load balancing strategy used to distribute load
+\change_inserted 1518850539 1738279687
+ between these
+\change_unchanged
+.
  For this reason,
  all smartphone-based setups are indicated with Round Robin or Pull-Based as value in the load balancing column.
- Round Robin is a classic load balancing strategy that assigns an incomming job to the next available node in a rotating sequence,
- ensuring workload is evently distributed among all participating devices.
+ Round Robin is a classic load balancing strategy that assigns an incom
+\change_deleted 1518850539 1738279695
+m
+\change_unchanged
+ing job
+\change_inserted 1518850539 1738279740
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738279748
+como dije mas arriba cambiaria job por task
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ to the next available node 
+\change_deleted 1518850539 1738279703
+in
+\change_inserted 1518850539 1738279703
+using
+\change_unchanged
+ a rotating 
+\change_deleted 1518850539 1738279705
+sequence
+\change_inserted 1518850539 1738279707
+scheme
+\change_unchanged
+,
+ ensuring workload is even
+\change_deleted 1518850539 1738279720
+t
+\change_unchanged
+ly distributed among all participating devices.
  By contrast,
  with a Pull-Based approach jobs are pulled by nodes from a shared queue based on their availability.
  In our configurations,
- nodes were configured to pull at most one job per request.
+ 
+\change_inserted 1518850539 1738279756
+cluster 
+\change_unchanged
+nodes were configured to pull at most one job per request.
  In turn,
- a node is able to make a request when the result of the previouly pulled job was sent back to the proxy i.e.,
- the job is marked by the system as complete.
+ a node is able to make a request when the result of the previou
+\change_inserted 1518850539 1738279775
+s
+\change_unchanged
+ly pulled job was sent back to the 
+\change_deleted 1518850539 1738279802
+proxy
+\change_inserted 1518850539 1738279807
+Edge master,
+
+\change_unchanged
+ i.e.
+\change_deleted 1518850539 1738279809
+,
+
+\change_unchanged
+ the job is marked by the system as complete
+\change_inserted 1518850539 1738279812
+d
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -7041,7 +7429,11 @@ Cluster size
 \begin_layout Plain Layout
 
 \size scriptsize
-Smartphones models
+Smartphone
+\change_deleted 1518850539 1738279763
+s
+\change_unchanged
+ models
 \end_layout
 
 \end_inset
@@ -7080,7 +7472,17 @@ Max.
 status collapsed
 
 \begin_layout Plain Layout
-To calculate this value it was used a formula derived from formula 1 assumming each smartphone is fully charged.
+To calculate this value 
+\change_deleted 1518850539 1738276304
+it was
+\change_inserted 1518850539 1738276304
+we
+\change_unchanged
+ used a formula derived from formula 1 assu
+\change_deleted 1518850539 1738276310
+m
+\change_unchanged
+ming each smartphone is fully charged.
 \end_layout
 
 \end_inset
@@ -7095,7 +7497,24 @@ To calculate this value it was used a formula derived from formula 1 assumming e
 
 \begin_layout Plain Layout
 
+\change_inserted 1518850539 1738276393
+
 \size scriptsize
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738276404
+de donde salen estos valores ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 Initial Cluster Battery %
 \end_layout
 
@@ -7781,7 +8200,17 @@ MotG6,
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Smartphone-based setups details
+
+\change_inserted 1518850539 1738276287
+Details of the s
+\change_deleted 1518850539 1738276287
+S
+\change_unchanged
+martphone-based setups
+\change_deleted 1518850539 1738276290
+ details
+\change_unchanged
+
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Smartphone-based-setups-details"
