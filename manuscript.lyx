@@ -5321,26 +5321,110 @@ name "sec:workload-characterization"
 \end_layout
 
 \begin_layout Standard
-In this section we describe workloads associated to machine vision tasks that must be performed over a stream-like input.
- Machine vision tasks such as object detection and classification using CNNs are commonly applied in diverse domains.
+In this section we describe 
+\change_inserted 1518850539 1738251977
+the 
+\change_unchanged
+workloads associated to 
+\change_inserted 1518850539 1738251982
+the 
+\change_unchanged
+machine vision tasks that 
+\change_deleted 1518850539 1738251985
+must be
+\change_inserted 1518850539 1738251986
+were
+\change_unchanged
+ performed over 
+\change_deleted 1518850539 1738251972
+a 
+\change_unchanged
+stream-like input
+\change_inserted 1518850539 1738251973
+s
+\change_unchanged
+.
+ 
+\change_inserted 1518850539 1738251992
+Indeed,
+ m
+\change_deleted 1518850539 1738251992
+M
+\change_unchanged
+achine vision tasks such as object detection and classification using CNNs are commonly applied in diverse domains.
  To complete the experimental setting,
- we consider video frames streams of different lenght and distinct frame rate that serve as input to the CNN models described above and in conjuntion both things shape heterogeneous workloads to the mobile distributed computing setups under evaluation.
+ we consider video frame
+\change_deleted 1518850539 1738252001
+s
+\change_unchanged
+ streams of different leng
+\change_deleted 1518850539 1738252006
+h
+\change_unchanged
+t
+\change_inserted 1518850539 1738252006
+h
+\change_unchanged
+ and distinct frame rate
+\change_inserted 1518850539 1738252018
+s,
+ which
+\change_deleted 1518850539 1738252020
+ that
+\change_unchanged
+ serve as input to the CNN models described above and in conjun
+\change_inserted 1518850539 1738252027
+c
+\change_unchanged
+tion both 
+\change_deleted 1518850539 1738252037
+things 
+\change_inserted 1518850539 1738252038
+elements 
+\change_unchanged
+shape heterogeneous workloads to the mobile distributed computing setups under evaluation.
 \end_layout
 
 \begin_layout Standard
-Without loosing generality,
+Without lo
+\change_deleted 1518850539 1738252049
+o
+\change_unchanged
+sing generality,
  we associate each model-stream pair different domain/usage contexts.
- These domains are:
- a smart city application scenario that we call 
+ These domains are
+\change_deleted 1518850539 1738252087
+:
+
+\change_unchanged
+ 
+\change_inserted 1518850539 1738252089
+a) 
+\change_unchanged
+a smart city application scenario that we call 
 \begin_inset Quotes eld
 \end_inset
 
-Sense while Travel
+Sense while 
+\change_inserted 1518850539 1738252093
+t
+\change_deleted 1518850539 1738252093
+T
+\change_unchanged
+ravel
+\change_inserted 1518850539 1738252127
+ (SWT)
+\change_unchanged
+
 \begin_inset Quotes erd
 \end_inset
 
 ,
- a dairy farm application scenario called 
+ 
+\change_inserted 1518850539 1738252096
+b) 
+\change_unchanged
+a dairy farm application scenario called 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5348,26 +5432,103 @@ Body Condition Score
 \begin_inset Quotes erd
 \end_inset
 
- and a human healthcare monitoring application scenario called 
+
+\change_inserted 1518850539 1738252131
+ (BCS),
+ 
+\change_deleted 1518850539 1738252104
+ 
+\change_unchanged
+and 
+\change_inserted 1518850539 1738252105
+c) 
+\change_unchanged
+a human healthcare monitoring application scenario called 
 \begin_inset Quotes eld
 \end_inset
 
-Desease Monitoring and Early Diagnosis
+D
+\change_inserted 1518850539 1738252112
+i
+\change_deleted 1518850539 1738252112
+e
+\change_unchanged
+sease Monitoring and Early Diagnosis
 \begin_inset Quotes erd
 \end_inset
 
+
+\change_inserted 1518850539 1738252135
+ (DMED)
+\change_unchanged
 .
  Next we describe the dynamics of each scenario that give sense to the stream-like input assumed:
 \end_layout
 
 \begin_layout Itemize
-Body Condition Score Calculus (BCS):
+Body Condition Score
+\change_deleted 1518850539 1738253532
+ Calculus
+\change_unchanged
+ (BCS):
  in a dairy farm,
- outfitted cows,
- i.e.,
- cows that are either overweighted or underweighted tend to produce less milk than those properly weighted.
- Identify such animals to give them a proper treatment is crucial to maintain the cow roundup fully productive.
- To classify such animals a CNN model is used which takes depth images taken from top of a cow with a camera strategically positioned
+ outfitted cows
+\change_deleted 1518850539 1738253591
+,
+
+\change_unchanged
+ 
+\change_inserted 1518850539 1738253590
+–
+\change_unchanged
+i.e.,
+ cows that are either overweighted or underweighted
+\change_inserted 1518850539 1738253594
+–
+\change_unchanged
+ tend to produce less milk 
+\change_inserted 1518850539 1738253621
+and might breed less frequently 
+\change_unchanged
+than those properly weighted.
+ Identify
+\change_inserted 1518850539 1738253601
+ing
+\change_unchanged
+ such animals 
+\change_inserted 1518850539 1738253629
+so as 
+\change_unchanged
+to give them a proper treatment is crucial to maintain the cow roundup fully productive.
+ To 
+\change_deleted 1518850539 1738253643
+classify
+\change_inserted 1518850539 1738253644
+detect
+\change_unchanged
+ such animals
+\change_inserted 1518850539 1738253646
+,
+
+\change_unchanged
+ a CNN model is used
+\change_inserted 1518850539 1738253651
+,
+
+\change_unchanged
+ which takes depth images taken from 
+\change_inserted 1518850539 1738253698
+the 
+\change_unchanged
+top 
+\change_deleted 1518850539 1738253700
+of a cow 
+\change_unchanged
+with a camera strategically positioned
+\change_inserted 1518850539 1738253766
+ as cows walk to a milking parlor
+\change_unchanged
+
 \begin_inset space ~
 \end_inset
 
@@ -5380,58 +5541,348 @@ literal "false"
 \end_inset
 
 .
- The image capturing procedure is performed within a time window that not exceceds 10 seconds.
+ The image capturing procedure is performed within a time window that 
+\change_inserted 1518850539 1738253776
+do 
+\change_unchanged
+not exce
+\change_deleted 1518850539 1738253779
+c
+\change_unchanged
+ed
+\change_deleted 1518850539 1738253781
+s
+\change_unchanged
+ 10 seconds.
  During such time,
- providing that animals naturally don't state quite under the camera and the capture should contain a specific part of the cow,
+ providing that animals naturally do
+\change_inserted 1518850539 1738253792
+ 
+\change_unchanged
+n
+\change_inserted 1518850539 1738253794
+o
+\change_deleted 1518850539 1738253793
+'
+\change_unchanged
+t state quite under the camera and the capture should contain a specific part of the cow
+\change_inserted 1518850539 1738253808
+ for the model to produce accurate results
+\change_unchanged
+,
  a high percent of captured images,
- let say 50%,
+ let 
+\change_inserted 1518850539 1738253813
+us 
+\change_unchanged
+say 50%,
  are dropped,
  i.e.,
- tagged and filtered as not useful input for the CNN model.
+ tagged and filtered
+\change_inserted 1518850539 1738253824
+,
+
+\change_unchanged
+ as 
+\change_inserted 1518850539 1738253829
+they do 
+\change_unchanged
+not 
+\change_inserted 1518850539 1738253831
+represent 
+\change_unchanged
+useful input for the CNN model.
  Moreover,
  during the transition of one animal to the next under the lens of camera,
  which can take 10 seconds in average,
- it is proper to stop capturing images.
+ it is 
+\change_deleted 1518850539 1738253848
+proper
+\change_inserted 1518850539 1738253849
+reasonable
+\change_unchanged
+ to stop capturing images.
  To make the body condition score calculus feasible,
- realiable,
- and energy effienct it is proper to count with no less than a hundred of frames ready to serve as input for the CNN model,
+ re
+\change_deleted 1518850539 1738253855
+a
+\change_unchanged
+liable,
+ and energy effi
+\change_inserted 1518850539 1738253861
+ci
+\change_unchanged
+en
+\change_deleted 1518850539 1738253862
+c
+\change_unchanged
+t
+\change_inserted 1518850539 1738253870
+,
+
+\change_unchanged
+ 
+\change_deleted 1518850539 1738253875
+it is proper
+\change_inserted 1518850539 1738253877
+we should
+\change_unchanged
+ 
+\change_deleted 1518850539 1738253879
+to 
+\change_unchanged
+count with no less than a hundred of frames ready to serve as input for the CNN model,
  from each cow.
  All these constraints configure a stream processing scenario where depth images can be produced at a rate of 15 FPS during 10 seconds,
- followed by other 10 seconds without images captures.
- We determined that an atomic CV task woud be represented by the burden of applying the CNN model to fiftheen consecutive frames,
+ followed by other 10 seconds without image
+\change_deleted 1518850539 1738253894
+s
+\change_unchanged
+ captures.
+ We determined
+\change_inserted 1518850539 1738254011
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738254048
+determinar implica que se hizo algun analisis previo y se llego a ese nro 15...
+ que tal contarlo más directo?
+ a menos que pueda decirse como se llego a ese 15
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ that an atomic CV task wou
+\change_inserted 1518850539 1738253900
+l
+\change_unchanged
+d be represented by the burden of applying the CNN model to fift
+\change_deleted 1518850539 1738253905
+h
+\change_unchanged
+een consecutive frames,
  meaning that a CV task is created every second which gives a total of ten CV tasks created for a cow.
- Considering that the dataset used to simulate this scenario includes 1740 images,
- the resulting workload stream comprises 116 CV tasks given within a time window of 3' minutes and 34'' seconds.
+ Considering that the dataset used to 
+\change_deleted 1518850539 1738253924
+simulate
+\change_inserted 1518850539 1738253928
+recreate
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738253958
+estoy tratando de evitar la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+simulate
+\begin_inset Quotes erd
+\end_inset
+
+...
+ cambiando por términos que de una idea similar pero que no refiera a simular por software.
+ Revisar en el resto
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ this scenario includes 1740 images,
+ the resulting workload stream comprises 116 CV tasks given within a time window of 3
+\change_deleted 1518850539 1738253977
+'
+\change_unchanged
+ minutes and 34
+\change_deleted 1518850539 1738253982
+''
+\change_unchanged
+ seconds.
 \end_layout
 
 \begin_layout Itemize
 Sense while Travel (SWT):
- a city can take advantage of mobile agents such as urban line buses to collect information of relevant street events while traveling,
+ a city can take advantage of mobile agents
+\change_inserted 1518850539 1738274757
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738274783
+habría que buscar otra palabra.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+mobile agent
+\begin_inset Quotes erd
+\end_inset
+
+ es un termino en sí.
+ y encima ahora con los LLM se está hablando mucho de agentes otra vez
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ such as urban line buses to collect information of relevant street events while traveling,
  e.g.,
  for statistical purposes,
  crime detection,
  infrastructure maintenance planning,
  etc.
- Images captured with a bus front camera might feed a YOLO model which gives a plain text representation of objects present in an image and the accuracy percentage of each detected object class as output.
- An energy eficient way to achieve this without having to process a large amount of frames with redundant information,
+ Images captured with a bus front camera might feed a YOLO model
+\change_inserted 1518850539 1738274838
+,
+
+\change_unchanged
+ which 
+\change_inserted 1518850539 1738274839
+instead 
+\change_unchanged
+gives a plain text representation of objects present in an image and the accuracy percentage of each detected object class as output.
+ An energy ef
+\change_inserted 1518850539 1738274843
+f
+\change_unchanged
+icient way to achieve this without having to process a large amount of frames with redundant information,
  is to cleverly select a sample rate accordingly with the expected moving change of detection target.
  We assume this sample rate in 2 FPS and evaluate the system performance for a stream duration of 30 minutes.
- These parameters equates approximately to sense data of 15 km of a road assuming a vehicle travelling at 30 km/h.
- A CV task would be represented by the application of the CNN model to two consecutive filtered frames,
+ These parameters 
+\change_deleted 1518850539 1738274903
+equates approximately
+\change_inserted 1518850539 1738274903
+means
+\change_unchanged
+ 
+\change_deleted 1518850539 1738274904
+to 
+\change_unchanged
+sens
+\change_inserted 1518850539 1738274906
+ing
+\change_deleted 1518850539 1738274905
+e
+\change_unchanged
+ data 
+\change_deleted 1518850539 1738274954
+of
+\change_inserted 1518850539 1738274954
+for
+\change_unchanged
+ 15 km 
+\change_deleted 1518850539 1738274948
+of a road 
+\change_unchanged
+assuming a vehicle trave
+\change_deleted 1518850539 1738274863
+l
+\change_unchanged
+ling 
+\change_inserted 1518850539 1738274950
+the road 
+\change_unchanged
+at 30 km/h.
+ A CV task would be represented by the 
+\change_deleted 1518850539 1738274967
+application
+\change_inserted 1518850539 1738274968
+execution
+\change_unchanged
+ of the CNN model to two consecutive filtered frames,
  meaning that a CV task is created every second.
  Providing that the dataset used to simulate this scenario includes 3600 images,
- the resulting workload stream comprises 1800 CV tasks given within a time window of 30' minutes.
+ the resulting workload stream comprises 1800 CV tasks given within a time window of 30
+\change_deleted 1518850539 1738274988
+'
+\change_unchanged
+ minutes.
 \end_layout
 
 \begin_layout Itemize
 Disease Monitoring and Early Diagnosis (DMED):
- We envision a remote monitoring m-health scenario where a CNN model encapsulates expert knowledge on different patologies to allow people,
- e.g.,
- older people receiving intensive care services,
- to analize different health parameters as a way to prevent the appearance of some pathology or monitoring a pre-existence illnees.
- We assume an scenario where a caregiver or nurse rendering services in an eldery residence is assigned with the task of taking pictures of all patients foot tissue resulting in a data stream of 10 FPS during 2 seconds with pauses of 7 seconds without images capturing.
+ We envision a remote monitoring m-health scenario where a CNN model encapsulates expert knowledge on different pat
+\change_inserted 1518850539 1738275091
+h
+\change_unchanged
+ologies to allow people,
+ 
+\change_deleted 1518850539 1738275046
+e.g.,
+\change_inserted 1518850539 1738275047
+and specially
+\change_unchanged
+ older people
+\change_inserted 1518850539 1738275051
+,
+
+\change_unchanged
+ receiving intensive care services,
+ 
+\change_inserted 1518850539 1738275153
+and being measured 
+\change_unchanged
+to anal
+\change_inserted 1518850539 1738275113
+y
+\change_deleted 1518850539 1738275113
+i
+\change_unchanged
+ze different health parameters as a way to prevent the appearance of some pathology or monitoring a pre-existen
+\change_deleted 1518850539 1738275165
+ce
+\change_inserted 1518850539 1738275165
+t
+\change_unchanged
+ 
+\change_deleted 1518850539 1738275189
+illnees
+\change_inserted 1518850539 1738275189
+illnesses
+\change_unchanged
+.
+ We assume an scenario where a caregiver or nurse rendering services in an elder
+\change_inserted 1518850539 1738275199
+l
+\change_unchanged
+y residence is assigned with the task of taking pictures of all patients foot tissue resulting in a data stream of 10 FPS during 2 seconds
+\change_inserted 1518850539 1738275214
+,
+
+\change_unchanged
+ with pauses of 7 seconds without 
+\change_inserted 1518850539 1738275224
+capturing 
+\change_unchanged
+images
+\change_deleted 1518850539 1738275226
+ capturing
+\change_unchanged
+.
  In this case,
- a CV task is represented by the burden of applying the model described in
+ a CV task 
+\change_deleted 1518850539 1738275242
+is represented by the burden of applying
+\change_inserted 1518850539 1738275243
+executes
+\change_unchanged
+ the model described in
 \begin_inset space ~
 \end_inset
 
@@ -5446,8 +5897,26 @@ literal "false"
  to 2 consecutive frames,
  meaning that during image capturing time,
  five CV tasks are created per second.
- Providing that the dataset used to simulate this scenario incluides 600 images,
- the resulting workload stream comprises 300 CV tasks given within a time window of 8' minutes and 55'' seconds.
+ Providing that the dataset used to 
+\change_deleted 1518850539 1738275267
+simulate
+\change_inserted 1518850539 1738275268
+recreate
+\change_unchanged
+ this scenario inclu
+\change_deleted 1518850539 1738275260
+i
+\change_unchanged
+des 600 images,
+ the resulting workload stream comprises 300 CV tasks given within a time window of 8
+\change_deleted 1518850539 1738275275
+'
+\change_unchanged
+ minutes and 55
+\change_deleted 1518850539 1738275273
+''
+\change_unchanged
+ seconds.
 \end_layout
 
 \begin_layout Standard
@@ -5479,9 +5948,23 @@ nolink "false"
 
  show a timeline representation of the data input stream shape,
  i.e.,
- the kilobytes of data transfered per second,
- and an example of the input for the CNN used in the Body Condition Score Calculus scenario.
- Similar information can be found in figures
+ the kilobytes of data transfer
+\change_inserted 1518850539 1738254164
+r
+\change_unchanged
+ed per second,
+ and an example of the input for the CNN used in the Body Condition Score 
+\change_deleted 1518850539 1738254170
+Calculus 
+\change_unchanged
+scenario.
+ Similar information can be found in 
+\change_inserted 1518850539 1738254176
+F
+\change_deleted 1518850539 1738254176
+f
+\change_unchanged
+igures
 \begin_inset space ~
 \end_inset
 
@@ -5508,7 +5991,13 @@ nolink "false"
 
 \end_inset
 
- and figures
+ and 
+\change_inserted 1518850539 1738254178
+F
+\change_deleted 1518850539 1738254178
+f
+\change_unchanged
+igures
 \begin_inset space ~
 \end_inset
 
@@ -5536,6 +6025,13 @@ nolink "false"
 \end_inset
 
  for SWT and DMED scenarios respectively.
+
+\change_inserted 1518850539 1738275955
+ In all cases,
+ we depict the first 4 minutes of the three image streams,
+ and we report per-image inference times.
+\change_deleted 1518850539 1738275965
+
 \end_layout
 
 \begin_layout Standard
@@ -5544,7 +6040,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5693,6 +6189,8 @@ BCS - workload characterization
 \end_inset
 
 
+\change_deleted 1518850539 1738275966
+
 \end_layout
 
 \begin_layout Standard
@@ -5701,7 +6199,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5873,7 +6371,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -6024,12 +6522,36 @@ DMED - workload characterization
 \end_layout
 
 \begin_layout Standard
-Irrespective of the domain,
- these application example scenarios present streams with different characteristics not only by the dynamics of input generation but also the computing capability required to perform inferences.
+Irrespective of the 
+\change_inserted 1518850539 1738254067
+application 
+\change_unchanged
+domain,
+ these 
+\change_inserted 1518850539 1738254103
+example 
+\change_unchanged
+application 
+\change_deleted 1518850539 1738254101
+example 
+\change_unchanged
+scenarios present streams with different characteristics not only by the dynamics of input generation but also the computing capability required to perform inferences
+\change_inserted 1518850539 1738254130
+ over the input
+\change_unchanged
+.
  In addition,
- it is assumed that inferences results should be available at the master node with minimun latency,
+ it is assumed that inference
+\change_deleted 1518850539 1738254136
+s
+\change_unchanged
+ results should be available at the master node with minimun latency,
  i.e.,
- as close as possible to a real-time.
+ as close as possible to 
+\change_deleted 1518850539 1738254145
+a 
+\change_unchanged
+real-time.
 \end_layout
 
 \begin_layout Subsection
