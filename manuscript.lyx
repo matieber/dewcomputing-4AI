@@ -7296,7 +7296,11 @@ Fairness=\frac{\left[\sum_{i=0}^{\#smartphones}battLevelDrops^{i}\right]^{2}}{\#
 \end_layout
 
 \begin_layout Standard
-Since all smartphone-based setups comprise clusters of at least two heterogenous smartphones,
+Since all smartphone-based setups comprise clusters of at least two heterogen
+\change_inserted 1518850539 1738332094
+e
+\change_unchanged
+ous smartphones,
  it was neces
 \change_inserted 1518850539 1738279677
 s
@@ -8302,7 +8306,19 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Accumultated Inference Latency
+Accumul
+\change_deleted 1518850539 1738332080
+t
+\change_unchanged
+ated Inference Latency
+\change_inserted 1518850539 1738332380
+ for the three scenarios.
+ For the cluster setups,
+ we indicate the load balancing technique used (PB=pull based;
+ RR=round robin).
+ Load balancing is not used in SBC-based setups.
+\change_unchanged
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Accumultated-Inference-Latency"
@@ -8323,6 +8339,25 @@ name "fig:Accumultated-Inference-Latency"
 
 \end_inset
 
+
+\change_inserted 1518850539 1738332242
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738332270
+no se si se aclara en el texto,
+ pero en las figuras por que no están todos los setups de tabla 4?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 Figure
 \begin_inset space ~
 \end_inset
@@ -8341,48 +8376,204 @@ nolink "false"
  shows the performance achieved by all setups for all scenarios.
  Blue bars correspond to SBC-based setups while orange ones to smartphone-based setups.
  By comparing all setups,
- it can be clearly note that the best performance,
- i.e.,
+ it can be clearly note
+\change_inserted 1518850539 1738332404
+d
+\change_unchanged
+ that the best performance,
+ i.e.
+\change_deleted 1518850539 1738332410
+,
+
+\change_unchanged
  the lowest accumulated inference latency value in all tested scenarios is achieved with the Gigabyte Brix setup.
- The close to zero value indicates that inference service performed with this setup is near to real-time,
- i.e.,
- inference results to all CV tasks are obtained within the stream time.
+ The close
+\change_inserted 1518850539 1738332428
+-
+\change_deleted 1518850539 1738332427
+ 
+\change_unchanged
+to
+\change_inserted 1518850539 1738332429
+-
+\change_deleted 1518850539 1738332429
+ 
+\change_unchanged
+zero value indicates that inference
+\change_inserted 1518850539 1738332439
+s
+\change_unchanged
+ 
+\change_deleted 1518850539 1738332437
+service 
+\change_unchanged
+performed with this setup is near to real-time,
+ i.e.
+\change_deleted 1518850539 1738332445
+,
+
+\change_unchanged
+ inference results 
+\change_inserted 1518850539 1738332451
+associated 
+\change_unchanged
+to all CV tasks are obtained within the stream time.
  Concretely,
  in the BCS scenario,
  the accumulated latency in a stream time of 3' 50'' was 3 seconds.
  In the SWT scenario,
  the accumulated latency in a stream time of 30' was 1.2 seconds while in the DMED scenario with a stream time of 8'55'',
- the value for same metric was 3.6 seconds.
- With the Raspberry Pi4 and Nvidia Jetson Nano setups the accumulated inference latency was significantly greater than with the Gigabyte Brix setup.
- In most cases,
+ the value 
+\change_deleted 1518850539 1738332486
+for same metric 
+\change_unchanged
+was 3.6 seconds.
+ With the Raspberry Pi4 and Nvidia Jetson Nano setups the 
+\change_inserted 1518850539 1738332498
+obtained 
+\change_unchanged
+accumulated inference latency was significantly greater
+\change_deleted 1518850539 1738332537
+ than with the Gigabyte Brix setup
+\change_inserted 1518850539 1738332539
+,
+ and
+\change_deleted 1518850539 1738332537
+.
+
+\change_unchanged
+ 
+\change_inserted 1518850539 1738332540
+i
+\change_deleted 1518850539 1738332540
+I
+\change_unchanged
+n most cases,
  the inference latency was the stream time multiplied by a factor of two to four.
  The Nvidia Jetson nano setups performed better than the Raspberry Pi4 setups in all cases.
  However,
- the workload always overpassed the inference capability.
- Reducing workload would be necessary with these setups to achieve a near to real-time performace.
- Some alternatives to reduce workload are creating lightweight CV tasks by dropping frames and/or offloading some CV tasks to other Edge nodes.
+ the workload always 
+\change_deleted 1518850539 1738332681
+overpassed
+\change_inserted 1518850539 1738332684
+exceeded
+\change_unchanged
+ the inference capability.
+ 
+\change_inserted 1518850539 1738332730
+With these setups,
+ r
+\change_deleted 1518850539 1738332729
+R
+\change_unchanged
+educing workload would be necessary 
+\change_deleted 1518850539 1738332725
+with these setups 
+\change_unchanged
+to achieve 
+\change_deleted 1518850539 1738332691
+a 
+\change_unchanged
+near 
+\change_deleted 1518850539 1738332699
+to 
+\change_unchanged
+real-time performa
+\change_inserted 1518850539 1738332697
+n
+\change_unchanged
+ce.
+ Some alternatives to reduce workload are creating 
+\change_inserted 1518850539 1738332746
+more 
+\change_unchanged
+lightweight CV tasks by dropping frames and/or offloading some CV tasks to other Edge nodes.
  These alternatives could come,
  in turn,
- with some QoS degradation.
+ with some QoS degradation
+\change_inserted 1518850539 1738332784
+ due to increased network latency
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
-When comparing smartphone-based setups for BCS scenario,
- we confirm what several simulated studies conclude that is by incrementing the number of participating smartphones,
+When comparing smartphone-based setups for 
+\change_inserted 1518850539 1738333012
+the 
+\change_unchanged
+BCS scenario,
+ we 
+\change_inserted 1518850539 1738332896
+empirically 
+\change_unchanged
+confirm what several simulated studies conclude
+\change_inserted 1518850539 1738332918
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738332922
+referencias ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+:
+
+\change_unchanged
+ 
+\change_deleted 1518850539 1738332912
+that is 
+\change_unchanged
+by incrementing the number of participating smartphones,
  performance improves,
  i.e,
  lower accumulated inference latency is obtained.
- This is also true for SWT and DMED scenarios.
+ This is also true for 
+\change_inserted 1518850539 1738333014
+the 
+\change_unchanged
+SWT and DMED scenarios.
  However,
- not only the number of smartphones impact on the setup inference service capability,
- the smartphones computing characteristics also affect.
+ not only the number of smartphones impact 
+\change_deleted 1518850539 1738332956
+on 
+\change_unchanged
+the setup inference service capability,
+ 
+\change_inserted 1518850539 1738332961
+but also 
+\change_unchanged
+the smartphones computing characteristics
+\change_deleted 1518850539 1738332963
+ also affect
+\change_unchanged
+.
  Clusters 301 and 302,
  for instance,
  are of the same size.
  Both clusters are composed by a Samsung A30 and a Motorola Moto G9 play.
  However,
- the Samsung A02 smartphone present in Cluster 302 is not present in Cluster 301 which has a Xiaomi Redmi Note 7 instead.
- If we compared the inference times associated to the latter mentioned smartphone models reported in Figures
+ the Samsung A02 smartphone present in Cluster 302 is not present in Cluster 301
+\change_inserted 1518850539 1738332976
+,
+
+\change_unchanged
+ which has a Xiaomi Redmi Note 7 instead.
+ If we compare
+\change_deleted 1518850539 1738332980
+d
+\change_unchanged
+ the inference times associated to the latter mentioned smartphone models 
+\change_inserted 1518850539 1738332998
+and 
+\change_unchanged
+reported in Figures
 \begin_inset space ~
 \end_inset
 
@@ -8421,8 +8612,17 @@ nolink "false"
 
 ,
  we will note that the computing capability of the Samsung A02 is in between 2.62 and 3.99 times slower than that of the Xiaomi Redmi Note 7.
- The effect of such difference is observed in the performance values registered for the SWT scenario where both clusters are tested.
- While the accumulated inference latency with Cluster 301 was in between 
+ The effect of such difference is observed in the performance values registered for the SWT scenario
+\change_inserted 1518850539 1738333049
+,
+
+\change_unchanged
+ where both clusters are tested.
+ While the accumulated inference latency with Cluster 301 was 
+\change_deleted 1518850539 1738333057
+in 
+\change_unchanged
+between 
 \begin_inset Formula $\backsim$
 \end_inset
 
@@ -8431,7 +8631,11 @@ nolink "false"
 \end_inset
 
 31 seconds,
- with Cluster 302 it was in between 
+ with Cluster 302 it was 
+\change_deleted 1518850539 1738333062
+in 
+\change_unchanged
+between 
 \begin_inset Formula $\backsim$
 \end_inset
 
@@ -8443,20 +8647,125 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Other observation when comparing smartphone-based setups is that in general pull-based load balancing scheme achieves lower accumulated inference latency than when using round robin.
- This is because using pull-based allow the system to balance the workload in accordance to the availability and computing capability of worker nodes rather than treat all nodes with the same capability as round robin does.
- This advantage of pull-based over round robin dinimishes in clusters where nodes present quite similar computing capability,
- which is the case of Cluster 202 in SWT scenario or even when computing resources are apparently abundant resources for satisfying the workload requirements which seems to be the case of Cluster 408.
+
+\change_inserted 1518850539 1738333111
+Ano
+\change_deleted 1518850539 1738333111
+O
+\change_unchanged
+ther observation when comparing smartphone-based setups is that in general pull-based load balancing scheme achieves lower accumulated inference latency than 
+\change_deleted 1518850539 1738333132
+when using 
+\change_unchanged
+round robin.
+ This is because using pull-based allow the 
+\change_deleted 1518850539 1738333142
+system
+\change_inserted 1518850539 1738333143
+cluster
+\change_unchanged
+ to balance the workload in accordance to the availability and computing capability of worker nodes rather than treat all nodes with the same capability as round robin does.
+ This advantage of pull-based over round robin di
+\change_inserted 1518850539 1738333157
+m
+\change_deleted 1518850539 1738333156
+n
+\change_unchanged
+i
+\change_inserted 1518850539 1738333161
+n
+\change_deleted 1518850539 1738333160
+m
+\change_unchanged
+ishes in clusters where nodes present quite similar computing capability,
+ which is the case of Cluster 202 in 
+\change_inserted 1518850539 1738333169
+the 
+\change_unchanged
+SWT scenario
+\change_inserted 1518850539 1738333173
+,
+
+\change_unchanged
+ or even when computing resources are apparently abundant 
+\change_deleted 1518850539 1738333184
+resources
+\change_inserted 1518850539 1738333184
+enough
+\change_unchanged
+ 
+\change_deleted 1518850539 1738333187
+for
+\change_inserted 1518850539 1738333187
+to
+\change_unchanged
+ satisfy
+\change_deleted 1518850539 1738333189
+ing
+\change_unchanged
+ the workload requirements
+\change_inserted 1518850539 1738333193
+,
+
+\change_unchanged
+ which seems to be the case of Cluster 408.
  In general,
  the most competitive accumulated inference latency comparison to that obtained by the Gigabyte Brix setup was always achieved with a pull-based load balancing scheme.
  For example,
  in the BCS scenario,
  the difference between Cluster 409 and Gigabyte Brix setups was less than 8 seconds which is,
  in turn,
- seven times shorter than the second best setup.
- A similar analysis is valid in the SWT and in DMED scenarios,
- with the Clusters 408 and 411 respectively.
- This load balancing scheme achieves considerable better performance than round robin when clusters nodes present heterogeneous computing capabilities and resource scarcity.
+ seven times shorter than the second best 
+\change_inserted 1518850539 1738333388
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738333402
+smartphone-based setup?
+ o sea el tercero ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+setup.
+ A similar analysis is valid in the SWT and 
+\change_deleted 1518850539 1738333416
+in 
+\change_unchanged
+DMED scenarios,
+ with 
+\change_deleted 1518850539 1738333420
+the 
+\change_unchanged
+Clusters 408 and 411 respectively.
+ This load balancing scheme achieves considerable better performance than round robin when clusters nodes present heterogeneous computing capabilities and resource scarcity
+\change_inserted 1518850539 1738333448
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738333464
+no entiendo esto de resource scarcity.
+ si no tienen recursos,
+ para qué armar clusters ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -8464,6 +8773,27 @@ Energy consumption-performance tradeoff analysis
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1518850539 1738336447
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738336544
+antes quiza quedaria lindo un par de frases y alguna referencia respecto del tema consumo de energia con la IA,
+ y su importancia (o gravedad).
+ De hecho es un factor que se ha traido a la superficie recientemente con los LLM.
+ Nada muy elaborado,
+ pero algo que motive el experimento
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 Figure
 \begin_inset space ~
 \end_inset
@@ -8480,23 +8810,76 @@ nolink "false"
 \end_inset
 
  reports the energy consumption and accumulated inference latency tradeoff between different setups in each tested scenario.
- The best setups are those that achieve the minimun accumulated inference latency using the least energy,
+ The best setups are those that achieve the minimu
+\change_inserted 1518850539 1738336426
+m
+\change_deleted 1518850539 1738336426
+n
+\change_unchanged
+ accumulated inference latency using the least energy,
  i.e.,
  those positioned close to the origin.
- As can be observed in all scenarios,
+ As can be observed
+\change_inserted 1518850539 1738336569
+,
+
+\change_unchanged
+ in all scenarios
+\change_deleted 1518850539 1738336571
+,
+
+\change_unchanged
  the best balance is always achieved by orange dots with a label starting with Cl which corresponds to smartphone-based setups.
  It can be noted,
  for instance,
- that the accumulated inference latency of GBx setups are the lowest in bcs,
- swt and dmed scenarios,
+ that the accumulated inference latency of GBx setups are the lowest in 
+\change_deleted 1518850539 1738336587
+bcs
+\change_inserted 1518850539 1738336587
+BCS
+\change_unchanged
+,
+ 
+\change_deleted 1518850539 1738336590
+swt
+\change_inserted 1518850539 1738336590
+SWT
+\change_unchanged
+ and 
+\change_deleted 1518850539 1738336592
+dmed
+\change_inserted 1518850539 1738336595
+DMED
+\change_unchanged
+ scenarios,
  however,
  these are also associated to the highest values of energy utilization.
  Moreover,
- the slowest setups are not necesary associated to the most convenient in terms of energy consumption.
+ the slowest setups are not neces
+\change_inserted 1518850539 1738336609
+s
+\change_unchanged
+ary associated to the most convenient 
+\change_inserted 1518850539 1738336624
+ones 
+\change_unchanged
+in terms of energy consumption.
  Interestingly,
  smartphone-based setups,
- particularly size four clusters using pull-based as load balancing scheme offer a good tradeoff in all scenarios,
- i.e.,
+ particularly 
+\change_deleted 1518850539 1738336643
+size 
+\change_unchanged
+four
+\change_inserted 1518850539 1738336640
+-node
+\change_unchanged
+ clusters using pull-based as load balancing scheme offer a good tradeoff in all scenarios,
+ i.e.
+\change_deleted 1518850539 1738336651
+,
+
+\change_unchanged
  competitive performance with the least energy consumption.
  These are the cases of Cl409-PB,
  Cl408-PB and Cl411-PB for BCS,
@@ -8504,14 +8887,55 @@ nolink "false"
  In other words,
  for the BCS scenario,
  when it is acceptable that all CV tasks results were calculated with a delay of 7.8 seconds w.r.t to the fastest setup,
- then the Cluster 409 setup with pull-based scheme can achieve the objetive by utilizing 
+ then the Cluster 409 setup with pull-based scheme can achieve the
+\change_inserted 1518850539 1738336688
+ same
+\change_unchanged
+ obje
+\change_inserted 1518850539 1738336683
+c
+\change_unchanged
+tive by utilizing 
 \begin_inset Formula $\backsim$
 \end_inset
 
 1510 Joules,
- i.e.,
- almost three times less energy than by using the Gigabyte Brix setup.
- Similar relations can be found for SWT and DMED scenarios.
+ i.e.
+\change_deleted 1518850539 1738336701
+,
+
+\change_unchanged
+ almost three times less energy than 
+\change_deleted 1518850539 1738336787
+by using 
+\change_unchanged
+the Gigabyte Brix setup.
+ Similar relations can be found for 
+\change_inserted 1518850539 1738336796
+the 
+\change_unchanged
+SWT and DMED scenarios.
+\change_inserted 1518850539 1738336841
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738336875
+en varios gráficos,
+ se superponen los labels de los puntos.
+ Será posible girarlos ?
+ O sino generar SVG y luego editarlos ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -8570,14 +8994,48 @@ Battery utilization analysis
 \begin_layout Standard
 For smartphone-based setups,
  it is relevant to show the impact of CV tasks computation on clusters energy availability.
- Providing that clusters are composed of at least two nodes,
+ Provid
+\change_inserted 1518850539 1738336897
+ed
+\change_deleted 1518850539 1738336897
+ing
+\change_unchanged
+ that clusters are composed of at least two nodes,
  cluster battery can be seen as the aggregation of nodes battery.
  To represent the cluster current battery level with a single positive integer value,
  we aggregate the Joules each smartphone contributes to the global cluster energy.
  By assuming that a cluster with 100% global battery level is one where batteries of all integrating smartphones are fully charged,
- using equation 1 it is possible to know which is the global battery level expressed in percentage of a cluster for different smartphones battery levels.
+ using 
+\change_inserted 1518850539 1738336949
+E
+\change_deleted 1518850539 1738336949
+e
+\change_unchanged
+quation
+\change_inserted 1518850539 1738336951
+
+\begin_inset space ~
+\end_inset
+
+
+\change_deleted 1518850539 1738336950
+ 
+\change_unchanged
+1 it is possible to 
+\change_deleted 1518850539 1738336967
+know which is
+\change_inserted 1518850539 1738336970
+calculate
+\change_unchanged
+ the global battery level expressed in percentage of a cluster for different smartphones battery levels.
  Then,
- figure
+ 
+\change_inserted 1518850539 1738336977
+F
+\change_deleted 1518850539 1738336977
+f
+\change_unchanged
+igure
 \begin_inset space ~
 \end_inset
 
@@ -8593,11 +9051,31 @@ nolink "false"
 \end_inset
 
  shows global battery level drops for all smartphone-based setups evaluated in all scenarios.
- Since in all cases smartphone-based setups run workloads tests unplugged from the electricity grid,
- i.e.,
+ Since in all cases smartphone-based setups run workloads 
+\change_deleted 1518850539 1738337013
+tests
+\change_inserted 1518850539 1738337013
+while
+\change_unchanged
+ unplugged from the electricity grid,
+ i.e.
+\change_deleted 1518850539 1738337018
+,
+
+\change_unchanged
  with batteries in discharging mode,
- the battery drops were calculated as the diference between the initial and the final global battery level of a cluster before and after the workload execution respectively.
- In figure
+ the battery drops were calculated as the dif
+\change_inserted 1518850539 1738337028
+f
+\change_unchanged
+erence between the initial and the final global battery level of a cluster before and after the workload execution respectively.
+ In 
+\change_inserted 1518850539 1738337034
+F
+\change_deleted 1518850539 1738337034
+f
+\change_unchanged
+igure
 \begin_inset space ~
 \end_inset
 
@@ -8614,7 +9092,26 @@ nolink "false"
 
  it can be noted,
  for instance,
- that CV tasks of SWT scenario causes the highest global battery drops compared to BCS and DMED which is mainly due to the lenght of the workload execution -30' compared to 
+ that CV tasks 
+\change_deleted 1518850539 1738337043
+of
+\change_inserted 1518850539 1738337044
+in the
+\change_unchanged
+ SWT scenario causes the highest global battery drops compared to BCS and DMED
+\change_inserted 1518850539 1738337049
+,
+
+\change_unchanged
+ which is mainly due to the leng
+\change_deleted 1518850539 1738337053
+h
+\change_unchanged
+t
+\change_inserted 1518850539 1738337055
+h
+\change_unchanged
+ of the workload execution -30' compared to 
 \begin_inset Formula $\backsim$
 \end_inset
 
@@ -8626,7 +9123,19 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Other observation that emerges from figure
+
+\change_inserted 1518850539 1738337091
+Ano
+\change_deleted 1518850539 1738337091
+O
+\change_unchanged
+ther observation that emerges from 
+\change_inserted 1518850539 1738337096
+F
+\change_deleted 1518850539 1738337096
+f
+\change_unchanged
+igure
 \begin_inset space ~
 \end_inset
 
@@ -8641,16 +9150,106 @@ nolink "false"
 
 \end_inset
 
- is that when comparing cluster battery level drop between clusters of the same scenario,
- it seems to decrease as the cluster size increases.
+ is that when comparing cluster battery level drop
+\change_inserted 1518850539 1738337102
+s
+\change_unchanged
+ between clusters 
+\change_deleted 1518850539 1738337108
+of
+\change_inserted 1518850539 1738337109
+w.r.t.
+
+\change_unchanged
+ the same scenario,
+ it 
+\change_deleted 1518850539 1738337125
+seems
+\change_inserted 1518850539 1738337126
+appears
+\change_unchanged
+ to decrease as 
+\change_deleted 1518850539 1738337136
+the 
+\change_unchanged
+cluster size increases.
  In fact,
- as more smartphones integrate a cluster the cluster battery also increases and one percentage of such cluster battery is represented by a bigger number in Joules.
- Something similar happens when two clusters are of the same size but one has smartphones whose batteries have more energy storage capacity than the other which is the case of Cl301 and Cl302.
+ as more smartphones integrate a cluster the cluster battery also increases and 
+\change_inserted 1518850539 1738337182
+[[
+\change_unchanged
+one percentage of such cluster battery is represented by a 
+\change_deleted 1518850539 1738337343
+bigger
+\change_inserted 1518850539 1738337344
+larger
+\change_unchanged
+ number in Joules
+\change_inserted 1518850539 1738337198
+]]
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738337209
+no entiendo lo encerrado entre [[ ]]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ Something similar happens when two clusters are of the same size but one has smartphones whose batteries have more energy 
+\change_deleted 1518850539 1738337224
+storage 
+\change_unchanged
+capacity than the other
+\change_inserted 1518850539 1738337228
+,
+
+\change_unchanged
+ which is the case of Cl301 and Cl302.
  However,
- a cluster with a bigger battery does not imply that it will complete tasks in a more energy efficient way.
- As example,
- refer to Max.
- Cluster Energy column of table
+ a cluster with a bigger battery does not imply that it will complete tasks in a more energy
+\change_inserted 1518850539 1738337236
+-
+\change_deleted 1518850539 1738337236
+ 
+\change_unchanged
+efficient way.
+ As 
+\change_inserted 1518850539 1738337240
+an 
+\change_unchanged
+example,
+ refer to 
+\change_inserted 1518850539 1738337251
+the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\change_unchanged
+Max.
+ Cluster Energy
+\change_inserted 1518850539 1738337252
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+ column of 
+\change_inserted 1518850539 1738337245
+T
+\change_deleted 1518850539 1738337245
+t
+\change_unchanged
+able
 \begin_inset space ~
 \end_inset
 
@@ -8665,8 +9264,38 @@ nolink "false"
 
 \end_inset
 
- to see that Cl302 has slightly bigger cluster battery capacity than Cl301,
- because a Xiaomi RN7 with a battery capacity of 4000 mAh in Cl301 was replaced by a Samsung A02 with a battery capacity of 4900 mAh in Cl302.
+ to 
+\change_deleted 1518850539 1738337268
+see
+\change_inserted 1518850539 1738337269
+appreciate
+\change_unchanged
+ that Cl302 has slightly 
+\change_deleted 1518850539 1738337357
+bigger
+\change_inserted 1518850539 1738337357
+larger
+\change_unchanged
+ cluster battery capacity than Cl301,
+ because 
+\change_deleted 1518850539 1738337278
+a
+\change_inserted 1518850539 1738337279
+the
+\change_unchanged
+ Xiaomi RN7 with a battery capacity of 4000 mAh in Cl301 was 
+\change_deleted 1518850539 1738337286
+replaced
+\change_inserted 1518850539 1738337287
+swapped
+\change_unchanged
+ by 
+\change_deleted 1518850539 1738337292
+a
+\change_inserted 1518850539 1738337294
+the
+\change_unchanged
+ Samsung A02 with a battery capacity of 4900 mAh in Cl302.
  However,
  according to Figure
 \begin_inset space ~
@@ -8686,8 +9315,26 @@ nolink "false"
 ,
  the latter smartphone is almost four times slower to perform a task from the SWT scenario than the former,
  meaning that Cl302 will spent more energy than Cl301 in completing the same amount of tasks.
- This explains why despite having a bigger cluster battery,
- the battery drop of Cl302 is bigger than that of Cl301 in SWT scenario showed in Figure
+ This explains why despite having a 
+\change_deleted 1518850539 1738337362
+bigger
+\change_inserted 1518850539 1738337363
+larger
+\change_unchanged
+ cluster battery,
+ the battery drop of Cl302 is 
+\change_deleted 1518850539 1738337382
+bigger
+\change_inserted 1518850539 1738337383
+larger
+\change_unchanged
+ than that of Cl301 in SWT scenario show
+\change_inserted 1518850539 1738337388
+n
+\change_deleted 1518850539 1738337388
+ed
+\change_unchanged
+ in Figure
 \begin_inset space ~
 \end_inset
 
@@ -8706,7 +9353,23 @@ nolink "false"
  Moreover,
  it is relevant to point out that,
  in general,
- pull-based load balancing scheme achieves equal or less global battery drops than round robin in approximately 0.5 percentage.
+ 
+\change_inserted 1518850539 1738337394
+the 
+\change_unchanged
+pull-based load balancing scheme achieves equal or less global battery drops than round robin 
+\change_inserted 1518850539 1738337425
+(
+\change_deleted 1518850539 1738337422
+in 
+\change_unchanged
+approximately 0.5
+\change_deleted 1518850539 1738337430
+ percentage
+\change_inserted 1518850539 1738337430
+%)
+\change_unchanged
+.
  
 \begin_inset Float figure
 placement document
@@ -8810,6 +9473,47 @@ name "fig:Fairness-index"
 
 \begin_layout Plain Layout
 CV tasks impact on clusters global energy availability and Fairness index
+\change_inserted 1518850539 1738337501
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738337530
+si no es mucho lio debiera ser 
+\begin_inset Quotes eld
+\end_inset
+
+X scenario
+\begin_inset Quotes erd
+\end_inset
+
+ -> 
+\begin_inset Quotes eld
+\end_inset
+
+the X scenario
+\begin_inset Quotes erd
+\end_inset
+
+ en las figuras.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738337568
+despues en una figura de fairness se superponen los nros.
+ Y lo otro sería poner los decimales completos (3 a todos,
+ incluso si es 0)
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:clusters-energy-availability"
@@ -8831,9 +9535,50 @@ name "fig:clusters-energy-availability"
 
 \begin_layout Standard
 Finally,
- we analyze fairness values derived from applying round robin and pull-based load balancing schemes.
- The index serves as a hint on how the system utilize energy from all smartphones integrating a cluster.
- As the value approximates to one the more balanced the battery utilization is.
+ we analyze fairness values derived from applying
+\change_inserted 1518850539 1738337955
+ the
+\change_unchanged
+ round robin and 
+\change_inserted 1518850539 1738337957
+the 
+\change_unchanged
+pull-based load balancing schemes.
+ The index serves as a hint on how the 
+\change_deleted 1518850539 1738337967
+system
+\change_inserted 1518850539 1738337970
+edge cluster
+\change_unchanged
+ utilize
+\change_inserted 1518850539 1738337964
+s
+\change_unchanged
+ energy from all 
+\change_inserted 1518850539 1738337996
+participating 
+\change_unchanged
+smartphones
+\change_deleted 1518850539 1738337998
+ integrating a cluster
+\change_unchanged
+.
+ 
+\change_deleted 1518850539 1738338012
+As t
+\change_inserted 1518850539 1738338012
+T
+\change_unchanged
+he 
+\change_inserted 1518850539 1738338013
+more the 
+\change_unchanged
+value approximates to one
+\change_inserted 1518850539 1738338016
+,
+
+\change_unchanged
+ the more balanced the battery utilization is.
  Figure
 \begin_inset space ~
 \end_inset
@@ -8850,12 +9595,62 @@ nolink "false"
 \end_inset
 
  reveals that in some clusters,
- pull-based scheme achieves slightly higher fairness values than that of round robin,
+ 
+\change_inserted 1518850539 1738338047
+the 
+\change_unchanged
+pull-based scheme achieves slightly higher fairness values than that of round robin,
  while in other cases,
- the results are in the other way around.
- There are cases where even both achieves equal fairness values.
- Since there is not clear pattern of one compared to the other load balancing scheme,
- we can conclude that there is not a clear better load balancing attending the fairness aspect.
+ the results are 
+\change_deleted 1518850539 1738338078
+in 
+\change_unchanged
+the 
+\change_deleted 1518850539 1738338079
+other way around
+\change_inserted 1518850539 1738338080
+opposite
+\change_unchanged
+.
+ There are cases where even both
+\change_inserted 1518850539 1738338182
+ schmes
+\change_unchanged
+ achieve
+\change_deleted 1518850539 1738338183
+s
+\change_unchanged
+ equal fairness values.
+ Since there is not 
+\change_inserted 1518850539 1738338186
+a 
+\change_unchanged
+clear pattern
+\change_deleted 1518850539 1738338205
+ of one compared to the other load balancing scheme
+\change_unchanged
+,
+ we can conclude that there is not a clear 
+\change_deleted 1518850539 1738338218
+better
+\change_inserted 1518850539 1738338219
+winner
+\change_unchanged
+ load balancing 
+\change_inserted 1518850539 1738338222
+scheme 
+\change_deleted 1518850539 1738338226
+attending
+\change_inserted 1518850539 1738338230
+as measured by
+\change_unchanged
+ the fairness 
+\change_deleted 1518850539 1738338233
+aspect
+\change_inserted 1518850539 1738338233
+index
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Section
@@ -8870,46 +9665,288 @@ name "sec:Conclusions-and-future"
 \end_layout
 
 \begin_layout Standard
-In this work we explored the computing capabilities for real-time inferences of mobile distributed computing setups by experimenting with heterogeneous workloads built upon real CNN models and images data sets that were used to emulate CV tasks generated in a stream-like manner.
- Puntually,
- we run and compare the performance achieved by several setups built with commodity hardware including SBCs and smartphone clusters that could be found or exploited in edge computing and IoT application scenarios.
+In this work
+\change_inserted 1518850539 1738339033
+,
+
+\change_unchanged
+ we explored the computing capabilities 
+\change_inserted 1518850539 1738339035
+of mobile distributed computing setups 
+\change_unchanged
+for real-time inferences 
+\change_deleted 1518850539 1738339029
+of mobile distributed computing setups 
+\change_unchanged
+by experimenting with heterogeneous 
+\change_inserted 1518850539 1738339060
+AI 
+\change_unchanged
+workloads
+\change_inserted 1518850539 1738339067
+,
+
+\change_unchanged
+ built upon real CNN models and images data sets that were used to emulate CV tasks generated in a stream-like 
+\change_deleted 1518850539 1738339105
+manner
+\change_inserted 1518850539 1738339110
+fashion
+\change_unchanged
+.
+ 
+\change_deleted 1518850539 1738339077
+Puntually,
+ w
+\change_inserted 1518850539 1738339077
+W
+\change_unchanged
+e run and compare the performance achieved by several setups built with commodity hardware including SBCs and smartphone clusters that could be found or exploited in 
+\change_inserted 1518850539 1738339094
+practical E
+\change_deleted 1518850539 1738339090
+e
+\change_unchanged
+dge computing and IoT application scenarios.
  
 \end_layout
 
 \begin_layout Standard
-We conclude that tiny clusters composed by 2-4 low to middle-end smartphones using a pull-based load balancing scheme offer competitive performance compared to an SBC equiped with an intel core i5 8th generation in computing real-time inferences of CV tasks.
- It suggests that to satisfy certain delay sensitive application scenarios,
- the exploitation of already-in-place smartphones clusters can be considered before the investment and deployment of SBCs.
+We conclude that tiny clusters composed by 2-4 low to middle-end smartphones using a pull-based load balancing scheme offer competitive performance compared to an SBC equip
+\change_inserted 1518850539 1738339123
+p
+\change_unchanged
+ed with 
+\change_inserted 1518850539 1738339138
+a reasonable CPU (
+\change_deleted 1518850539 1738339140
+an i
+\change_inserted 1518850539 1738339140
+I
+\change_unchanged
+ntel core i5 8th generation
+\change_inserted 1518850539 1738339159
+)
+\change_unchanged
+ in computing real-time inferences of CV tasks.
+ 
+\change_deleted 1518850539 1738339166
+It
+\change_inserted 1518850539 1738339167
+This
+\change_unchanged
+ suggests that to satisfy certain delay sensitive application scenarios,
+ the exploitation of already-in-place smartphones clusters can be considered before the investment and deployment of SBCs
+\change_inserted 1518850539 1738339389
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339411
+en una tabla habia info del costo unitario.
+ Se podría echar mano a eso para enfatizar ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  In addition,
  energy consumption measurements show that the tradeoff including performance and energy consumption favors smartphone clusters over SBCs.
- The former can deliver competitive performance with a reduction of around tree times the energy consumption spent by a Gigabyte Brix.
+ The former can deliver competitive performance with a reduction of around tree times the energy consumption spent by a 
+\change_inserted 1518850539 1738339337
+powerful SBC such as the 
+\change_unchanged
+Gigabyte Brix.
 \end_layout
 
 \begin_layout Standard
-As future works we visualize several points of improvements.
+As future works we visualize several 
+\change_deleted 1518850539 1738339378
+points of 
+\change_unchanged
+improvement
+\change_inserted 1518850539 1738339381
+ opportunities
+\change_deleted 1518850539 1738339379
+s
+\change_unchanged
+.
  In line with developing new load balancing heuristics,
- and based on results of preliminary runs we plan to improve previously published heuristics that use MFLOPs to rank nodes computing capability.
- An alternative is to use information derived from Tensorflow benchmarking tool.
- In spite of differences observed in inference times obtained via tensorflow benchmarking tool and results collected in experiments using real input,
+ and based on 
+\change_inserted 1518850539 1738339427
+the 
+\change_unchanged
+results 
+\change_deleted 1518850539 1738339426
+of
+\change_inserted 1518850539 1738339426
+from
+\change_unchanged
+ preliminary runs
+\change_inserted 1518850539 1738339431
+,
+
+\change_unchanged
+ we plan to improve previously published heuristics that use MFLOPs to rank nodes computing capabilit
+\change_inserted 1518850539 1738339441
+ies
+\change_deleted 1518850539 1738339441
+y
+\change_inserted 1518850539 1738339452
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339452
+ref
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ An alternative 
+\change_inserted 1518850539 1738339457
+solution 
+\change_unchanged
+is to use information derived from 
+\change_inserted 1518850539 1738339463
+the 
+\change_unchanged
+Tensorflow benchmarking tool.
+ In spite of differences observed in inference times obtained via 
+\change_inserted 1518850539 1738339470
+T
+\change_deleted 1518850539 1738339470
+t
+\change_unchanged
+ensorflow benchmarking tool and results collected in experiments using real input,
  relative benchmarked positions between edge nodes are similar,
  meaning that it is feasible to use such tool to build node rankings that serve as input for the load balancing component to distribute jobs based on an alternative nodes performance score to the classic MFLOPs.
  
 \end_layout
 
 \begin_layout Standard
-Other future direction is to consider other forms of workload distributions,
- i.e.,
+
+\change_inserted 1518850539 1738339486
+Ano
+\change_deleted 1518850539 1738339486
+O
+\change_unchanged
+ther future direction is to consider other forms of workload distributions,
+ i.e.
+\change_deleted 1518850539 1738339498
+,
+
+\change_unchanged
  that exploit the structure of DNN arquitectures,
  for example,
  split computing,
  early exiting techniques,
- model quantization;
+ model quantization
+\change_inserted 1518850539 1738339511
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339521
+habra alguna ref a survey para abarcar todas estas ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+,
+ and
+\change_deleted 1518850539 1738339508
+;
+
+\change_unchanged
  other forms of workload execution,
- e.g,
- using flags that reduce the inference time,
+ e.g
+\change_deleted 1518850539 1738339528
+,
+
+\change_unchanged
+ using flags
+\change_inserted 1518850539 1738339557
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339578
+esto es super implementatorio.
+ muy muy bajo nivel.
+ lo sacaria.
+ tambien lo de batch porque puede disparar 
+\begin_inset Quotes eld
+\end_inset
+
+por que no lo hicieron ahora
+\begin_inset Quotes erd
+\end_inset
+
+?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ that reduce the inference time,
  e.g,
  make inferences over a batch of images,
- or accelerators such as the XNNPACK support to better exploit CPU capabilities of mobile platforms while performing network inferences.
+ or accelerators such as the XNNPACK support
+\change_inserted 1518850539 1738339634
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339636
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339637
+
+https://github.com/google/XNNPACK
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ to better exploit CPU capabilities of mobile platforms while performing network inferences.
 \end_layout
 
 \begin_layout Standard
@@ -8918,6 +9955,27 @@ More improvements to the distributed execution system prototype that integrate s
 \begin_inset Newline newline
 \end_inset
 
+
+\change_inserted 1518850539 1738339804
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339854
+este parrafo lo sacaria,
+ porque puede invalidar todas las conclusiones que se sacaron.
+ Si no se pudieron usar al maximo los CPUs,
+ entonces los resultados no son muy utiles.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 - Workers full exploitation:
  as CPU profiles of experiments run reveal,
  CPU utilization is not full.
@@ -8930,6 +9988,23 @@ More improvements to the distributed execution system prototype that integrate s
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1518850539 1738339896
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738339932
+no se si esto se quiere dejar,
+ porque va en línea con meterse a modificar el modelo.
+ No se si es conveniente dado que se adoptó un enfoque distinto para particionar.
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 - Explore workers exploitation by considering model anatomy and workers capability:
  for prediction and/or classification tasks using deep learning,
  one or several models can be utilized.
@@ -8954,16 +10029,54 @@ More improvements to the distributed execution system prototype that integrate s
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "references"
+bibfiles "references-tidy"
 options "plain"
+encoding "default"
 
 \end_inset
 
+
+\change_inserted 1518850539 1738338582
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738338585
+limpie con esto https://flamingtempura.github.io/bibtex-tidy
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
 \begin_layout Section*
 Appendix A
+\change_inserted 1518850539 1738333530
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1518850539 1738333564
+El apéndice no esta referenciado en el texto.
+ y estaría bueno poner un párrafo para explicar qué hay en estas tablas
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -8972,7 +10085,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -9641,7 +10754,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -10611,7 +11724,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
