@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 630
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -88,8 +88,6 @@
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
-\author -997162125 "mhirsch"
-\author 1518850539 "Cristian Mateos"
 \end_header
 
 \begin_body
@@ -99,41 +97,13 @@ Exploring smartphone-based edge computing for AI inference using real testbeds
 \end_layout
 
 \begin_layout Abstract
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-el abstract tiene 400 y pico palabras,
- el doble que lo normal.
- Podría acortarse,
- o dejarlo,
- y que chillen luego.
- Baja prioridad
-\end_layout
-
-\end_inset
-
 Gradually,
  AI is becoming ubiquitous at the network edge.
  The wide availability of pre-trained models and AI execution frameworks are,
  in part,
  responsible of such ubiquity.
  Particularly,
- deep 
-\change_inserted -997162125 1738708492
-learning 
-\change_deleted -997162125 1738708500
-neural networks
-\change_unchanged
- (D
-\change_deleted -997162125 1738708503
-N
-\change_unchanged
-L)
-\change_inserted -997162125 1738708510
- models
-\change_unchanged
- such as convolutional neural networks (CNN) are extensively used in computer vision (CV) for performing object recognition and image classification tasks.
+ deep learning (DL) models such as convolutional neural networks (CNN) are extensively used in computer vision (CV) for performing object recognition and image classification tasks.
  Solutions in various domains ranging from security surveillance to e-health exploit computer vision tasks.
  In many cases,
  such solutions must deliver real-time inferences and some progress has been made in this respect.
@@ -148,20 +118,10 @@ L)
  we shed some light in answering the following question:
  Is smartphone-based edge computing a competitive resource provider for real-time AI inferences?
  We evaluate the potential of smartphone clusters for making real-time inferences associated to CV tasks based on intuitive image/video partitioning schemes.
- In our experiments we use three pre-trained D
-\change_deleted -997162125 1738708534
-N
-\change_unchanged
-L models that present different computing requirements and eight heterogeneous edge nodes including five low/mid-end smartphones and three SBCs.
+ In our experiments we use three pre-trained DL models that present different computing requirements and eight heterogeneous edge nodes including five low/mid-end smartphones and three SBCs.
  We compared the performance achieved using workloads from three image stream processing scenarios with different characteristics.
  Experiments were run with the help of a tool set designed for reproducing battery-driven edge computing tests.
- We compared 
-\change_deleted -997162125 1738592873
-the task throughput
-\change_inserted -997162125 1738592885
-latency and eneregy efficiency
-\change_unchanged
- achieved by using either several smartphone clusters testbeds or SBCs only.
+ We compared latency and eneregy efficiency achieved by using either several smartphone clusters testbeds or SBCs only.
  Additionally,
  for battery-driven settings,
  we include metrics to measure how workload execution impact smartphone battery levels.
@@ -174,7 +134,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Deep learning (DL) application to perform on-site tasks is rapidly expanding.
+The application of Deep learning (DL) to perform on-site tasks is rapidly expanding.
  In the healthcare domain,
  DL is used for predicting,
  detecting,
@@ -433,15 +393,12 @@ distributed inference
  given an image,
  list the objects detected).
  All mentioned works include experimentation with real testbeds.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -568,8 +525,6 @@ literal "false"
 \end_inset
 
  or horizontal
-\change_inserted -997162125 1738593118
-
 \begin_inset space ~
 \end_inset
 
@@ -581,29 +536,6 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted -997162125 1738593136
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738242585
-parece que no hay referencias para horizontal,
- y son todas de vertical.
- Es así ?
-
-\change_inserted -997162125 1738593126
- Done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
  Under the vertical scheme,
  collaborating nodes typically belong to different computing layers of the edge architecture.
@@ -637,77 +569,9 @@ literal "false"
 ,
  offloading decisions are evaluated considering communication throughput between computing layers.
  Besides,
- a task requiring the execution of a 
-\change_deleted -997162125 1738708781
-DNN
-\change_inserted -997162125 1738708781
-DL
-\change_inserted 1518850539 1738242968
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738242988
-se usa DL,
- DNL (en el abstract) y DNN acá.
- Yo dejaría solo DL model en todo el paper,
- gráficos,
- etc.
- para unificar
-\change_inserted -997162125 1738708623
-.
- Done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- model is split into several parts.
- In this splitting process authors propose to consider insights of data anatomy and computing requirements of
-\change_deleted -997162125 1738708594
- model
-\change_unchanged
- layers characterizing different D
-\change_deleted -997162125 1738708570
-NN
-\change_inserted -997162125 1738708589
-L model
-\change_unchanged
-s.
- Partitions of model's 
-\change_inserted -997162125 1738593284
-graph
-\change_deleted -997162125 1738593300
-topology
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738242759
-quizás se puede decir mejor 
-\begin_inset Quotes eld
-\end_inset
-
-the model's graph
-\begin_inset Quotes erd
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- are dynamically assigned and executed between a device and remote servers.
+ a task requiring the execution of a DL model is split into several parts.
+ In this splitting process authors propose to consider insights of data anatomy and computing requirements of layers characterizing different DL models.
+ Partitions of model's graph are dynamically assigned and executed between a device and remote servers.
  Other works adopting this distribution scheme are 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -718,13 +582,7 @@ literal "false"
 
 .
  Several works evidence that vertical collaboration is feasible to allow resource-limited devices to execute compute-intensive tasks,
- such as CV tasks using large D
-\change_deleted -997162125 1738708603
-NN
-\change_inserted -997162125 1738708603
-L
-\change_unchanged
- models.
+ such as CV tasks using large DL models.
  However,
  a major drawback relates to the long-latency communication dependency when offloading tasks to upper resource layers that provide the required computing capability to complete the tasks.
 \end_layout
@@ -758,13 +616,7 @@ literal "false"
  Namely,
  the type of parallelism proposed,
  i.e.,
- whether it is by intervening the anatomy of a D
-\change_deleted -997162125 1738708617
-NN
-\change_inserted -997162125 1738708617
-L
-\change_unchanged
- model,
+ whether it is by intervening the anatomy of a DL model,
  partitioning the data input or adopting a hybrid approach by combining the previous techniques.
  Other dimension of analysis relates to the methodology used to evaluate the proposal.
  We selected works whose methodology involves setting up real testbeds and describe the hardware used and the way resource heterogeneity is present in the experiments.
@@ -784,7 +636,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1043,21 +895,7 @@ Real Hardware:
 \begin_layout Plain Layout
 
 \size footnotesize
-Yes (uses a D
-\change_inserted -997162125 1738593608
-eep 
-\change_unchanged
-R
-\change_inserted -997162125 1738593616
-einforcement 
-\change_unchanged
-L
-\change_inserted -997162125 1738593619
-earning
-\change_deleted -997162125 1738593620
- 
-\change_unchanged
--based adaptive allocator and a fault tolerant mechanism implemented using a message queue)
+Yes (uses a Deep Reinforcement Learning-based adaptive allocator and a fault tolerant mechanism implemented using a message queue)
 \end_layout
 
 \end_inset
@@ -1206,10 +1044,6 @@ and IoT devices)
 Real Hardware:
  WLAN of different smartphones clusters size.
  IoT devices operating in isolated mode
-\change_deleted 1518850539 1738244418
-.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -1231,11 +1065,7 @@ Yes (pull-based scheme using a shared workload queue)
 \begin_layout Plain Layout
 
 \size footnotesize
-Compare real-time inference delivery capabilities
-\change_inserted -997162125 1738593473
- and energy efficiency
-\change_unchanged
- of IoT devices versus clusters of smartphones
+Compare real-time inference delivery capabilities and energy efficiency of IoT devices versus clusters of smartphones
 \end_layout
 
 \end_inset
@@ -1305,13 +1135,7 @@ Yes (work stealing)
 \begin_layout Plain Layout
 
 \size footnotesize
-Allow large D
-\change_deleted -997162125 1738708631
-NN
-\change_inserted -997162125 1738708631
-L
-\change_unchanged
- models to execute in resource limited devices achieving low memory footprint and execution latency
+Allow large DL models to execute in resource limited devices achieving low memory footprint and execution latency
 \end_layout
 
 \end_inset
@@ -1361,11 +1185,7 @@ Heterogeneous nodes (smartphones)
 
 \begin_layout Plain Layout
 
-\change_deleted -997162125 1738706616
-
 \size footnotesize
-Simulat
-\change_unchanged
 ion:
  with data profiled from hardware running real workloads
 \begin_inset Newline newline
@@ -1383,35 +1203,7 @@ Real Hardware:
 \begin_layout Plain Layout
 
 \size footnotesize
-Yes (uses D
-\change_inserted -997162125 1738593577
-eep 
-\change_unchanged
-R
-\change_inserted -997162125 1738593586
-einforcement 
-\change_unchanged
-L
-\change_inserted -997162125 1738593588
-earning
-\change_deleted -997162125 1738593634
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738244523
-ver acrónimo
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-)
+Yes (uses Deep Reinforcement Learning)
 \end_layout
 
 \end_inset
@@ -1422,35 +1214,7 @@ ver acrónimo
 \begin_layout Plain Layout
 
 \size footnotesize
-Reduce M
-\change_inserted -997162125 1738593522
-obile 
-\change_unchanged
-E
-\change_inserted -997162125 1738593524
-dge 
-\change_unchanged
-C
-\change_inserted -997162125 1738593529
-omputing
-\change_deleted -997162125 1738593546
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738244554
-no se ha definido
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- server's computing pressure
+Reduce Mobile Edge Computing server's computing pressure
 \end_layout
 
 \end_inset
@@ -1503,89 +1267,26 @@ Approaches for horizontal distributed inference at the Edge
 \begin_layout Standard
 \paragraph_spacing single
 Works can be also classified according to how workload execution is parallelized.
- We found three approaches of parallelism named model partitioning
-\change_inserted -997162125 1738593708
-,
-
-\change_unchanged
- 
-\change_deleted -997162125 1738593709
-and 
-\change_unchanged
-data partitioning
-\change_inserted -997162125 1738593715
- and hybrid
-\change_deleted -997162125 1738593721
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738242929
-se dicen 3 pero luego se listan 2
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ We found three approaches of parallelism named model partitioning,
+ data partitioning and hybrid.
  Within the former group,
- layers composing a D
-\change_deleted -997162125 1738708641
-NN
-\change_inserted -997162125 1738708641
-L
-\change_unchanged
- model are deployed into different devices so that outputs computed by a device are the inputs for another one.
+ layers composing a DL model are deployed into different devices so that outputs computed by a device are the inputs for another one.
  With this type of parallelism,
  all participating devices are involved in computing inferences for all portions of the input.
  By contrast,
  when using data partitioning paralellism,
  edge nodes run the whole model over portions of the input.
- 
-\change_inserted -997162125 1738594031
-A third type,
+ A third type,
  which we call hybrid,
- paralelize workload by combining data and model partitioning schemes.
- 
-\change_deleted -997162125 1738594055
-With both type of parallelisms
-\change_inserted -997162125 1738594061
-In all cases
-\change_unchanged
-,
+ parallelizes workload by combining the data and model partitioning schemes.
+ In all cases,
  results for the whole input are obtained by joining partial results calculated by all participating devices.
 \end_layout
 
 \begin_layout Standard
 When making several devices to participate in inferences,
  it emerges two questions related to devices:
- Does the approach considers executing inferences on heterogeneous devices
-\change_deleted -997162125 1738594143
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738243168
-ver si la semántica se mantiene
-\change_inserted -997162125 1738594140
-.
- Done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-?
+ Does the approach consider executing inferences on heterogeneous devices?
  If so,
  what the approach does to deal with the performance differences from executing the same workload on devices with different computing capabilities in order to assure certain QoS levels?
 \end_layout
@@ -1625,39 +1326,8 @@ literal "false"
 
 \end_inset
 
- utilizes 
-\change_deleted -997162125 1738594288
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738243402
-acá aparece un acrónimo nuevo...
- qué es?
- Deep reinforcement learning?
-
-\change_inserted -997162125 1738594285
- Si
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-DRL
-\change_inserted -997162125 1738594278
-Deep Reinforcement Learning (DRL)
-\change_unchanged
--based adaptive allocation for horizontal collaborative inference.
- All D
-\change_deleted -997162125 1738708670
-NN
-\change_inserted -997162125 1738708670
-L
-\change_unchanged
- layers are present in all collaborating IoT devices.
+ utilizes Deep Reinforcement Learning (DRL)-based adaptive allocation for horizontal collaborative inference.
+ All DL layers are present in all collaborating IoT devices.
  Neurons calculation of each layer occurs in parallel,
  coordinated via a message queue and orchestrated by DeColla engine that operates in a requester IoT device.
  Number of IoT devices,
@@ -1721,13 +1391,7 @@ literal "false"
  The collaboration is mediated by an edge server that keeps track of nodes and tasks status information.
  Tasks,
  determined by images input size,
- and the D
-\change_deleted -997162125 1738708691
-NN
-\change_inserted -997162125 1738708691
-L
-\change_unchanged
- model to be used,
+ and the DL model to be used,
  are divided into sub-images and sub-models by a decision maker component that coordinates different pieces execution among end devices using a shared dependency table and real-time nodes information.
  Edge data duplication is present at the step of dividing an image into sub-images.
  When distributing a convolutional operation by dividing the input and the model,
@@ -1751,8 +1415,6 @@ In the discussed works,
  load balancing heuristics> combinations were compared against the peformance achieved by different edge nodes commonly used in IoT applications.
  All experiments performed in this work demonstrate the viability of constructing a platform for in-vivo experiments whose main components has been previously published,
  validated and made publicly available for use
-\change_inserted -997162125 1738596387
-
 \begin_inset space ~
 \end_inset
 
@@ -1764,31 +1426,7 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 .
-\change_deleted -997162125 1738596400
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738243825
-no convendría referenciar ?
- imagino que es lo que estaba publicado en la Software y subido a git
-\change_inserted -997162125 1738596396
-.
- Done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
@@ -1813,8 +1451,6 @@ We envision a system that opportunistically scavenges computing cycles of nomadi
  Definition of appropriate incentives for smartphone users –tasks executors–,
  privacy preservation and security mechanisms for tasks submitters as for tasks executors,
  are outside the scope of the current work
-\change_inserted -997162125 1738707920
-
 \begin_inset space ~
 \end_inset
 
@@ -1826,31 +1462,6 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted 1518850539 1738245631
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738245677
-quizás se pueda poner que se ha investigado de todas maneras,
- con un puntero a algun paper de incentivos,
- privacy y seguridad.
- Si hay uno que discuta las 3 cosas mejor,
- pero me parece que es mas facil encontrar por separado
-\change_inserted -997162125 1738708406
-.
- Done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
 \end_layout
 
@@ -1867,7 +1478,7 @@ We assume a master-worker architecture operating within the scope of WLAN,
  RGB,
  IR or depth images taken with different camera devices.
  On the other side,
- preprocessed data is obtained by applying a series of computational operations to decode,
+ pre-processed data is obtained by applying a series of computational operations to decode,
  synthetize and/or represent raw data in a format that can be more efficiently stored,
  retrieved or analyzed.
  Moreover,
@@ -1915,11 +1526,6 @@ Main nodes schematic overview
 With this architecture,
  we aim at measuring the feasibility of using different smartphones groups cooperating under the same WLAN for performing CV tasks,
  and compare the performance achieved with that of SBC-like edge nodes commonly used for servicing IoT and edge applications.
-
-\change_deleted -997162125 1738596967
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection
@@ -2127,33 +1733,7 @@ Quad-core 1.5 GHz ARM Cortex-A72
 \begin_layout Plain Layout
 
 \size scriptsize
-Wi-Fi 802.11
-\change_inserted -997162125 1738597225
- 
-\change_unchanged
-ac
-\change_deleted -997162125 1738597093
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738246570
-poner en el mismo formato que los celulares
-\change_inserted -997162125 1738597078
-.
- Esta norma se indica así como ac.
- 
-\change_inserted 1518850539 1738246570
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+Wi-Fi 802.11 ac
 \end_layout
 
 \end_inset
@@ -2330,36 +1910,19 @@ Intel Quad core i5-8250U
 \begin_layout Plain Layout
 
 \size scriptsize
-IEEE 802.11
-\change_inserted -997162125 1738597229
- 
-\change_unchanged
-ac
-\change_deleted -997162125 1738597216
-,
- Dual Band Wi-Fi
-\change_inserted 1518850539 1738246557
-
+Wi-Fi 802.11 ac
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738246564
-poner en el mismo formato que los celulares
-\change_inserted -997162125 1738597210
-.
+poner en el mismo formato que los celulares.
  Nada para hacer,
  esta norma se indica así:
  ac
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2859,53 +2422,20 @@ name "tab:Edge-nodes-features"
 
 \end_inset
 
- All nodes have multicore processors and 
-\change_inserted -997162125 1738597357
-all nodes but Nvidia Jetson Nano have 
-\change_unchanged
-802.11 WiFi radio
-\change_deleted -997162125 1738597382
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738246653
-la jetson nano según tabla no tiene wifi.
- ver
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-,
+ All nodes have multicore processors and all nodes but the Nvidia Jetson Nano have 802.11 WiFi radio,
  with a theoretically bandwidth capacity between hundreds of Mbps (norm n) to few Gbps (norm ac).
- 
-\change_inserted -997162125 1738597796
-In fact,
- SBC nodes WiFi wasn't used because,
+ In fact,
+ SBC nodes WiFi was not used because,
  in our experiments,
  these nodes play all the roles –tasks submitter,
- tasks coordinator and tasks executor– simulataneously and no data transfers were involved.
- 
-\change_unchanged
-Edge nodes main memory ranges from 2 to 8 GB.
+ tasks coordinator and tasks executor– simultaneously and no data transfers were involved.
+ Edge nodes main memory ranges from 2 to 8 GB.
  In our setups,
  SBC operate plugged to the electricity power grid,
  while smartphones operate using their battery as main power source.
  Additionally we included an estimated per unit acquisition cost in USD.
  When searching for cost-effective configurations,
- the cost can be used as a deciding factor in situations where several nodes combinations achieved the desired 
-\change_deleted -997162125 1738597821
-throughput
-\change_inserted -997162125 1738597822
-performance
-\change_unchanged
-.
+ the cost can be used as a deciding factor in situations where several nodes combinations achieved the desired performance.
 \end_layout
 
 \begin_layout Standard
@@ -2964,13 +2494,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Subsection
-D
-\change_inserted -997162125 1738708700
-L
-\change_deleted -997162125 1738708701
-NN
-\change_unchanged
- models benchmarking
+DL models benchmarking
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:DNN-models-benchmarking"
@@ -2997,13 +2521,7 @@ nolink "false"
 \end_inset
 
 ,
- where task refers to make inferences using different Tensorflow D
-\change_deleted -997162125 1738708710
-NN
-\change_inserted -997162125 1738708710
-L
-\change_unchanged
- models.
+ where task refers to make inferences using different Tensorflow DL models.
  Tensorflow is a popular library for creating,
  training,
  evaluating and executing deep learning models.
@@ -3050,51 +2568,12 @@ Moreover,
 real-time
 \emph default
  is context-dependent.
- Depending on the application a
-\change_deleted -997162125 1738706683
-n ever-present
-\change_inserted 1518850539 1738248238
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738248241
-no queda claro esto
-\change_inserted -997162125 1738706772
-.
- Creo que quise poner que si en todas las inferencias (no sólo al final de un stream) existe un delay de algunos segundos,
- dependiendo el contexto de aplicación puede aún estar satisfaciendo la noción de real time.
- Borro si agrega confusión.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -997162125 1738706686
- time
-\change_unchanged
- delay of a few seconds might satisfy the notion of real-time.
+ Depending on the application a constant delay of a few seconds might satisfy the notion of real-time.
  For this reason and with the aim of evaluating smartphone based settings in different application scenarios,
  i.e.,
  with different real-time requirements,
- we used three D
-\change_deleted -997162125 1738708716
-NN
-\change_inserted -997162125 1738708716
-L
-\change_unchanged
- models that present quite dissimilar inference times.
- It is not part of the evaluation core to test 
-\change_deleted -997162125 1738708729
-DNN
-\change_inserted -997162125 1738708729
-DL
-\change_unchanged
- models in their most efficient version,
+ we used three DL models that present quite dissimilar inference times.
+ It is not part of the evaluation core to test DL models in their most efficient version,
  i.e.,
  we do not aim to test and improve models performance per se.
  Conversely,
@@ -3102,7 +2581,7 @@ DL
 \end_layout
 
 \begin_layout Standard
-All models used in the tests are pretrained object recognition models that take images as input and produce text as output,
+All models used in the tests are pre-trained object recognition models that take images as input and produce text as output,
  where text refers to bounding boxes,
  classes and confidence levels of recognized objects,
  or categories of a unique object depending on the purpose the model was trained for.
@@ -3113,56 +2592,24 @@ All models used in the tests are pretrained object recognition models that take 
  In this sense,
  one of the models is YoloV4
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_deleted -997162125 1738706782
-https://github.com/hunglc007/tensorflow-yolov4-tflite
-\change_inserted -997162125 1738706791
-
 \begin_inset Flex URL
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted -997162125 1738706792
-
 https://github.com/hunglc007/tensorflow-yolov4-tflite
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_inserted 1518850539 1738248515
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738248528
-usar el componente gráfico URL para todos los links
-\change_inserted -997162125 1738706834
-.
- Done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
  used to perform real-time object detection.
  Figure
 \begin_inset space ~
@@ -3200,27 +2647,7 @@ literal "false"
 \end_inset
 
  and was proposed to score dairy cows to differentiate healthy and non-healthy cows.
- The model uses SqueezeNet as base neural network
-\change_inserted 1518850539 1738248743
- 
-\change_deleted -997162125 1738598659
-architecture
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738248755
-ojo de no mezclar architecture (edge) con architecture (DL)
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ The model uses SqueezeNet as base neural network.
  Figure
 \begin_inset space ~
 \end_inset
@@ -3242,11 +2669,7 @@ nolink "false"
  i.e.
  it is able to deliver barely more than 5 FPS,
  while a Gigabyte Brix node is around 15 FPS.
- The third model used
-\change_inserted -997162125 1738708742
- is based on an EfficientNetB4 and
-\change_unchanged
- was trained to recognize progression of diabetes using foot images as input
+ The third model used is based on an EfficientNetB4 and was trained to recognize progression of diabetes using foot images as input
 \begin_inset space ~
 \end_inset
 
@@ -3276,1335 +2699,13 @@ nolink "false"
 
  shows the inferences times obtained by different edge nodes.
  By comparing the fastest smartphone with the fastest SBC it can be noted that Xiaomi RN7 completes an inference in around 1470 milliseconds while the Gigabyte Brix does the same in approximately 559 milliseconds.
- When comparing performance of 
-\change_deleted -997162125 1738708772
-DNN
-\change_inserted -997162125 1738708772
-DL
-\change_unchanged
- models,
+ When comparing performance of DL models,
  notice that for most of the edge nodes benchmarks,
  inference times differ up to one order of magnitude.
  As said,
- 
-\change_deleted 1518850539 1738248933
-a
-\change_inserted 1518850539 1738248938
-the
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738249024
-revisar todo el texto para usar 
-\begin_inset Quotes eld
-\end_inset
-
-the
-\begin_inset Quotes erd
-\end_inset
-
- en estos casos y no 
-\begin_inset Quotes eld
-\end_inset
-
-a
-\begin_inset Quotes erd
-\end_inset
-
-,
- porque nos referimos a un smartphone puntual.
- No sería transladable a todos los smartphones RN7 porque el tiempo depende de otros factores
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- Xiaomi RN7 completes inferences in 184,
+ the Xiaomi RN7 completes inferences in 184,
  248 and 1470 milliseconds for the BCS model,
  the YoloV4 model and the diabetes foot model respectively.
- 
-\change_inserted -997162125 1681488369
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-The reported times are to some extent relates to the total layers of each model.
- and particularly CONV layers which is within the most time-consuming layers in CNNs representing a considerable portion of the computing time an inference takes
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "kang2017neurosurgeon"
-literal "false"
-
-\end_inset
-
-.
- It helps to explain the reason behind the difference in inference times between models.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="26" columns="4">
-<features booktabs="true" tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Layer/CNN Model
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-BCS (base arch.
- SqueezeNet)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-SWT (base arch.
- YoloV4)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Diabetes (base arch.
- EfficientNetB4)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-CONV_2D
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-26
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-21
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-128
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-MAX_POOL_2D
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-CONCATENATION
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-17
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-RELU
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-MEAN
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-33
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-SOFTMAX
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-LOGISTIC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-128
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-MUL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-24
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-130
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-DEPTHWISE_CONV_2D
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-32
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-PAD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-5
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-ADD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-25
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-SUB
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-1
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-RESHAPE
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-18
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-32
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-STRIDED_SLICE
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-32
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-PACK
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-32
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-FULLY_CONNECTED
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-1
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-SHAPE
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-32
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-LEAKY_RELU
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-19
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-SPLIT
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-LOGISTIC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-12
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-RESIZE_BILINEAR
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-SPLIT_V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-STRIDED_SLICE
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-12
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-EXP
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Total layers number
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-47
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-152
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-610
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Models characterization
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:DNN_Models-characterization"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -997162125 1683724975
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection
@@ -4701,41 +2802,25 @@ literal "false"
  from each cow.
  All these constraints configure a stream processing scenario where depth images can be produced at a rate of 15 FPS during 10 seconds,
  followed by other 10 seconds without image captures.
- We 
-\change_deleted -997162125 1738605468
-determined
-\change_inserted -997162125 1738605469
-stated
-\change_inserted 1518850539 1738254011
-
+ We stated
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738254048
 determinar implica que se hizo algun analisis previo y se llego a ese nro 15...
  que tal contarlo más directo?
  a menos que pueda decirse como se llego a ese 15
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
  that an atomic CV task would be represented by the burden of applying the CNN model to fifteen consecutive frames,
  meaning that a CV task is created every second which gives a total of ten CV tasks created for a cow.
  Considering that the dataset used to recreate
-\change_inserted 1518850539 1738253928
-
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738253958
 estoy tratando de evitar la palabra 
 \begin_inset Quotes eld
 \end_inset
@@ -4746,60 +2831,19 @@ simulate
 
 ...
  cambiando por términos que de una idea similar pero que no refiera a simular por software.
- Revisar en el resto
-\change_inserted -997162125 1738706603
-.
+ Revisar en el resto.
  Done
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
  this scenario includes 1740 images,
  the resulting workload stream comprises 116 CV tasks given within a time window of 3 minutes and 34 seconds.
 \end_layout
 
 \begin_layout Itemize
 Sense while Travel (SWT):
- a city can take advantage of 
-\change_deleted -997162125 1738699707
-mobile agents
-\change_inserted -997162125 1738699709
-vehicles
-\change_deleted -997162125 1738699734
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738274783
-habría que buscar otra palabra.
- 
-\begin_inset Quotes eld
-\end_inset
-
-mobile agent
-\begin_inset Quotes erd
-\end_inset
-
- es un termino en sí.
- y encima ahora con los LLM se está hablando mucho de agentes otra vez
-\change_inserted -997162125 1738699725
-.
- Fixed
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- such as urban line buses to collect information of relevant street events while traveling,
+ a city can take advantage of vehicles such as urban line buses to collect information of relevant street events while traveling,
  e.g.,
  for statistical purposes,
  crime detection,
@@ -4813,13 +2857,7 @@ mobile agent
  These parameters means sensing data for 15 km assuming a vehicle traveling the road at 30 km/h.
  A CV task would be represented by the execution of the CNN model to two consecutive filtered frames,
  meaning that a CV task is created every second.
- Providing that the dataset used to 
-\change_deleted -997162125 1738605669
-simulate
-\change_inserted -997162125 1738605672
-recreate
-\change_unchanged
- this scenario includes 3600 images,
+ Providing that the dataset used to recreate this scenario includes 3600 images,
  the resulting workload stream comprises 1800 CV tasks given within a time window of 30 minutes.
 \end_layout
 
@@ -5460,30 +3498,8 @@ literal "false"
  The tool set allow us to automate tasks involved in experimenting with smartphones and real workloads including cluster formation,
  devices preparation (battery charge/discharge actions),
  deep learning models deployment,
- stream dynamics reproduc
-\change_inserted -997162125 1738605973
-tion
-\change_deleted -997162125 1738605975
-ibility
-\change_unchanged
-,
- and finally 
-\change_inserted -997162125 1738606009
-results 
-\change_unchanged
-collect
-\change_inserted -997162125 1738605993
-ion
-\change_deleted -997162125 1738605995
-ing
-\change_unchanged
- and summariz
-\change_inserted -997162125 1738605999
-ation
-\change_deleted -997162125 1738606016
-ing results
-\change_unchanged
-.
+ stream dynamics reproduction,
+ and finally results collection and summarization.
 \end_layout
 
 \begin_layout Standard
@@ -5589,31 +3605,7 @@ nolink "false"
  The latter were randomly chosen.
  Cluster heterogeneity arises from the combination of smartphones quantity,
  models and initial battery levels.
- Max
-\change_inserted -997162125 1738697953
-imum
-\change_deleted -997162125 1738697969
-.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738276788
-al venir leyendo queda raro dos puntos tan seguidos.
- por ahí se puede poner acá el nombre completo de la columna
-\change_inserted -997162125 1738697962
-.
- Fixed
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- Cluster Energy and Initial Cluster Energy,
+ Maximum Cluster Energy and Initial Cluster Energy,
  both expressed in Joules,
  as well as,
  Initial Cluster Battery expressed in %,
@@ -5622,25 +3614,7 @@ al venir leyendo queda raro dos puntos tan seguidos.
 \end_layout
 
 \begin_layout Standard
-One of the metrics we report is accumulated inference latency
-\change_inserted 1518850539 1738276866
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738276874
-escritura estilo VY ;)
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-,
+One of the metrics we report is accumulated inference latency,
  a measure of how long the makespan deviates from the stream time.
  The stream time is the time window where CV tasks are created,
  while makespan is the time the inference system employs in completing all the created CV tasks.
@@ -5931,65 +3905,16 @@ Since all smartphone-based setups comprise clusters of at least two heterogeneou
  it was necessary to indicate the load balancing strategy used to distribute load between these.
  For this reason,
  all smartphone-based setups are indicated with Round Robin or Pull-Based as value in the load balancing column.
- Round Robin is a classic load balancing strategy that assigns an incoming 
-\change_deleted -997162125 1738606586
-job
-\change_inserted -997162125 1738606587
-task
-\change_inserted 1518850539 1738279740
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738279748
-como dije mas arriba cambiaria job por task
-\change_inserted -997162125 1738606596
-.
- done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- to the next available node using a rotating scheme,
+ Round Robin is a classic load balancing strategy that assigns an incoming task to the next available node using a rotating scheme,
  ensuring workload is evenly distributed among all participating devices.
  By contrast,
- with a Pull-Based approach 
-\change_deleted -997162125 1738606623
-jobs
-\change_inserted -997162125 1738606624
-tasks
-\change_unchanged
- are pulled by nodes from a shared queue based on their availability.
+ with a Pull-Based approach tasks are pulled by nodes from a shared queue based on their availability.
  In our configurations,
- cluster nodes were configured to pull at most one 
-\change_deleted -997162125 1738606641
-job
-\change_inserted -997162125 1738606641
-task
-\change_unchanged
- per request.
+ cluster nodes were configured to pull at most one task per request.
  In turn,
- a node is able to make a request when the result of the previously pulled 
-\change_deleted -997162125 1738606653
-job
-\change_inserted -997162125 1738606654
-task
-\change_unchanged
- was sent back to the Edge master,
+ a node is able to make a request when the result of the previously pulled task was sent back to the Edge master,
  i.e.
- the 
-\change_deleted -997162125 1738606666
-job
-\change_inserted -997162125 1738606667
-task
-\change_unchanged
- is marked by the system as completed.
+ the task is marked by the system as completed.
 \end_layout
 
 \begin_layout Standard
@@ -6095,45 +4020,18 @@ To calculate this value we used a formula derived from formula 1 assuming each s
 
 \begin_layout Plain Layout
 
-\change_inserted 1518850539 1738276393
-
 \size scriptsize
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738276404
-de donde salen estos valores ?
-
-\change_inserted -997162125 1738607336
- Done.
- Misma fórmula que la columna de al lado pero instanciando con los valores de batería de cada smartphone al iniciar una prueba
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 Initial Cluster Battery %
-\change_inserted -997162125 1738607072
-
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -997162125 1738607374
 The value was calculated using formula 1,
  replacing batteryDrops by battery level of each smartphone at the begining of a workload test.
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -6193,7 +4091,7 @@ XRN7,
 \begin_layout Plain Layout
 
 \size scriptsize
-99532.8
+99532.80
 \end_layout
 
 \end_inset
@@ -6298,7 +4196,7 @@ SamA30,
 \begin_layout Plain Layout
 
 \size scriptsize
-45.3
+45.30
 \end_layout
 
 \end_inset
@@ -6525,7 +4423,7 @@ MotG9,
 \begin_layout Plain Layout
 
 \size scriptsize
-88206.3
+88206.30
 \end_layout
 
 \end_inset
@@ -6852,36 +4750,22 @@ name "subsec:Benchmark-results"
 \end_inset
 
 
-\change_inserted 1518850539 1738246100
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738246113
 la sección 3 queda demasiado corta.
  Qué tal si de acá en más se arma la sección de experimentos,
  y todo lo anterior se deja como parte de la sección 3 ?
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738246137
-También podría hacerse este corte a partir de 4.3 en adelante.
-\change_inserted -997162125 1738695952
-Hecho,
+También podría hacerse este corte a partir de 4.3 en adelante.Hecho,
  lo dividí acá.
-\change_inserted 1518850539 1738246137
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738246158
 Es como que se quiere hacer una separación forzada entre enfoque y evaluación que en realidad mucho no existe.
-
-\change_inserted -997162125 1738696321
  Es cierto en algún sentido.
  Lo cierto también es que a partir de un stream,
  la noción de CV task admite alguna parametrización que no se probó pero que el liveDewStream framework lo soportaría y es hacer más o menos granular una tarea.
@@ -6889,14 +4773,10 @@ Es como que se quiere hacer una separación forzada entre enfoque y evaluación 
  tampoco se puede contar como parte del enfoque.
  Tal vez se pueda comentar en trabajos futuros,
  la idea de que encontrar una granularidad óptima sea algo a desarrollar automáticamente y que se ajuste a las características de los móviles que participan del cluster.
-\change_inserted 1518850539 1738246158
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -6952,32 +4832,6 @@ name "fig:Accumultated-Inference-Latency"
 
 \end_inset
 
-
-\change_inserted 1518850539 1738332242
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738332270
-no se si se aclara en el texto,
- pero en las figuras por que no están todos los setups de tabla 4?
-
-\change_inserted -997162125 1738704916
- No todos los setups se corrieron para todos los escenarios.
- De hecho,
- excepto las sbc based,
- cada setup se corrió para un sólo scenario :(.
- No sé si conviene hablar de esto.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 Figure
 \begin_inset space ~
 \end_inset
@@ -7010,9 +4864,7 @@ nolink "false"
  the value was 3.6 seconds.
  With the Raspberry Pi4 and Nvidia Jetson Nano setups the obtained accumulated inference latency was significantly greater,
  and in most cases,
- the inference latency was the stream time multiplied by a factor of two to four
-\change_inserted -997162125 1738698147
- –for detailed values please refer to tables in appendix
+ the inference latency was the stream time multiplied by a factor of two to four –for detailed values please refer to tables in appendix
 \begin_inset space ~
 \end_inset
 
@@ -7027,9 +4879,7 @@ nolink "false"
 
 \end_inset
 
-– 
-\change_unchanged
-.
+– .
  The Nvidia Jetson nano setups performed better than the Raspberry Pi4 setups in all cases.
  However,
  the workload always exceeded the inference capability.
@@ -7043,15 +4893,7 @@ nolink "false"
 
 \begin_layout Standard
 When comparing smartphone-based setups for the BCS scenario,
- we empirically confirm what 
-\change_deleted -997162125 1738698832
-several simulated
-\change_inserted -997162125 1738698833
-other
-\change_unchanged
- studies 
-\change_inserted -997162125 1738698866
-found
+ we empirically confirm what other studies found
 \begin_inset space ~
 \end_inset
 
@@ -7063,26 +4905,6 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted -997162125 1738698841
-conclude
-\change_inserted 1518850539 1738332918
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738332922
-referencias ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 :
  by incrementing the number of participating smartphones,
  performance improves,
@@ -7095,28 +4917,10 @@ referencias ?
  Clusters 301 and 302,
  for instance,
  are of the same size.
- Both clusters are composed by 
-\change_deleted -997162125 1738607882
-a
-\change_inserted -997162125 1738607883
-the
-\change_unchanged
- Samsung A30 and 
-\change_deleted -997162125 1738607885
-a
-\change_inserted -997162125 1738607886
-the
-\change_unchanged
- Motorola Moto G9 play.
+ Both clusters are composed by the Samsung A30 and the Motorola Moto G9 play.
  However,
  the Samsung A02 smartphone present in Cluster 302 is not present in Cluster 301,
- which has 
-\change_deleted -997162125 1738607897
-a
-\change_inserted -997162125 1738607897
-the
-\change_unchanged
- Xiaomi Redmi Note 7 instead.
+ which has the Xiaomi Redmi Note 7 instead.
  If we compare the inference times associated to the latter mentioned smartphone models and reported in Figures
 \begin_inset space ~
 \end_inset
@@ -7189,93 +4993,16 @@ Another observation when comparing smartphone-based setups is that in general pu
  the most competitive accumulated inference latency comparison to that obtained by the Gigabyte Brix setup was always achieved with a pull-based load balancing scheme.
  For example,
  in the BCS scenario,
- the difference between Cluster 409 and Gigabyte Brix setups was less than 8 seconds
-\change_inserted -997162125 1738609143
-.
+ the difference between Cluster 409 and Gigabyte Brix setups was less than 8 seconds.
  The third best performance was also achieved with a pull-based setup.
  The Cl304-PB,
  a size 3 cluster,
- achieves quite similar performance to the with a size cluster 4 combined with round robin,
- i.e.,
- Cl409-RR–.
-
-\change_unchanged
- 
-\change_deleted -997162125 1738608903
-which is,
- in turn,
- seven times shorter than the second best 
-\change_inserted 1518850539 1738333388
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738333402
-smartphone-based setup?
- o sea el tercero ?
-
-\change_inserted -997162125 1738609176
- Ahí clariqué un poco más
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -997162125 1738608908
-setup
-\change_unchanged
-.
+ achieves quite similar performance to that of a size cluster 4 combined with round robin,
+ i.e.
+ Cl409-RR.
  A similar analysis is valid in the SWT and DMED scenarios,
  with Clusters 408 and 411 respectively.
- 
-\change_deleted -997162125 1738609384
-This
-\change_inserted -997162125 1738609387
-Pull-based
-\change_unchanged
- load balancing scheme achieves considerable better performance than round robin when clusters nodes present heterogeneous computing capabilities 
-\change_deleted -997162125 1738609404
-and
-\change_inserted -997162125 1738609404
-or
-\change_unchanged
- 
-\change_inserted -997162125 1738609655
-when available computing capabilities are tight to cope with real-time tasks requirements
-\change_deleted -997162125 1738609542
-resource scarcity
-\change_inserted 1518850539 1738333448
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738333464
-no entiendo esto de resource scarcity.
- si no tienen recursos,
- para qué armar clusters ?
-
-\change_inserted -997162125 1738610055
- Sería el caso de clusters que tienen pocos recursos computacionales para lograr inferencias en tiempo real.
- Esto no quiere decir que se les vaya a acabar la batería al cluster sino que los procesadores no les da para lograr el tiempo real.
- En clusters donde la capacidad de procesamiento alcanza sobradamente,
- la diferencia de pull-based y round robin es menor,
- justamente porque alcanza sobradamente y importa menos cómo se distribuya la carga,
- siempre se va a conseguir un piso de cantidad inferencias más alto que en el caso que describo cuando los recursos son más limitados.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ Pull-based load balancing scheme achieves considerable better performance than round robin when clusters nodes present heterogeneous computing capabilities or when available computing capabilities are tight to cope with real-time tasks requirements.
 \end_layout
 
 \begin_layout Subsubsection
@@ -7283,21 +5010,15 @@ Energy consumption-performance tradeoff analysis
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1518850539 1738336447
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738336544
 antes quiza quedaria lindo un par de frases y alguna referencia respecto del tema consumo de energia con la IA,
  y su importancia (o gravedad).
  De hecho es un factor que se ha traido a la superficie recientemente con los LLM.
  Nada muy elaborado,
- pero algo que motive el experimento
-\change_inserted -997162125 1738684006
-.
+ pero algo que motive el experimento.
  Algo así?
  Me falta encontrar una referencia para la primera parte de la frase,
  
@@ -7309,14 +5030,10 @@ el forecasting de consumo de energía
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_inserted -997162125 1738697724
 In view of the high energy consumption that AI demands today,
  which is expected to increase in the next few years due to its massively usage,
  studies in this regard
@@ -7346,9 +5063,7 @@ literal "false"
  encourage the improvement of not only DLs model's performance but also the energy its execution and training consume.
  In this sense,
  we study the tradeoff between performance and energy consumed in all evaluated scenarios.
- 
-\change_unchanged
-Figure
+ Figure
 \begin_inset space ~
 \end_inset
 
@@ -7396,30 +5111,6 @@ nolink "false"
  i.e.
  almost three times less energy than the Gigabyte Brix setup.
  Similar relations can be found for the SWT and DMED scenarios.
-\change_inserted 1518850539 1738336841
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738336875
-en varios gráficos,
- se superponen los labels de los puntos.
- Será posible girarlos ?
- O sino generar SVG y luego editarlos ?
-
-\change_inserted -997162125 1738680775
- Done
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -7558,35 +5249,7 @@ nolink "false"
  the same scenario,
  it appears to decrease as cluster size increases.
  In fact,
- as more smartphones integrate a cluster the cluster battery also increases and 
-\change_deleted -997162125 1738610578
-[[
-\change_unchanged
-one percentage of such cluster battery is represented by a larger number in Joules
-\change_deleted -997162125 1738610581
-]]
-\change_inserted 1518850539 1738337198
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738337209
-no entiendo lo encerrado entre [[ ]]
-\change_inserted -997162125 1738610569
- Un drop de 1% de una batería de 4000 mAh no está representado por la misma cantidad de energía (Joules) que un drop de 1% de una batería de 3000 mAh.
- Independientemente que ambos son el 1%,
- el primero significa más energía que el segundo.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ as more smartphones integrate a cluster the cluster battery also increases and one percentage of such cluster battery is represented by a larger number in Joules.
  Something similar happens when two clusters are of the same size but one has smartphones whose batteries have more energy capacity than the other,
  which is the case of Cl301 and Cl302.
  However,
@@ -7761,56 +5424,6 @@ name "fig:Fairness-index"
 
 \begin_layout Plain Layout
 CV tasks impact on clusters global energy availability and Fairness index
-\change_inserted 1518850539 1738337501
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738337530
-si no es mucho lio debiera ser 
-\begin_inset Quotes eld
-\end_inset
-
-X scenario
-\begin_inset Quotes erd
-\end_inset
-
- -> 
-\begin_inset Quotes eld
-\end_inset
-
-the X scenario
-\begin_inset Quotes erd
-\end_inset
-
- en las figuras.
- 
-\change_inserted -997162125 1738678279
-Done
-\change_inserted 1518850539 1738337530
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738337568
-despues en una figura de fairness se superponen los nros.
- Y lo otro sería poner los decimales completos (3 a todos,
- incluso si es 0)
-\change_inserted -997162125 1738678295
-.
- Lo bajé a dos decimales para que no se solapen en las barras más finas.
-\change_inserted 1518850539 1738337568
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:clusters-energy-availability"
@@ -7881,9 +5494,7 @@ In this work,
 \begin_layout Standard
 We conclude that tiny clusters composed by 2-4 low to middle-end smartphones using a pull-based load balancing scheme offer competitive performance compared to an SBC equipped with a reasonable CPU (Intel core i5 8th generation) in computing real-time inferences of CV tasks.
  This suggests that to satisfy certain delay sensitive application scenarios,
- the exploitation of already-in-place smartphones clusters can be considered before the investment and deployment of SBCs
-\change_inserted -997162125 1738670240
-.
+ the exploitation of already-in-place smartphones clusters can be considered before the investment and deployment of SBCs.
  According to Table
 \begin_inset space ~
 \end_inset
@@ -7899,39 +5510,22 @@ nolink "false"
 
 \end_inset
 
- the necesary investment for supported the evaluated scenarios using a powerful SBC like the Gigabyte Brix is only 30% cheaper than with a cluster-based setup of four low to mid-end smartphones.
+ the necessary investment for supporting the evaluated scenarios using a powerful SBC like the Gigabyte Brix is only 30% cheaper than with a cluster-based setup of four low to mid-end smartphones.
  This is when not considering that smartphones can be already present in the application context and the conputing capability hired to device owners
-\change_inserted 1518850539 1738339389
-
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339411
 en una tabla habia info del costo unitario.
  Se podría echar mano a eso para enfatizar ?
-
-\change_inserted -997162125 1738621622
  Algo así?
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 .
- 
-\change_inserted -997162125 1738621609
-In any case,
- 
-\change_deleted -997162125 1738621608
-In addition,
- 
-\change_unchanged
-energy consumption measurements show that the tradeoff including performance and energy consumption favors smartphone clusters over SBCs.
+ In any case,
+ energy consumption measurements show that the tradeoff including performance and energy consumption favors smartphone clusters over SBCs.
  The former can deliver competitive performance with a reduction of around tree times the energy consumption spent by a powerful SBC such as the Gigabyte Brix.
 \end_layout
 
@@ -7940,8 +5534,6 @@ As future works we visualize several improvement opportunities.
  In line with developing new load balancing heuristics,
  and based on the results from preliminary runs,
  we plan to improve previously published heuristics that use MFLOPs to rank nodes computing capabilities
-\change_inserted -997162125 1738670895
-
 \begin_inset space ~
 \end_inset
 
@@ -7953,54 +5545,22 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted -997162125 1738670898
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339452
-ref
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
  An alternative solution is to use information derived from the Tensorflow benchmarking tool.
  In spite of differences observed in inference times obtained via Tensorflow benchmarking tool and results collected in experiments using real input,
  relative benchmarked positions between edge nodes are similar,
- meaning that it is feasible to use such tool to build node rankings that serve as input for the load balancing component to distribute 
-\change_deleted -997162125 1738704942
-job
-\change_inserted -997162125 1738704944
-task
-\change_unchanged
-s based on an alternative nodes performance score to the classic MFLOPs.
+ meaning that it is feasible to use such tool to build node rankings that serve as input for the load balancing component to distribute tasks based on an alternative nodes performance score to the classic MFLOPs.
  
 \end_layout
 
 \begin_layout Standard
 Another future direction is to consider other forms of workload distributions,
  i.e.
- that exploit the structure of 
-\change_deleted -997162125 1738708775
-DNN
-\change_inserted -997162125 1738708775
-DL
-\change_unchanged
- arquitectures,
+ that exploit the structure of DL arquitectures,
  for example,
  split computing,
  early exiting techniques,
  model quantization
-\change_inserted -997162125 1738671931
-
 \begin_inset space ~
 \end_inset
 
@@ -8012,179 +5572,7 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted -997162125 1738671934
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339521
-habra alguna ref a survey para abarcar todas estas ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-,
- and other forms of workload execution,
- e.g
-\change_deleted 1518850539 1738339528
-,
-
-\change_deleted -997162125 1738610973
- using flags
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339578
-esto es super implementatorio.
- muy muy bajo nivel.
- lo sacaria.
- tambien lo de batch porque puede disparar 
-\begin_inset Quotes eld
-\end_inset
-
-por que no lo hicieron ahora
-\begin_inset Quotes erd
-\end_inset
-
-?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
- that reduce the inference time,
- e.g,
- make inferences over a batch of images,
- or accelerators such as the XNNPACK support
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339636
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339637
-
-https://github.com/google/XNNPACK
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
  to better exploit CPU capabilities of mobile platforms while performing network inferences.
-\end_layout
-
-\begin_layout Standard
-More improvements to the distributed execution system prototype that integrate smartphones are in the line of refinining aspects such as:
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\change_inserted 1518850539 1738339804
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339854
-este parrafo lo sacaria,
- porque puede invalidar todas las conclusiones que se sacaron.
- Si no se pudieron usar al maximo los CPUs,
- entonces los resultados no son muy utiles.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -997162125 1738672030
-- Workers full exploitation:
- as CPU profiles of experiments run reveal,
- CPU utilization is not full.
- Even though flags,
- such as XNNPACK,
- ncnn,
- are presented as accelerators to better exploit CPU capabilities,
- the technology is applied only to tensorflow framework.
- A library agnostic solution that consider not only better exploitation of CPU but also maximum CPU usage configured by end users would signify another relevant step towards a middleware that make mobile distribute computing a reality.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 1518850539 1738339896
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738339932
-no se si esto se quiere dejar,
- porque va en línea con meterse a modificar el modelo.
- No se si es conveniente dado que se adoptó un enfoque distinto para particionar.
-
-\change_inserted -997162125 1738674071
- Es cierto que se fue por el enfoque de particionar la entrada.
- Al momento de escribir esto,
- creo que no tenía el mini survey hecho.
- De todos modos,
- benchmarkear diversas formas de lograr el mismo objetivo en el contexto de móviles y ver los pros y contra de cada una no lo descartaría por completo.
-\change_inserted 1518850539 1738339932
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-- 
-\change_deleted -997162125 1738673584
-Explore workers exploitation by considering model anatomy and workers capability:
- for prediction and/or classification tasks using deep learning,
- one or several models can be utilized.
- Each model migh differ in their number of layers.
- The model,
- in turn,
- can be splitted into different groups of layers where each group can be assigned to nodes with different computing and/or transferring capabilities in order to improve the inference time.
- Similar point of improvements can be thought for the application of ensemble learning techniques where the final output to a prediction or classification task is built by averaging partial outputs of different weak models.
- In this sense,
- and considering that weak models differ in their anatomy and output quality,
- heavy models can be deployed in high capable devices,
- while lighter models on low capable devices.
- How to rate a device as high or low capable is challenging due to the,
- device connection unstability,
- heterogeneous hardware,
- owner usage,
- i.e.,
- the high dynamic nature of device clusters.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -8202,8 +5590,6 @@ encoding "default"
 
 \begin_layout Section*
 Appendix A
-\change_inserted -997162125 1738698101
-
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Appendix-A"
@@ -8211,30 +5597,9 @@ name "sec:Appendix-A"
 \end_inset
 
 
-\change_inserted 1518850539 1738333530
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 1518850539 1738333564
-El apéndice no esta referenciado en el texto.
- y estaría bueno poner un párrafo para explicar qué hay en estas tablas
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -997162125 1738708833
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -997162125 1738709102
 Tables
 \begin_inset space ~
 \end_inset
@@ -8251,6 +5616,7 @@ nolink "false"
 \end_inset
 
 ,
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:SWT-Results"
@@ -8289,8 +5655,6 @@ nolink "false"
 
  for BCS,
  SWT and DMED scenarios.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -8828,7 +6192,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-0.75
+0.750
 \end_layout
 
 \end_inset
@@ -8903,7 +6267,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-0.75
+0.750
 \end_layout
 
 \end_inset
@@ -9572,7 +6936,7 @@ Pull Based
 \begin_layout Plain Layout
 
 \size scriptsize
-0.96
+0.960
 \end_layout
 
 \end_inset
@@ -9649,7 +7013,7 @@ Round Robin
 \begin_layout Plain Layout
 
 \size scriptsize
-0.96
+0.960
 \end_layout
 
 \end_inset
