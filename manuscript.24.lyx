@@ -2802,42 +2802,9 @@ literal "false"
  from each cow.
  All these constraints configure a stream processing scenario where depth images can be produced at a rate of 15 FPS during 10 seconds,
  followed by other 10 seconds without image captures.
- We stated
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-determinar implica que se hizo algun analisis previo y se llego a ese nro 15...
- que tal contarlo más directo?
- a menos que pueda decirse como se llego a ese 15
-\end_layout
-
-\end_inset
-
- that an atomic CV task would be represented by the burden of applying the CNN model to fifteen consecutive frames,
+ We stated that an atomic CV task would be represented by the burden of applying the CNN model to fifteen consecutive frames,
  meaning that a CV task is created every second which gives a total of ten CV tasks created for a cow.
- Considering that the dataset used to recreate
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-estoy tratando de evitar la palabra 
-\begin_inset Quotes eld
-\end_inset
-
-simulate
-\begin_inset Quotes erd
-\end_inset
-
-...
- cambiando por términos que de una idea similar pero que no refiera a simular por software.
- Revisar en el resto.
- Done
-\end_layout
-
-\end_inset
-
- this scenario includes 1740 images,
+ Considering that the dataset used to recreate this scenario includes 1740 images,
  the resulting workload stream comprises 116 CV tasks given within a time window of 3 minutes and 34 seconds.
 \end_layout
 
@@ -5511,19 +5478,7 @@ nolink "false"
 \end_inset
 
  the necessary investment for supporting the evaluated scenarios using a powerful SBC like the Gigabyte Brix is only 30% cheaper than with a cluster-based setup of four low to mid-end smartphones.
- This is when not considering that smartphones can be already present in the application context and the conputing capability hired to device owners
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-en una tabla habia info del costo unitario.
- Se podría echar mano a eso para enfatizar ?
- Algo así?
-\end_layout
-
-\end_inset
-
-.
+ This is when not considering that smartphones can be already present in the application context and the conputing capability hired to device owners.
  In any case,
  energy consumption measurements show that the tradeoff including performance and energy consumption favors smartphone clusters over SBCs.
  The former can deliver competitive performance with a reduction of around tree times the energy consumption spent by a powerful SBC such as the Gigabyte Brix.
