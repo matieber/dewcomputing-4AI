@@ -287,11 +287,6 @@ literal "false"
 In this work,
  we focus on evaluating collaboration among consumer devices to perform cloud-agnostic computing services for realtime execution of computer vision tasks using DL.
  The contributions of this work can be summarized as follows:
-
-\change_deleted -997162125 1741382347
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Itemize
