@@ -88,6 +88,7 @@
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\author -997162125 "mhirsch"
 \end_header
 
 \begin_body
@@ -283,32 +284,28 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-As formally described in
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "gusev2018formal"
-literal "false"
-
-\end_inset
-
-,
- dew computing has two modes of operation,
- local mode and global mode.
- In local mode,
- services are provided by dew servers with resources that can be accessed within the scope of a local area network.
- By contrast,
- the global operation mode involves reaching cloud servers to mitigate limitations of resource-constrained local nodes.
- Rendered services can be storage or computing capabilities.
- In this work,
+In this work,
  we focus on evaluating collaboration among consumer devices to perform cloud-agnostic computing services for realtime execution of computer vision tasks using DL.
- We evaluate this with a series of experiments that comprise real smartphones and SBCs that exclusively relying on its local operation mode capabilities,
- collaborate in performing inferences using real DL models – particularly CNN – deployed in targeted instances over data streams of different characteristics,
- i.e.,
- workloads.
+ The contributions of this work can be summarized as follows:
+
+\change_deleted -997162125 1741382347
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Itemize
+We applied an intuitive data partition scheme to create and distribute CV tasks among clusters of smartphones for performing real-time inferences over data streams workloads with different characteristics.
+ 
+\end_layout
+
+\begin_layout Itemize
+We evaluated and compared using real testbeds the performance and energy consumption of smartphone clusters against typical edge nodes including SBCs,
+ explaining some implications of the results obtained.
+\end_layout
+
+\begin_layout Itemize
+The evaluated scenarios serve as a guide and example on how to use previously published tools especially designed to facilitate the experimenation with real testbeds comprising smartphone clusters.
 \end_layout
 
 \begin_layout Standard
@@ -344,7 +341,8 @@ nolink "false"
 
 \end_inset
 
- describes the mobile distributed computing model and infrastructure-related architectural assumptions we made in our exploration tests.
+ describes the mobile distributed computing model and infrastructure-related architectural assumptions we made in our exploration tests,
+ as well as details concerning DL models used and data stream workloads.
  In Section
 \begin_inset space ~
 \end_inset
@@ -360,10 +358,12 @@ nolink "false"
 
 \end_inset
 
- we explain details concerning workloads,
+ we explain details about
+\change_deleted -997162125 1741382483
+ 
+\change_unchanged
  node setups and metrics,
- as well as,
- results obtained in our empirical evaluation.
+ results obtained in our empirical evaluation and a discussion.
  Lastly,
  Section
 \begin_inset space ~
@@ -384,7 +384,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Section
-Related works
+Related Works
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Related-works"
@@ -1441,7 +1441,7 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-System model and assumptions
+System Model and Assumptions
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:System-model-&-assumptions"
@@ -1540,7 +1540,7 @@ With this architecture,
 \end_layout
 
 \begin_layout Subsection
-Empirical evaluation
+Empirical Evaluation
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Empirical-evaluation"
@@ -2492,7 +2492,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Subsection
-DL models benchmarking
+DL Models Benchmarking
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:DNN-models-benchmarking"
@@ -2691,7 +2691,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Subsection
-Workload characterization
+Workload Characterization
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:workload-characterization"
