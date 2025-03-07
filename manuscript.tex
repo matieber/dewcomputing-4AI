@@ -2,7 +2,6 @@
 %% Do not edit unless you really know what you are doing.
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
-
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -118,33 +117,34 @@ which is among these edge-based architectures and endows low processing
 power and consumer devices with the role of main computing resource
 providers.
 
-As formally described in~\cite{gusev2018formal}, dew computing has
-two modes of operation, local mode and global mode. In local mode,
-services are provided by dew servers with resources that can be accessed
-within the scope of a local area network. By contrast, the global
-operation mode involves reaching cloud servers to mitigate limitations
-of resource-constrained local nodes. Rendered services can be storage
-or computing capabilities. In this work, we focus on evaluating collaboration
-among consumer devices to perform cloud-agnostic computing services
-for realtime execution of computer vision tasks using DL. We evaluate
-this with a series of experiments that comprise real smartphones and
-SBCs that exclusively relying on its local operation mode capabilities,
-collaborate in performing inferences using real DL models -- particularly
-CNN -- deployed in targeted instances over data streams of different
-characteristics, i.e., workloads.
-
+In this work, we focus on evaluating collaboration among consumer
+devices to perform cloud-agnostic computing services for realtime
+execution of computer vision tasks using DL. The contributions of
+this work can be summarized as follows:
+\begin{itemize}
+\item We applied an intuitive data partition scheme to create and distribute
+CV tasks among clusters of smartphones for performing real-time inferences
+over data streams workloads with different characteristics. 
+\item We evaluated and compared using real testbeds the performance and
+energy consumption of smartphone clusters against typical edge nodes
+including SBCs, explaining some implications of the results obtained.
+\item The evaluated scenarios serve as a guide and example on how to use
+previously published tools especially designed to facilitate the experimenation
+with real testbeds comprising smartphone clusters.
+\end{itemize}
 This work is organized as follows. Section~\ref{sec:Related-works}
 presents and classifies recent efforts backed by real testbeds results
 to speed up inferences at the edge using different approaches for
 distributed execution. Section~\ref{sec:System-model-=000026-assumptions}
 describes the mobile distributed computing model and infrastructure-related
-architectural assumptions we made in our exploration tests. In Section~\ref{sec:Empirical-evaluation}
-we explain details concerning workloads, node setups and metrics,
-as well as, results obtained in our empirical evaluation. Lastly,
-Section~\ref{sec:Conclusions-and-future} presents the conclusions
-and future research directions.
+architectural assumptions we made in our exploration tests, as well
+as details concerning DL models used and data stream workloads. In
+Section~\ref{sec:Empirical-evaluation} we explain details about
+node setups and metrics, results obtained in our empirical evaluation
+and a discussion. Lastly, Section~\ref{sec:Conclusions-and-future}
+presents the conclusions and future research directions.
 
-\section{Related works\protect\label{sec:Related-works}}
+\section{Related Works\protect\label{sec:Related-works}}
 
 In this section we analyze different relevant works in line with the
 broad concept of \emph{distributed inference}, which is present in
@@ -379,7 +379,7 @@ viability of constructing a platform for in-vivo experiments whose
 main components has been previously published, validated and made
 publicly available for use~\cite{mateos2022LiveDewStream,yannibelli2024bagess,toloza2022motrol}.
 
-\section{System model and assumptions\protect\label{sec:System-model-=000026-assumptions}}
+\section{System Model and Assumptions\protect\label{sec:System-model-=000026-assumptions}}
 
 We envision a system that opportunistically scavenges computing cycles
 of nomadic hardware, such as smartphones, to complement -- or eventually
@@ -422,7 +422,7 @@ different smartphones groups cooperating under the same WLAN for performing
 CV tasks, and compare the performance achieved with that of SBC-like
 edge nodes commonly used for servicing IoT and edge applications.
 
-\subsection{Empirical evaluation\protect\label{sec:Empirical-evaluation}}
+\subsection{Empirical Evaluation\protect\label{sec:Empirical-evaluation}}
 
 To conduct this study we employed different hardware as edge nodes,
 whose characteristics are shown in Table~\ref{tab:Edge-nodes-features}.
@@ -477,7 +477,7 @@ are produced, and task characteristics. Finally, Section~\ref{subsec:Benchmark-r
 presents the comparison results based on the designed benchmarks,
 which we explain in the following sections.
 
-\subsection{DL models benchmarking\protect\label{subsec:DNN-models-benchmarking}}
+\subsection{DL Models Benchmarking\protect\label{subsec:DNN-models-benchmarking}}
 
 Benchmarking is a relevant task to approximate nodes performance in
 solving a specific task and this procedure was done for nodes in Table~\ref{tab:Edge-nodes-features},
@@ -543,7 +543,7 @@ inference times differ up to one order of magnitude. As said, the
 Xiaomi RN7 completes inferences in 184, 248 and 1470 milliseconds
 for the BCS model, the YoloV4 model and the diabetes foot model respectively.
 
-\subsection{Workload characterization\protect\label{sec:workload-characterization}}
+\subsection{Workload Characterization\protect\label{sec:workload-characterization}}
 
 In this section we describe the workloads associated to the machine
 vision tasks that were performed over stream-like inputs. Indeed,
@@ -638,7 +638,7 @@ streams, and we report per-image inference times.
 \begin{centering}
 \subfloat[Cow image example\label{fig:Cow-image-example}]{\includegraphics[scale=0.32]{figures/cow_images\lyxdot 84}
 
-}\subfloat[Cow BCS CNN model benchmarking\label{fig:Cow-BCS-Benchmarking}]{\noindent\raggedleft{}\includegraphics[bb=0bp 50bp 950bp 600bp,clip,scale=0.35]{figures/BCS_xnnpack_true}}\\
+}\subfloat[Cow BCS CNN model benchmarking\label{fig:Cow-BCS-Benchmarking}]{\noindent\raggedleft{}\includegraphics[bb=0bp 36bp 684bp 432bp,clip,scale=0.35]{figures/BCS_xnnpack_true}}\\
 \subfloat[Cow images stream\label{fig:Cow-images-stream}]{\begin{centering}
 \includegraphics[clip,scale=0.35]{figures/cow_bcs_stream_exerpt}
 \par\end{centering}
@@ -650,7 +650,7 @@ streams, and we report per-image inference times.
 \begin{centering}
 \subfloat[street image example\label{fig:street-image-example}]{\includegraphics[scale=0.34]{figures/cycling\lyxdot 2130}
 
-}\subfloat[YoloV4 tiny CNN model benchmarking\label{fig:YoloV4-benchmarking}]{\includegraphics[bb=0bp 50bp 1050bp 610bp,clip,scale=0.35]{figures/yolov4_tiny_416_tflite_xnnpack_false}
+}\subfloat[YoloV4 tiny CNN model benchmarking\label{fig:YoloV4-benchmarking}]{\includegraphics[bb=0bp 36bp 756bp 439.2bp,clip,scale=0.35]{figures/yolov4_tiny_416_tflite_xnnpack_false}
 
 }\\
 \subfloat[Street images stream\label{fig:Street-images-stream}]{\begin{centering}
@@ -664,7 +664,7 @@ streams, and we report per-image inference times.
 \subfloat[Foot image example\label{fig:Foot-image-example-1}]{\includegraphics[bb=0bp 0bp 960bp 1300bp,clip,scale=0.11]{figures/diabetes\lyxdot 157}
 
 }\subfloat[Foot image CNN model benchmarking\label{fig:Foot-Benchmarking}]{\begin{centering}
-\includegraphics[bb=0bp 50bp 1300bp 610bp,clip,scale=0.35]{figures/foot_xnnpack_false}
+\includegraphics[bb=0bp 36bp 936bp 439.2bp,clip,scale=0.35]{figures/foot_xnnpack_false}
 \par\end{centering}
 }\\
 \subfloat[Foot images stream\label{fig:Foot-images-stream-1}]{\begin{centering}
