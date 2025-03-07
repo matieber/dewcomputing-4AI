@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 630
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -5560,7 +5560,7 @@ Discussion
 \end_layout
 
 \begin_layout Standard
-Previous works focused on proving the strenghts of edge computing for reducing end-to-end latency and allowing the execution of data intensive IoT and delay sensitive applications
+A few previous works have also focused on proving the strengths of edge computing for reducing end-to-end latency and allowing the execution of data intensive IoT and delay sensitive applications
 \begin_inset space ~
 \end_inset
 
@@ -5574,11 +5574,13 @@ literal "false"
 
 .
  In this work,
- we explored how edge computing capability can be augmented with smartphone clusters in different workload scenarios for realtime inferences involving images streams.
+ we explored how edge computing capabilities can be augmented with smartphone clusters under different workload scenarios for real-time AI inferences involving image streams.
  The competitive performance and reduced energy consumption that smartphone clusters showed,
- along with the pervasiveness of such devices worldwide evidence their suitability for being considered a powerful harness complementing in-the-field already present edge settings and/or fully support opportunistic distributed inference in a sustainable form.
+ along with the pervasiveness of such devices worldwide evidence their suitability for being considered a powerful harness to complement in-the-field,
+ already present edge settings,
+ and/or to fully support opportunistic distributed inference in a sustainable form.
  However,
- there are several questions still opened,
+ there are several questions still open,
  demanding for further research.
  One of these relates to whether current software stacks including middlewares for distributed computing
 \begin_inset space ~
@@ -5604,27 +5606,31 @@ literal "false"
 
 \end_inset
 
- in low-powered devices are prepared to integrate smartphone clusters as a new type of edge node by attending diverse aspects related to the resource provision with devices that present non-dedicated resources,
- i.e.,
+ in low-powered devices are prepared to integrate smartphone clusters as a new type of edge node by attending diverse aspects related to computational resource provision with devices that present non-dedicated resources,
+ i.e.
  with user applications that have high priority on the usage of resources,
- unstable communication due to device's owner position changes,
+ unstable communication due to device's owner physical position changes,
  and resource scavenging time limited by batteries operation time.
- Other question arises concerning incentives that make a device's onwer to offer unused computing capability.
+ 
+\end_layout
+
+\begin_layout Standard
+Another open question concerns incentives that make a device's onwer to offer unused computing mobile resources.
  In the literature,
  it has been identified at least two schemes.
- One of them associated to altruistic attitudes of devices owners,
+ One of them is associated to altruistic attitudes of devices owners,
  in some sense,
- similar to what is promoted in volunteer computing platforms with unused computing cycles of desktop computers for scientific projects,
- only that,
+ similar to what is promoted in volunteer computing platforms with unused computing cycles of desktop computers for scientific projects.
+ Only that,
  in this case,
- targeting cotidean situations that required in-the-field inference capability either for reducing cost of data transmission -e.g.
- cronic disease health monitoring-,
+ targeting daily normal situations that required in-the-field inference capability either for reducing cost of data transmission -e.g.
+ chronic disease health monitoring-,
  complement safety-guard mechanisms in risky situations -e.g.,
  alerting about obstacles in the road while driving-,
  providing realtime response to improve user experience - e.g.,
- augmented reality applications in tourism related activities- among others.
+ augmented reality applications in tourism-related activities- among others.
  By contrast,
- the other incentive scheme we visualize is based on a sort of opportunistic inference as a service that benefits device's owner with some a revenue in the form of credits
+ the other incentive scheme we visualize is based on a opportunistic inference as a service approach that benefits device's owner with some revenue in the form of credits
 \begin_inset space ~
 \end_inset
 
@@ -5651,8 +5657,8 @@ literal "false"
 ,
  in exchange of completing tasks that require in-the-field inference capability,
  for example,
- as a complement to survailance cameras for crime prevention in public spaces.
- The energy consumption caused by using efficient hardware such as that embeeded in smartphones w.r.t using other edge nodes can be used as baseline for establishing economically and enviromentaly sustainable inference mechanisms.
+ as a complement to surveillance cameras for crime prevention in public spaces.
+ The energy consumption caused by using efficient hardware such as that embedded in smartphones w.r.t using other edge nodes can be used as baseline for establishing economically and environmentally sustainable inference mechanisms.
 \end_layout
 
 \begin_layout Standard
@@ -5708,7 +5714,7 @@ literal "false"
 
 .
  Quantification must also consider current mobile hardware manufacturing practices,
- for example promoting non-replaceable (sealed) batteries,
+ for example promoting replaceable (sealed) batteries,
  which encourage users to upgrade to a new device when battery performance declines,
  rather than simply replacing the battery.
  Metrics such as the Software Carbon Intensity (SCI) index
@@ -5833,7 +5839,7 @@ Acknowledgments
 \end_layout
 
 \begin_layout Standard
-This work was funded by CONICET grant number PIBAA-28720210101298CO and grant number PIP-11220210100138CO.
+This work was funded by CONICET via grants PIBAA-28720210101298CO and PIP-11220210100138CO.
 \end_layout
 
 \begin_layout Standard
